@@ -1,10 +1,51 @@
 ---
 import '@styles/main.pcss'
+// import '@fontsource/ubuntu/500.css'
+// import '@fontsource/ubuntu/700.css'
+// import '@fontsource/ubuntu-mono/400.css'
+// import '@fontsource/ubuntu-mono/700.css'
+import Navigation from '@components/navigation.astro'
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+const menuList = [
+	{
+		label: 'Home',
+		path: '/'
+	},
+	{
+		label: 'About',
+		path: '/about'
+	},
+	{
+		label: 'Contact',
+		path: '/contact'
+	},
+	{
+		label: 'Blog',
+		path: '/blog'
+	}
+]
+
+const socialList = [
+	{
+		label: 'linkedin',
+		path: import.meta.env.PUBLIC_LINKEDIN,
+		img: ''
+	},
+	{
+		label: 'github',
+		path: import.meta.env.PUBLIC_GITHUB,
+		img: ''
+	},
+	{
+		label: 'twitter',
+		path: import.meta.env.PUBLIC_TWITTER,
+		img: ''
+	}
+]
 ---
 
 <!DOCTYPE html>
@@ -17,20 +58,8 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Navigation menuList={menuList} socialList={socialList} />
+
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>

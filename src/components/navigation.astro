@@ -1,0 +1,193 @@
+---
+import Logo from '@components/logo.astro'
+
+export interface Props {
+	menuList: Array<any>;
+	socialList: Array<any>;
+}
+
+const { menuList, socialList } = Astro.props;
+---
+
+<nav>
+	<div class="site_bar container_l">
+		<a href="/" class="logo_space">
+			<Logo name="main" color0="currentColor" width="100" height="18" />
+		</a>
+
+		<div class="menu_btn_space">
+			<button class="menu_btn">
+				<div class="line __alt __start"></div>
+				<div class="line"></div>
+				<div class="line __alt __end"></div>
+			</button>
+		</div>
+	</div>
+
+	<div class="nav_menu">
+		<div class="nav_menu_inner container_l">
+			{menuList.length ?
+				<ul class="nav_list">
+					{menuList.map(item => (
+						<li><a href={item.path}>{item.label}</a></li>
+					))}
+				</ul>
+			: ''}
+
+			{socialList.length ?
+				<ul class="nav_list social_list">
+					{socialList.map(item => (
+						<li><a href={item.path}>{item.label}</a></li>
+					))}
+				</ul>
+			: ''}
+		</div>
+	</div>
+</nav>
+
+<script>
+	const menuBtn = document.querySelector('.menu_btn')
+	const navMenu = document.querySelector('.nav_menu')
+	const logo = document.querySelector('.logo_space')
+	const body = document.querySelector('body')
+
+	function toggleMenu () {
+		menuBtn.classList.toggle('__open')
+		navMenu.classList.toggle('__open')
+		logo.classList.toggle('__active')
+		body.classList.toggle('no_scroll')
+	}
+
+	if (menuBtn) {
+		menuBtn.addEventListener('click', () => {
+			toggleMenu()
+		})
+	}
+</script>
+
+<style lang="postcss">
+	.site_bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: var(--size-3);
+		padding-bottom: var(--size-3);
+		background-color: transparent;
+		position: relative;
+		z-index: 10;
+
+		& .logo_space {
+			color: var(--color-black);
+			transition: color .3s;
+
+			&.__active {
+				color: var(--color-white);
+			}
+		}
+	}
+
+	.nav_menu {
+		background-color: var(--color-black);
+		padding-top: 60px;
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transform: translateY(-105%);
+		width: 100%;
+		height: 100vh;
+		z-index: 1;
+
+		& .nav_menu_inner {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+
+		& .nav_list {
+			flex: 1 1 auto;
+
+			& li {
+				animation-name: fadInDownShort;
+				animation-fill-mode: both;
+				animation-duration: .3s;
+			}
+
+			& a {
+				font-size: 6rem;
+				color: var(--color-white);
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		& .social_list {
+			flex: 0 0 auto;
+		}
+
+		&.__open {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	.menu_btn {
+		width: 30px;
+		height: 30px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		cursor: pointer;
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		margin: 0;
+		transition: transform 330ms ease-out;
+
+		& .line {
+			background-color: var(--color-black);
+			border-radius: 99px;
+			width: 100%;
+			height: 4px;
+			transition: background-color .3s;
+
+			&.__alt {
+				width: 50%;
+			}
+
+			&.__start {
+				transition: transform .34s cubic-bezier(0.54, -0.81, 0.57, 0.57), background-color .3s;
+				transform-origin: right;
+			}
+
+			&.__end {
+				align-self: flex-end;
+				transition: transform .34s cubic-bezier(0.54, -0.81, 0.57, 0.57), background-color .3s;
+				transform-origin: left;
+			}
+		}
+
+		&.__open {
+			transform: rotate(-45deg);
+
+			& .line {
+				background-color: var(--color-white);
+
+				&.__start {
+					transform: rotate(-90deg) translateX(3px);
+				}
+
+				&.__end {
+					transform: rotate(-90deg) translateX(-3px);
+				}
+			}
+		}
+	}
+</style>
