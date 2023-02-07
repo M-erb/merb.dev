@@ -1,1 +1,67 @@
+@import '@fontsource/ubuntu/500.css';
+@import '@fontsource/ubuntu/700.css';
+@import '@fontsource/ubuntu-mono/400.css';
+@import '@fontsource/ubuntu-mono/700.css';
+@import './reset.css';
 @import './variables.css';
+@import './mediaQueries.pcss';
+@import './animations.pcss';
+@import './type.pcss';
+
+body {
+  font-family: Ubuntu, sans-serif;
+  font-size: 16px;
+}
+
+/* utility */
+.no_scroll {
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--width-xs);
+  padding: 0 var(--size-2);
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (--sm) {
+    & { max-width: var(--width-sm) }
+  }
+
+  @media (--md) {
+    & { max-width: 740px }
+  }
+
+  @media (--lg) {
+    & { max-width: 980px }
+  }
+
+  @media (--xl) {
+    & { max-width: 1000px }
+  }
+}
+
+.container_l {
+  width: 100%;
+  max-width: var(--width-xs);
+  padding: 0 var(--size-2);
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (--sm) {
+    & { max-width: var(--width-sm) }
+  }
+
+  @media (--md) {
+    & { max-width: var(--width-md) }
+  }
+
+  @media (--lg) {
+    & { max-width: var(--width-lg) }
+  }
+
+  @media (--xl) {
+    & { max-width: 1200px }
+  }
+}

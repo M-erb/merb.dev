@@ -11,6 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource/ubuntu": "^4.5.11",
+    "@fontsource/ubuntu-mono": "^4.5.11",
     "astro": "^2.0.6",
     "autoprefixer": "^10.4.13",
     "postcss-import": "^15.1.0",
