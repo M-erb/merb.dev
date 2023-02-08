@@ -20,7 +20,7 @@ const { id, topBorder, bottomBorder } = Astro.props;
 			<slot />
 		</div>
 	</div>
-	<img class="special_border" src={BorderBottom} alt="">
+	<img class="special_border __bottom" src={BorderBottom} alt="">
 </section>
 
 <script>
@@ -33,6 +33,8 @@ const { id, topBorder, bottomBorder } = Astro.props;
 
 		& .inner_sec {
 			background-color: var(--color-black);
+			position: relative;
+			z-index: 3;
 		}
 	}
 
@@ -40,6 +42,8 @@ const { id, topBorder, bottomBorder } = Astro.props;
 		display: block;
 		width: 100%;
 		position: relative;
+		top: 2px;
+		left: 0;
 		z-index: 2;
 		user-select: none;
 		user-drag: none;
@@ -47,9 +51,13 @@ const { id, topBorder, bottomBorder } = Astro.props;
 
 		&.__under {
 			position: absolute;
-			top: -10px;
+			top: -8px;
 			left: 0;
 			z-index: 1;
+		}
+
+		&.__bottom {
+			top: -2px;
 		}
 	}
 </style>
