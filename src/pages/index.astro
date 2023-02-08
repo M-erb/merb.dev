@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+// import BorderTop from '@imgs/borders/curve border top.svg'
+// import BorderBottom from '@imgs/borders/curve border bottom.svg'
+import CustomBorderSec from '@components/customBorderSec.astro'
+import SecTitle from '@components/secTitle.astro'
 ---
 
 <Layout title="Welcome to Astro.">
@@ -14,8 +18,25 @@ import Layout from '../layouts/Layout.astro';
 	</header>
 
 	<main>
-		<section id="about" class="">
-			<div class="inner_sec container"></div>
-		</section>
+		<CustomBorderSec>
+			<SecTitle num="1">About</SecTitle>
+			<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs.</p>
+		</CustomBorderSec>
 	</main>
 </Layout>
+
+<style lang="postcss">
+	.hero_home {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		min-height: 60vh;
+	}
+
+	.about_txt {
+		max-width: 720px;
+		margin: 0 auto;
+		line-height: 2.2;
+	}
+</style>

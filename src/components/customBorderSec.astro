@@ -1,0 +1,52 @@
+---
+import BorderTop from '@imgs/borders/curve border top.svg'
+import BorderTopBlue from '@imgs/borders/curve border top blue.svg'
+import BorderBottom from '@imgs/borders/curve border bottom.svg'
+
+export interface Props {
+	id?: string;
+	topBorder?: string;
+	bottomBorder?: string;
+}
+
+const { id, topBorder, bottomBorder } = Astro.props;
+---
+
+<section id={id || ''} class="special_sec">
+	<img class="special_border" src={BorderTop} alt="">
+	<img class="special_border __under" src={BorderTopBlue} alt="">
+	<div class="inner_sec">
+		<div class="container">
+			<slot />
+		</div>
+	</div>
+	<img class="special_border" src={BorderBottom} alt="">
+</section>
+
+<script>
+</script>
+
+<style lang="postcss">
+	.special_sec {
+		color: var(--color-white);
+		position: relative;
+
+		& .inner_sec {
+			background-color: var(--color-black);
+		}
+	}
+
+	.special_border {
+		display: block;
+		width: 100%;
+		position: relative;
+		z-index: 2;
+
+		&.__under {
+			position: absolute;
+			top: -10px;
+			left: 0;
+			z-index: 1;
+		}
+	}
+</style>

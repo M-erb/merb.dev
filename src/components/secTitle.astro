@@ -1,0 +1,47 @@
+---
+export interface Props {
+	id?: string;
+	num?: string;
+}
+
+const { id, num } = Astro.props;
+---
+
+<div id={id || ''} class="sec_title">
+	<h3><slot />{num !== undefined ? <span class="super">/0{num}</span> : ''}</h3>
+</div>
+
+<script>
+</script>
+
+<style lang="postcss">
+	.sec_title {
+		padding: var(--size-2) 0 var(--size-6);
+
+		& h3 {
+			display: inline-block;
+			text-transform: uppercase;
+			font-size: var(--scale-8);
+			line-height: 1;
+			position: relative;
+
+			&::after {
+				content: '';
+				position: absolute;
+				bottom: -10px;
+				left: 20%;
+				width: 110%;
+				height: 6px;
+				border-radius: 99px;
+				background-color: var(--color-blue);
+			}
+		}
+
+		& .super {
+			position: absolute;
+			font-size: var(--scale-00);
+			top: 0;
+			right: -34px;
+		}
+	}
+</style>
