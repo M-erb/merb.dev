@@ -41,6 +41,9 @@ const { id, topBorder, bottomBorder } = Astro.props;
 		width: 100%;
 		position: relative;
 		z-index: 2;
+		user-select: none;
+		user-drag: none;
+		-webkit-user-drag: none;
 
 		&.__under {
 			position: absolute;
