@@ -1,10 +1,10 @@
 ---
 import '@styles/main.pcss'
-// import '@fontsource/ubuntu/500.css'
-// import '@fontsource/ubuntu/700.css'
-// import '@fontsource/ubuntu-mono/400.css'
-// import '@fontsource/ubuntu-mono/700.css'
 import Navigation from '@components/navigation.astro'
+import linkedin from '@imgs/social/linkedin logo.svg'
+import github from '@imgs/social/github-mark-white.svg'
+import twitter from '@imgs/social/Twitter social icons - circle - white.svg'
+
 export interface Props {
 	title: string;
 }
@@ -33,17 +33,17 @@ const socialList = [
 	{
 		label: 'linkedin',
 		path: import.meta.env.PUBLIC_LINKEDIN,
-		img: ''
+		img: linkedin
 	},
 	{
 		label: 'github',
 		path: import.meta.env.PUBLIC_GITHUB,
-		img: ''
+		img: github
 	},
 	{
 		label: 'twitter',
 		path: import.meta.env.PUBLIC_TWITTER,
-		img: ''
+		img: twitter
 	}
 ]
 ---
