@@ -37,10 +37,10 @@ const { menuList, socialList } = Astro.props;
 			{socialList.length ?
 				<ul class="nav_list social_list">
 					{socialList.map(item => (
-						<li><a href={item.path}><img src={item.img} alt={item.label}></a></li>
+						<li><a href={item.path} target="_blank"><img src={item.img} alt={item.label}/></a></li>
 					))}
 				</ul>
-			: ''}
+			: '' }
 		</div>
 	</div>
 </nav>
@@ -102,34 +102,78 @@ const { menuList, socialList } = Astro.props;
 		height: 100vh;
 		z-index: 2;
 
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+
 		& .nav_menu_inner {
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-start;
+			flex: 1 1 auto;
+
+			margin-top: var(--size-12);
 		}
 
 		& .nav_list {
 			flex: 1 1 auto;
 
 			& li {
+				display: block;
+				margin-bottom: var(--size-6);
+
 				animation-name: fadInDownShort;
 				animation-fill-mode: both;
 				animation-duration: .3s;
 			}
 
 			& a {
-				font-size: 6rem;
+				font-size: var(--scale-6);
 				color: var(--color-white);
 				text-decoration: none;
+				position: relative;
+				z-index: 1;
+
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: -10px;
+					left: 10%;
+					width: 110%;
+					height: 6px;
+					border-radius: 99px;
+					background-color: var(--color-blue);
+					user-select: none;
+					opacity: 0;
+					transition: opacity .3s;
+				}
 
 				&:hover {
-					text-decoration: underline;
+					text-decoration: none;
+
+					&::after {
+						opacity: 1;
+					}
+				}
+
+				@media (min-width: 640px) {
+					font-size: var(--scale-7);
+				}
+
+				@media (min-width: 768px) {
+					font-size: var(--scale-9);
 				}
 			}
 		}
 
 		& .social_list {
 			flex: 0 0 auto;
+
+			& a {
+				&::after {
+					content: none;
+				}
+			}
 		}
 
 		&.__open {
