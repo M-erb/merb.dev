@@ -4,24 +4,37 @@
   text-transform: uppercase;
 }
 
-h1 {
+h1, .h1 {
   font-size: var(--scale-5);
 
   &.hero_title {
-    font-size: var(--scale-8);
+    font-size: var(--scale-5);
+
+    @media (--md) {
+      & {
+        font-size: var(--scale-8);
+      }
+    }
   }
 }
 
-h2 {
+h2, .h2 {
   font-size: var(--scale-4);
 
   &.hero_title {
-    font-size: var(--scale-5);
+    font-size: var(--scale-4);
+
+    @media (--md) {
+      & {
+        font-size: var(--scale-5);
+      }
+    }
   }
 }
 
-h3 {
+h3, .h3 {
   font-size: var(--scale-4);
+  font-weight: 400;
 
   &.hero_title {
     font-size: var(--scale-8);
