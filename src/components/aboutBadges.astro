@@ -1,0 +1,27 @@
+---
+export interface Props {
+	txt?: string;
+}
+
+const { txt } = Astro.props;
+---
+
+<div class="about_badge">
+	<p>{txt}</p>
+</div>
+
+<style lang="postcss">
+	.about_badge {
+		padding: var(--size-2);
+		border: 4px dashed var(--color-white);
+		border-radius: 6px;
+		max-width: 220px;
+
+		& p {
+			font-size: var(--scale-3);
+			font-weight: 700;
+			text-transform: uppercase;
+			text-align: center;
+		}
+	}
+</style>

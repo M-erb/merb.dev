@@ -1,7 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
 import CustomBorderSec from '@components/customBorderSec.astro'
 import SecTitle from '@components/secTitle.astro'
+import AboutBadges from '@components/aboutBadges.astro'
+
+const badges = [
+	{
+		text: 'Million+ NPM PKGs Installed'
+	},
+	{
+		text: '7+ YRS EXP'
+	},
+	{
+		text: '5+ Linux Distros Tried'
+	}
+]
 ---
 
 <Layout title="Welcome to Astro.">
@@ -16,10 +29,41 @@ import SecTitle from '@components/secTitle.astro'
 	</header>
 
 	<main>
-		<CustomBorderSec>
+		<CustomBorderSec top="curve_blue">
 			<SecTitle num="1">About</SecTitle>
-			<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs.</p>
+			<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs. <a href="/about" class="btn_link">Read More</a></p>
+			{badges.length ?
+				<ul class="badges_list">
+					{badges.map(item => (
+						<li><AboutBadges txt={item.text} /></li>
+					))}
+				</ul>
+			: ''}
 		</CustomBorderSec>
+
+		<section class="tech_sec container">
+			<div class="sec_inner">
+				<SecTitle num="2">Technoloy</SecTitle>
+			</div>
+		</section>
+
+		<CustomBorderSec top="lopside">
+			<SecTitle num="3">Experience</SecTitle>
+			<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs. <a href="/about" class="btn_link">Read More</a></p>
+			{badges.length ?
+				<ul class="badges_list">
+					{badges.map(item => (
+						<li><AboutBadges txt={item.text} /></li>
+					))}
+				</ul>
+			: ''}
+		</CustomBorderSec>
+
+		<section class="contact_sec container">
+			<div class="sec_inner">
+				<SecTitle num="2" align="right" removeUnderline={true}>Let's get started together</SecTitle>
+			</div>
+		</section>
 	</main>
 </Layout>
 
@@ -36,9 +80,34 @@ import SecTitle from '@components/secTitle.astro'
 		padding: var(--size-24) 0;
 	}
 
+	.badges_list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		max-width: 400px;
+		margin: var(--size-6) auto 0 auto;
+
+		& li {
+			padding: var(--size-2);
+		}
+
+		@media (min-width: 768px) {
+			max-width: 880px;
+		}
+	}
+
 	.about_txt {
 		max-width: 720px;
 		margin: 0 auto;
 		line-height: 2.2;
+	}
+
+	.tech_sec {
+
+	}
+
+	.contact_sec {
+
 	}
 </style>
