@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon'
+
+export interface Props {
+	href: string;
+	icon: string;
+	isBlock?: boolean;
+}
+
+const { href, icon, isBlock } = Astro.props;
+---
+<span class:list={['btn_link_wrap', {'__block': isBlock}]}>
+	<a class="btn_link" href={href}>
+		<span><slot /></span>
+		<Icon pack="lucide" name={icon} />
+	</a>
+</span>
+
+<script>
+</script>
+
+<style lang="postcss">
+	.btn_link {
+		display: inline-flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 0 var(--size-2);
+
+		& span {
+			flex: 1 1 auto;
+			line-height: 1;
+		}
+
+		& svg {
+			flex: 0 0 auto;
+		}
+	}
+
+	.btn_link_wrap {
+		display: inline;
+
+		&.__block {
+			display: block;
+		}
+	}
+</style>
