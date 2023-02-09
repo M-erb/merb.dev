@@ -8,7 +8,19 @@ h1 {
   font-size: var(--scale-5);
 
   &.hero_title {
-    font-size: var(--scale-8);
+    font-size: var(--scale-5);
+
+    @media (--sm) {
+      & {
+        font-size: var(--scale-6);
+      }
+    }
+
+    @media (--md) {
+      & {
+        font-size: var(--scale-8);
+      }
+    }
   }
 }
 
@@ -16,7 +28,13 @@ h2 {
   font-size: var(--scale-4);
 
   &.hero_title {
-    font-size: var(--scale-5);
+    font-size: var(--scale-4);
+
+    @media (--sm) {
+      & {
+        font-size: var(--scale-5);
+      }
+    }
   }
 }
 
