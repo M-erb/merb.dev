@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import CustomBorderSec from '@components/customBorderSec.astro'
 import SecTitle from '@components/secTitle.astro'
 import AboutBadges from '@components/aboutBadges.astro'
+import Exp from '@components/exp.astro'
 
 const badges = [
 	{
@@ -13,6 +14,37 @@ const badges = [
 	},
 	{
 		text: '5+ Linux Distros Tried'
+	}
+]
+
+const expList = [
+	{
+		company: 'Redirect Health',
+		title: 'Senior Full Stack Engineer',
+		fromYr: 2019,
+		endYr: 0,
+		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
+	},
+	{
+		company: 'Success Engine',
+		title: 'Developer and business consultant',
+		fromYr: 2018,
+		endYr: 2019,
+		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
+	},
+	{
+		company: 'Rocket Media',
+		title: 'Web Developer',
+		fromYr: 2018,
+		endYr: 2018,
+		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
+	},
+	{
+		company: 'I-ology',
+		title: 'Front End Developer',
+		fromYr: 2017,
+		endYr: 2018,
+		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
 	}
 ]
 ---
@@ -50,10 +82,10 @@ const badges = [
 		<CustomBorderSec top="lopside">
 			<SecTitle num="3">Experience</SecTitle>
 			<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs. <a href="/about" class="btn_link">Read More</a></p>
-			{badges.length ?
-				<ul class="badges_list">
-					{badges.map(item => (
-						<li><AboutBadges txt={item.text} /></li>
+			{expList.length ?
+				<ul class="exp_list">
+					{expList.map(item => (
+						<li><Exp  company={item.company} title={item.title} fromYr={item.fromYr} endYr={item.endYr} desc={item.desc} /></li>
 					))}
 				</ul>
 			: ''}
@@ -94,6 +126,25 @@ const badges = [
 
 		@media (min-width: 768px) {
 			max-width: 880px;
+		}
+	}
+
+	.exp_list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		margin: var(--size-6) auto 0 auto;
+
+		& li {
+			padding: var(--size-2);
+			width: 100%;
+		}
+
+		@media (min-width: 768px) {
+			& li {
+				width: 50%;
+			}
 		}
 	}
 
