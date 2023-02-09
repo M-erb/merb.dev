@@ -7,8 +7,7 @@
       "@pages/*": ["src/pages/*"],
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"],
-      "@imgs/*": ["src/imgs/*"],
-      "@public/*": ["public/*"]
+      "@imgs/*": ["src/imgs/*"]
     }
   }
 }
