@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro'
 import CustomBorderSec from '@components/customBorderSec.astro'
 import SecTitle from '@components/secTitle.astro'
 import AboutBadges from '@components/aboutBadges.astro'
+import ProfileImg from '/profile.jpg'
+import BtnLink from '@components/btnLink.astro'
 
 const badges = [
 	{
@@ -20,18 +22,23 @@ const badges = [
 <Layout title="Welcome to Astro.">
 	<header class="hero_home container">
 		<div class="hero_home_inner">
-			<div class="">
-				<h1 class="hero_title">I'm Michael Erb</h1>
-				<h2 class="hero_title">A Fullstack Engineer</h2>
+			<div class="hero_home_title_area">
+				<div class="hero_home_titles">
+					<h1 class="hero_title">I'm Michael Erb</h1>
+					<h2 class="hero_title">A Fullstack Engineer</h2>
+				</div>
+				<div class="hero_home_profile">
+					<img src={ProfileImg} alt="Michael Erb">
+				</div>
 			</div>
-			<p>Ready to bring your idea to life, start to finish 🤙</p>
+			<p class="hero_txt">Ready to bring your idea to life, start to finish 🤙</p>
 		</div>
 	</header>
 
 	<main>
 		<CustomBorderSec top="curve_blue">
 			<SecTitle num="1">About</SecTitle>
-			<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs. <a href="/about" class="btn_link">Read More</a></p>
+			<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs. <BtnLink href="/about" icon="arrow-right">Read More</BtnLink></p>
 			{badges.length ?
 				<ul class="badges_list">
 					{badges.map(item => (
@@ -43,7 +50,7 @@ const badges = [
 
 		<section class="tech_sec container">
 			<div class="sec_inner">
-				<SecTitle num="2">Technoloy</SecTitle>
+				<SecTitle num="2">technology</SecTitle>
 			</div>
 		</section>
 
@@ -68,16 +75,67 @@ const badges = [
 </Layout>
 
 <style lang="postcss">
+	@import '../styles/mediaQueries.pcss';
+
 	.hero_home {
 		display: flex;
 		justify-content: center;
 		align-items: flex-start;
 		flex-direction: column;
 		min-height: 60vh;
+
+		& .hero_txt {
+			font-size: var(--scale-4);
+			text-transform: uppercase;
+			margin-top: 10vw;
+
+			@media (--md) {
+				& {
+					font-size: var(--scale-6);
+				}
+			}
+
+			@media (--md) {
+				& {
+					margin-top: var(--size-24);
+				}
+			}
+
+			@media (--xl) {
+				& {
+					margin-top: var(--size-36);
+				}
+			}
+		}
+
+		& .hero_home_title_area {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			flex-wrap: wrap;
+
+			& .hero_home_titles {
+				flex: 1 1 auto;
+				order: 2;
+			}
+
+			& .hero_home_profile {
+				flex: 0 0 auto;
+				order: 1;
+
+				margin-right: var(--size-4);
+
+				& img {
+					width: 150px;
+					border-radius: 999px;
+					border: 6px solid var(--color-orange);
+				}
+			}
+		}
 	}
 
 	.hero_home_inner {
-		padding: var(--size-24) 0;
+		padding: var(--size-8) 0;
 	}
 
 	.badges_list {
@@ -92,15 +150,11 @@ const badges = [
 			padding: var(--size-2);
 		}
 
-		@media (min-width: 768px) {
-			max-width: 880px;
+		@media (--md) {
+			& {
+				max-width: 880px;
+			}
 		}
-	}
-
-	.about_txt {
-		max-width: 720px;
-		margin: 0 auto;
-		line-height: 2.2;
 	}
 
 	.tech_sec {
@@ -109,5 +163,11 @@ const badges = [
 
 	.contact_sec {
 
+	}
+
+	.about_txt {
+		max-width: 720px;
+		margin: 0 auto;
+		line-height: 2.2;
 	}
 </style>
