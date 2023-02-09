@@ -2,12 +2,14 @@
 export interface Props {
 	id?: string;
 	num?: string;
+	removeUnderline?: boolean;
+	align?: string;
 }
 
-const { id, num } = Astro.props;
+const { id, num, removeUnderline, align } = Astro.props;
 ---
 
-<div id={id || ''} class="sec_title">
+<div id={id || ''} class:list={['sec_title', {'__no_underline': removeUnderline}, {'__right': align === 'right'}]}>
 	<h3><slot />{num !== undefined ? <span class="super">/0{num}</span> : ''}</h3>
 </div>
 
@@ -44,6 +46,18 @@ const { id, num } = Astro.props;
 			top: 0;
 			right: -34px;
 			user-select: none;
+		}
+
+		&.__no_underline {
+			& h3::after {
+				content: none;
+			}
+		}
+
+		&.__right {
+			& h3 {
+				text-align: right;
+			}
 		}
 	}
 </style>
