@@ -71,49 +71,51 @@ const socialList = [
 		<title>{title}</title>
 	</head>
 	<body>
-		<Navigation menuList={menuList} socialList={socialList} />
+		<div class="outer">
+			<Navigation menuList={menuList} socialList={socialList} />
 
-		<slot />
+			<slot />
 
-		{/* Footer */}
-		<CustomBorderSec top="wavy" bottom="none" tag="footer">
-			<div class="footer_inner">
-				<div class="footer_nav_left">
-					<div class="footer_nav_logo">
-						<a href="/" class="logo_space">
-							<Logo name="main" color0="currentColor" width="100" height="18" />
-						</a>
+			{/* Footer */}
+			<CustomBorderSec top="wavy" bottom="none" tag="footer">
+				<div class="footer_inner">
+					<div class="footer_nav_left">
+						<div class="footer_nav_logo">
+							<a href="/" class="logo_space">
+								<Logo name="main" color0="currentColor" width="100" height="18" />
+							</a>
+						</div>
+
+						{menuList.length ?
+							<ul class="nav_list">
+								{menuList.map(item => (
+									item.label !== 'Contact' ? <li><a href={item.path}>{item.label}</a></li> : ''
+								))}
+							</ul>
+						: ''}
+
+						{menuList2.length ?
+							<ul class="nav_list">
+								{menuList2.map(item => (
+									<li><a href={item.path} target="_blank">{item.label}</a></li>
+								))}
+							</ul>
+						: '' }
 					</div>
-
-					{menuList.length ?
-						<ul class="nav_list">
-							{menuList.map(item => (
-								item.label !== 'Contact' ? <li><a href={item.path}>{item.label}</a></li> : ''
-							))}
-						</ul>
-					: ''}
-
-					{menuList2.length ?
-						<ul class="nav_list">
-							{menuList2.map(item => (
-								<li><a href={item.path} target="_blank">{item.label}</a></li>
-							))}
-						</ul>
-					: '' }
+					<div class="foot_nav_right">
+						{socialList.length ?
+							<ul class="nav_list social_list">
+								{socialList.map(item => (
+									<li><a href={item.path} target="_blank"><img src={item.img} alt={item.label}/></a></li>
+								))}
+							</ul>
+						: '' }
+					</div>
 				</div>
-				<div class="foot_nav_right">
-					{socialList.length ?
-						<ul class="nav_list social_list">
-							{socialList.map(item => (
-								<li><a href={item.path} target="_blank"><img src={item.img} alt={item.label}/></a></li>
-							))}
-						</ul>
-					: '' }
+				<div class="footer_copy">
+					<p>Copyright © 2023 merb.dev Michael Erb All rights reserved</p>
 				</div>
-			</div>
-			<div class="footer_copy">
-				<p>Copyright © 2023 merb.dev Michael Erb All rights reserved</p>
-			</div>
-		</CustomBorderSec>
+			</CustomBorderSec>
+		</div>
 	</body>
 </html>

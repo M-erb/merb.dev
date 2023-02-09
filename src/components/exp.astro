@@ -1,0 +1,31 @@
+---
+export interface Props {
+	company: string;
+	title: string;
+	fromYr: number;
+	endYr: number;
+	desc: string;
+}
+
+const { company, title, fromYr, endYr, desc } = Astro.props;
+---
+
+<div class="exp_area">
+	<div class="exp_area_title">
+		<h4>{title}</h4>
+		<ul>
+			<li>{company}</li>
+			<li>{fromYr} - {endYr}</li>
+		</ul>
+	</div>
+	<div class="exp_area_desc">
+		<p>{desc}</p>
+	</div>
+</div>
+
+<script>
+</script>
+
+<style lang="postcss">
+	
+</style>

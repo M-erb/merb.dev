@@ -23,9 +23,18 @@ const { id, num, removeUnderline, align } = Astro.props;
 		& h3 {
 			display: inline-block;
 			text-transform: uppercase;
-			font-size: var(--scale-8);
+			font-size: var(--scale-5);
+			font-weight: 700;
 			line-height: 1;
 			position: relative;
+
+			@media (min-width: 480px) {
+				font-size: var(--scale-6);
+			}
+
+			@media (min-width: 768px) {
+				font-size: var(--scale-8);
+			}
 
 			&::after {
 				content: '';
@@ -43,8 +52,9 @@ const { id, num, removeUnderline, align } = Astro.props;
 		& .super {
 			position: absolute;
 			font-size: var(--scale-00);
+			font-weight: 700;
 			top: 0;
-			right: -34px;
+			right: -28px;
 			user-select: none;
 		}
 
@@ -57,6 +67,12 @@ const { id, num, removeUnderline, align } = Astro.props;
 		&.__right {
 			& h3 {
 				text-align: right;
+			}
+
+			& .super {
+				top: -16px;
+				right: 0;
+				user-select: none;
 			}
 		}
 	}

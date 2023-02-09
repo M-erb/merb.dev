@@ -10,6 +10,12 @@ h1, .h1 {
   &.hero_title {
     font-size: var(--scale-5);
 
+    @media (--sm) {
+      & {
+        font-size: var(--scale-6);
+      }
+    }
+
     @media (--md) {
       & {
         font-size: var(--scale-8);

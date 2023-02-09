@@ -71,10 +71,10 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 
 	.special_border {
 		display: block;
-		width: 100%;
+		width: calc(100% + 6px);
 		position: relative;
 		top: 2px;
-		left: 0;
+		left: -2px;
 		z-index: 2;
 		user-select: none;
 		user-drag: none;
@@ -84,15 +84,9 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 			top: -2px;
 		}
 
-		&.__wavy {
-			width: calc(100% + 3px);
-			left: -2px;
-		}
-
 		&.__under {
 			position: absolute;
 			top: -8px;
-			left: 0;
 			z-index: 1;
 
 			&.__wavy {
