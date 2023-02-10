@@ -1,0 +1,58 @@
+---
+import { Icon } from 'astro-icon'
+
+export interface Props {
+	href?: string;
+	icon?: string;
+	class?: string;
+}
+
+const { href, icon, class: className } = Astro.props;
+
+const Element = href ? 'a' : 'button'
+---
+
+<Element class:list={['btn', className]} href={href}>
+	<span><slot/></span>
+	{icon ? <Icon pack="lucide" name={icon} /> : ''}
+</Element>
+
+<style lang="postcss">
+	.btn {
+		display: inline-flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex: 0 0 auto;
+
+		border: none;
+		border-radius: 999px;
+		background-color: var(--color-orange);
+		padding: var(--size-3) var(--size-5);
+		min-width: var(--size-44);
+		color: var(--color-white);
+		font-weight: 700;
+		font-size: var(--scale-2);
+		text-align: center;
+		text-decoration: none;
+		transition: box-shadow .3s ease-in-out, color .3s ease-in-out;
+		box-shadow: var(--color-black) 0px 0px 0px 0px;
+
+		& span {
+			flex: 1 1 auto;
+			line-height: 1;
+		}
+
+		& svg {
+			flex: 0 0 auto;
+		}
+
+		&:hover {
+			text-decoration: none;
+			box-shadow: var(--color-black) 5px 5px 0px 0px;
+		}
+
+		&.__on_dark:hover:hover {
+			box-shadow: var(--color-white) 5px 5px 0px 0px;
+		}
+	}
+</style>

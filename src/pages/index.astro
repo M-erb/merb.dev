@@ -6,6 +6,8 @@ import AboutBadges from '@components/aboutBadges.astro'
 import ProfileImg from '/profile.jpg'
 import BtnLink from '@components/btnLink.astro'
 import Exp from '@components/exp.astro'
+import Btn from '@components/btn.astro'
+import TechList from '@components/techList.astro'
 import { badges, techList, expList } from '@data/home.js'
 ---
 
@@ -22,6 +24,9 @@ import { badges, techList, expList } from '@data/home.js'
 				</div>
 			</div>
 			<p class="hero_txt">Ready to bring your idea to life, start to finish 🤙</p>
+			<div class="btn_wrap __right">
+				<Btn href="/contact">Let's Work Together</Btn>
+			</div>
 		</div>
 	</header>
 
@@ -36,11 +41,17 @@ import { badges, techList, expList } from '@data/home.js'
 					))}
 				</ul>
 			: ''}
+			<div class="btn_wrap __center">
+				<Btn href="/blog" class="__on_dark">See Blog</Btn>
+			</div>
 		</CustomBorderSec>
 
-		<section class="tech_sec container">
-			<div class="sec_inner">
+		<section class="tech_sec">
+			<div class="container">
 				<SecTitle num="2">Technology</SecTitle>
+			</div>
+			<div class="container_l">
+				<TechList list={techList} />
 			</div>
 		</section>
 
@@ -58,6 +69,9 @@ import { badges, techList, expList } from '@data/home.js'
 		<section class="contact_sec container">
 			<div class="sec_inner">
 				<SecTitle num="2" align="right" removeUnderline={true}>Let's get started together</SecTitle>
+				<div class="btn_wrap __center">
+					<Btn href="/contact">Let's Start Talk'in</Btn>
+				</div>
 			</div>
 		</section>
 	</main>

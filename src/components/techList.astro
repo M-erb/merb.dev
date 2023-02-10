@@ -1,0 +1,98 @@
+---
+// import { Icon } from 'astro-icon'
+
+interface techListItem {
+	name: string;
+	logo: string;
+	url: string;
+}
+
+export interface Props {
+	list: Array<techListItem>;
+}
+
+const { list } = Astro.props;
+
+// const Element = href ? 'a' : 'button'
+---
+
+<ul class="tech_icon_list">
+	{list.map(item => (
+		<li>
+			<div class="tech_icon_inner">
+				<a href={item.url} target="_blank">
+					<img src={item.logo} alt={item.name} />
+				</a>
+			</div>
+		</li>
+	))}
+</ul>
+
+<style lang="postcss">
+	.tech_icon_list {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-wrap: wrap;
+
+		& li {
+			width: 33.333333%;
+			flex: 0 0 auto;
+
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+
+			& .tech_icon_inner {
+				flex: 0 0 auto;
+				background-color: var(--color-grey-300);
+				border-radius: 999px;
+				width: 120px;
+				height: 120px;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				& a {
+					flex: 0 0 auto;
+					display: block;
+
+					& img {
+						display: block;
+					}
+				}
+			}
+
+			&:nth-child(6n+5),
+			&:nth-child(6n+6),
+			&:nth-child(6n+4){
+				justify-content: flex-start;
+			}
+
+			&:nth-child(6n+5),
+			&:nth-child(6n+4),
+			&:nth-child(12n+6){
+				justify-content: flex-start;
+			}
+
+			&:nth-child(6n+5),
+			&:nth-child(6n+6),
+			&:nth-child(6n+12){
+				justify-content: flex-start;
+			}
+
+			&:nth-child(6n+5),
+			&:nth-child(4n+6),
+			&:nth-child(8n+4){
+				justify-content: flex-start;
+			}
+
+			&:nth-child(6n+5),
+			&:nth-child(4n+6),
+			&:nth-child(12n+4){
+				justify-content: flex-start;
+			}
+		}
+	}
+</style>
