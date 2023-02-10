@@ -113,7 +113,9 @@ const expList = [
 		justify-content: center;
 		align-items: flex-start;
 		flex-direction: column;
-		min-height: 60vh;
+		height: 60vh;
+		min-height: 500px;
+		max-height: 800px;
 
 		& .hero_txt {
 			font-size: var(--scale-4);
@@ -191,13 +193,14 @@ const expList = [
 	.exp_list {
 		display: flex;
 		justify-content: center;
-		align-items: center;
+		align-items: stretch;
 		flex-wrap: wrap;
-		margin: var(--size-6) auto 0 auto;
+		margin: var(--size-6) var(--size--6) 0 var(--size--6);
 
 		& li {
-			padding: var(--size-2);
+			padding: var(--size-6);
 			width: 100%;
+			display: flex;
 		}
 
 		@media (--md) {

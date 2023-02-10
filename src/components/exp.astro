@@ -17,6 +17,7 @@ const { company, title, fromYr, endYr, desc } = Astro.props;
 			<li>{company}</li>
 			<li>{fromYr} - {endYr}</li>
 		</ul>
+		<hr>
 	</div>
 	<div class="exp_area_desc">
 		<p>{desc}</p>
@@ -27,5 +28,46 @@ const { company, title, fromYr, endYr, desc } = Astro.props;
 </script>
 
 <style lang="postcss">
-	
+	@import '../styles/mediaQueries.pcss';
+
+	.exp_area {
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+		flex-direction: column;
+
+		& .exp_area_title {
+			flex: 0 0 auto;
+			margin-bottom: var(--size-4);
+
+			& h4 {
+				text-transform: uppercase;
+				font-size: var(--scale-5);
+				margin-bottom: var(--size-1);
+			}
+
+			& ul {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+
+				& li {
+					flex: 0 0 auto;
+					margin-right: var(--size-4);
+				}
+			}
+
+			& hr {
+				background-color: var(--color-white);
+				height: 3px;
+				border: none;
+				border-radius: 99px;
+			}
+		}
+
+		& .exp_area_desc {
+			flex: 0 0 auto;
+			line-height: 1.8;
+		}
+	}
 </style>
