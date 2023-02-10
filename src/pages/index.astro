@@ -6,49 +6,7 @@ import AboutBadges from '@components/aboutBadges.astro'
 import ProfileImg from '/profile.jpg'
 import BtnLink from '@components/btnLink.astro'
 import Exp from '@components/exp.astro'
-
-const badges = [
-	{
-		text: 'Million+ NPM PKGs Installed'
-	},
-	{
-		text: '7+ YRS EXP'
-	},
-	{
-		text: '5+ Linux Distros Tried'
-	}
-]
-
-const expList = [
-	{
-		company: 'Redirect Health',
-		title: 'Senior Full Stack Engineer',
-		fromYr: 2019,
-		endYr: 0,
-		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
-	},
-	{
-		company: 'Success Engine',
-		title: 'Developer and business consultant',
-		fromYr: 2018,
-		endYr: 2019,
-		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
-	},
-	{
-		company: 'Rocket Media',
-		title: 'Web Developer',
-		fromYr: 2018,
-		endYr: 2018,
-		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
-	},
-	{
-		company: 'I-ology',
-		title: 'Front End Developer',
-		fromYr: 2017,
-		endYr: 2018,
-		desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
-	}
-]
+import { badges, techList, expList } from '@data/home.js'
 ---
 
 <Layout title="Welcome to Astro.">
