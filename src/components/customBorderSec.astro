@@ -21,17 +21,17 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 <Element id={id || ''} class:list={['special_sec', {'__is_wavy': top === 'wavy'}]}>
 	<div class="special_sec_top">
 		{top === 'curve_blue' ?
-			<img class="special_border" src={BorderTop} alt="">
-			<img class="special_border __under" src={BorderTopBlue} alt="">
+			<img class="special_border" src={BorderTop} alt="" draggable="false">
+			<img class="special_border __under" src={BorderTopBlue} alt="" draggable="false">
 		: ''}
 
 		{top === 'lopside' ?
-			<img class="special_border" src={BorderLopsideTop} alt="">
+			<img class="special_border" src={BorderLopsideTop} alt="" draggable="false">
 		: ''}
 
 		{top === 'wavy' ?
-			<img class="special_border __wavy" src={WaveBorder} alt="">
-			<img class="special_border __under __wavy" src={WaveBorderBlue} alt="">
+			<img class="special_border __wavy" src={WaveBorder} alt="" draggable="false">
+			<img class="special_border __under __wavy" src={WaveBorderBlue} alt="" draggable="false">
 		: ''}
 	</div>
 
@@ -43,7 +43,7 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 
 	{bottom === 'none' ?
 		''
-	: <img class="special_border __bottom" src={BorderBottom} alt="">}
+	: <img class="special_border __bottom" src={BorderBottom} alt="" draggable="false">}
 </Element>
 
 <script>
@@ -79,6 +79,7 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 		user-select: none;
 		user-drag: none;
 		-webkit-user-drag: none;
+		-moz-user-drag: none;
 
 		&.__bottom {
 			top: -2px;
