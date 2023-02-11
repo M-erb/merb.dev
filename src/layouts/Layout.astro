@@ -1,64 +1,15 @@
 ---
 import '@styles/main.pcss'
 import Navigation from '@components/navigation.astro'
-import linkedin from '@imgs/social/linkedin logo.svg'
-import github from '@imgs/social/github-mark-white.svg'
-import twitter from '@imgs/social/Twitter social icons - circle - white.svg'
 import CustomBorderSec from '@components/customBorderSec.astro'
 import Logo from '@components/logo.astro'
+import { menuList, menuList2, socialList } from '@data/nav.js'
 
 export interface Props {
 	title: string
 }
 
-const { title } = Astro.props;
-const menuList = [
-	{
-		label: 'Home',
-		path: '/'
-	},
-	{
-		label: 'About',
-		path: '/about'
-	},
-	{
-		label: 'Contact',
-		path: '/contact'
-	},
-	{
-		label: 'Blog',
-		path: '/blog'
-	}
-]
-
-const menuList2 = [
-	{
-		label: 'Privacy',
-		path: '/'
-	},
-	{
-		label: 'Contact',
-		path: '/contact'
-	}
-]
-
-const socialList = [
-	{
-		label: 'linkedin',
-		path: import.meta.env.PUBLIC_LINKEDIN,
-		img: linkedin
-	},
-	{
-		label: 'github',
-		path: import.meta.env.PUBLIC_GITHUB,
-		img: github
-	},
-	{
-		label: 'twitter',
-		path: import.meta.env.PUBLIC_TWITTER,
-		img: twitter
-	}
-]
+const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
