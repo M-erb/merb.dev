@@ -1,0 +1,140 @@
+---
+import CustomBorderSec from '@components/customBorderSec.astro'
+import Logo from '@components/logo.astro'
+
+export interface Props {
+	menuList: Array<any>
+	menuList2: Array<any>
+	socialList: Array<any>
+}
+
+const { menuList, menuList2, socialList } = Astro.props
+---
+
+<CustomBorderSec top="wavy" bottom="none" tag="footer">
+	<div class="footer_inner">
+		<div class="footer_nav_left">
+			<div class="footer_nav_logo">
+				<a href="/" class="logo_space">
+					<Logo name="main" color0="currentColor" width="100" height="18" />
+				</a>
+			</div>
+
+			{menuList.length ?
+				<ul class="nav_list">
+					{menuList.map(item => (
+						item.label !== 'Contact' ? <li><a href={item.path}>{item.label}</a></li> : ''
+					))}
+				</ul>
+			: ''}
+
+			{menuList2.length ?
+				<ul class="nav_list">
+					{menuList2.map(item => (
+						<li><a href={item.path} target="_blank">{item.label}</a></li>
+					))}
+				</ul>
+			: '' }
+		</div>
+		<div class="foot_nav_right">
+			{socialList.length ?
+				<ul class="nav_list social_list">
+					{socialList.map(item => (
+						<li><a href={item.path} target="_blank"><img src={item.img} alt={item.label}/></a></li>
+					))}
+				</ul>
+			: '' }
+		</div>
+	</div>
+	<div class="footer_copy">
+		<p>Copyright © 2023 merb.dev Michael Erb All rights reserved</p>
+	</div>
+</CustomBorderSec>
+
+<style lang="postcss" is:global>
+	@import '../styles/mediaQueries.pcss';
+
+	footer {
+		& .footer_inner {
+			padding-bottom: var(--size-6);
+
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			@media (--md) {
+				& {
+					padding-bottom: var(--size-24);
+				}
+			}
+
+			& .footer_nav_left {
+				flex: 1 1 auto;
+
+				@media (--sm) {
+					& {
+						display: flex;
+						justify-content: space-between;
+						align-items: flex-start;
+					}
+				}
+			}
+
+			& .footer_nav_right {
+				flex: 0 0 auto;
+			}
+
+			& .footer_nav_logo {
+				flex: 1 1 auto;
+				margin-bottom: var(--size-6);
+			}
+
+			& .nav_list {
+				flex: 1 1 auto;
+
+				& li {
+					display: block;
+					margin-bottom: var(--size-6);
+
+					animation-name: fadInDownShort;
+					animation-fill-mode: both;
+					animation-duration: .3s;
+				}
+
+				& a {
+					font-size: var(--scale-2);
+					color: var(--color-white);
+					text-decoration: none;
+					position: relative;
+					z-index: 1;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
+				&.social_list {
+					& a {
+						display: block;
+						transition: transform .3s ease-in-out;
+
+						&:hover {
+							text-decoration: no-underline;
+							transform: scale(1.3);
+						}
+
+						& img {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+
+		& .footer_copy {
+			padding: var(--size-4) 0;
+			text-align: center;
+			color: var(--color-grey-600);
+		}
+	}
+</style>
