@@ -7,13 +7,13 @@ import WaveBorder from '@imgs/borders/wave-border.svg'
 import WaveBorderBlue from '@imgs/borders/wave-border-blue.svg'
 
 export interface Props {
-	id?: string;
-	top?: string;
-	bottom?: string;
-	tag?: string;
+	id?: string
+	top?: string
+	bottom?: string
+	tag?: string
 }
 
-const { id, top, bottom, tag } = Astro.props;
+const { id, top, bottom, tag } = Astro.props
 
 const Element = tag === 'footer' ? 'footer' : 'section'
 ---

@@ -1,12 +1,12 @@
 ---
 export interface Props {
-	id?: string;
-	num?: string;
-	removeUnderline?: boolean;
-	align?: string;
+	id?: string
+	num?: string
+	removeUnderline?: boolean
+	align?: string
 }
 
-const { id, num, removeUnderline, align } = Astro.props;
+const { id, num, removeUnderline, align } = Astro.props
 ---
 
 <div id={id || ''} class:list={['sec_title', {'__no_underline': removeUnderline}, {'__right': align === 'right'}]}>

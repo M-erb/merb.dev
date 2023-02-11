@@ -2,18 +2,19 @@
 // import { Icon } from 'astro-icon'
 
 interface techListItem {
-	name: string;
-	logo: string;
-	url: string;
+	name: string
+	logo: string
+	url: string
 }
 
 export interface Props {
-	list: Array<techListItem>;
+	list: Array<techListItem>
 }
 
-const { list } = Astro.props;
+const { list } = Astro.props
 
-// const Element = href ? 'a' : 'button'
+const formatedList = []
+
 ---
 
 <ul class="tech_icon_list">
@@ -64,7 +65,7 @@ const { list } = Astro.props;
 				}
 			}
 
-			&:nth-child(6n+5),
+			/* &:nth-child(6n+5),
 			&:nth-child(6n+6),
 			&:nth-child(6n+4){
 				justify-content: flex-start;
@@ -92,7 +93,7 @@ const { list } = Astro.props;
 			&:nth-child(4n+6),
 			&:nth-child(12n+4){
 				justify-content: flex-start;
-			}
+			} */
 		}
 	}
 </style>

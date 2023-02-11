@@ -2,12 +2,12 @@
 import { Icon } from 'astro-icon'
 
 export interface Props {
-	href?: string;
-	icon?: string;
-	class?: string;
+	href?: string
+	icon?: string
+	class?: string
 }
 
-const { href, icon, class: className } = Astro.props;
+const { href, icon, class: className } = Astro.props
 
 const Element = href ? 'a' : 'button'
 ---

@@ -2,12 +2,12 @@
 import { Icon } from 'astro-icon'
 
 export interface Props {
-	href: string;
-	icon: string;
-	isBlock?: boolean;
+	href: string
+	icon: string
+	isBlock?: boolean
 }
 
-const { href, icon, isBlock } = Astro.props;
+const { href, icon, isBlock } = Astro.props
 ---
 <span class:list={['btn_link_wrap', {'__block': isBlock}]}>
 	<a class="btn_link" href={href}>
