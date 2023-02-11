@@ -14,86 +14,109 @@ export interface Props {
 const { list } = Astro.props
 
 const formatedList = []
-
+for (let i = 0; i < list.length; i += 3) {
+	formatedList.push(list.slice(i, i + 3))
+}
 ---
 
-<ul class="tech_icon_list">
-	{list.map(item => (
-		<li>
-			<div class="tech_icon_inner">
-				<a href={item.url} target="_blank">
-					<img src={item.logo} alt={item.name} />
-				</a>
-			</div>
-		</li>
+<div class="tech_icon_wrap">
+	{formatedList.map(listOfItems => (
+		<ul class="tech_icon_list">
+			{listOfItems.map(item => (
+				<li>
+					<div class="tech_icon_inner">
+						<a href={item.url} target="_blank" title={item.name}>
+							<img src={item.logo} alt={item.name} />
+						</a>
+					</div>
+				</li>
+			))}
+		</ul>
 	))}
-</ul>
+</div>
 
 <style lang="postcss">
-	.tech_icon_list {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-		flex-wrap: wrap;
+	@import '../styles/mediaQueries.pcss';
 
-		& li {
-			width: 33.333333%;
-			flex: 0 0 auto;
+	.tech_icon_wrap {
+		position: relative;
+		padding-top: var(--size-10);
 
+		& .tech_icon_list {
 			display: flex;
-			justify-content: flex-end;
+			justify-content: center;
 			align-items: center;
+			flex-wrap: wrap;
+			margin: var(--size-8) 0;
 
-			& .tech_icon_inner {
+			& li {
+				width: 33.333333%;
 				flex: 0 0 auto;
-				background-color: var(--color-grey-300);
-				border-radius: 999px;
-				width: 120px;
-				height: 120px;
 
 				display: flex;
 				justify-content: center;
 				align-items: center;
 
-				& a {
+				& .tech_icon_inner {
 					flex: 0 0 auto;
-					display: block;
+					background-color: var(--color-grey-300);
+					border-radius: 999px;
+					width: 100px;
+					height: 100px;
 
-					& img {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					& a {
+						flex: 1 1 auto;
 						display: block;
+
+						& img {
+							display: block;
+							width: 100%;
+							max-width: 60%;
+							margin: 0 auto;
+						}
 					}
 				}
 			}
+		}
 
-			/* &:nth-child(6n+5),
-			&:nth-child(6n+6),
-			&:nth-child(6n+4){
-				justify-content: flex-start;
+		@media (--sm) {
+			& {
+				left: -7%;
+
+				& .tech_icon_list {
+					justify-content: flex-start;
+
+					& li {
+						justify-content: flex-end;
+
+						& .tech_icon_inner {
+							width: 120px;
+							height: 120px;
+
+							& a {
+								& img {
+									width: auto;
+									max-width: auto;
+								}
+							}
+						}
+					}
+
+					&:nth-child(even) {
+						position: relative;
+						left: 7%;
+
+						& li {
+							justify-content: flex-start;
+						}
+					}
+				}
 			}
-
-			&:nth-child(6n+5),
-			&:nth-child(6n+4),
-			&:nth-child(12n+6){
-				justify-content: flex-start;
-			}
-
-			&:nth-child(6n+5),
-			&:nth-child(6n+6),
-			&:nth-child(6n+12){
-				justify-content: flex-start;
-			}
-
-			&:nth-child(6n+5),
-			&:nth-child(4n+6),
-			&:nth-child(8n+4){
-				justify-content: flex-start;
-			}
-
-			&:nth-child(6n+5),
-			&:nth-child(4n+6),
-			&:nth-child(12n+4){
-				justify-content: flex-start;
-			} */
 		}
 	}
+
 </style>

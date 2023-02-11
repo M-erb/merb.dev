@@ -8,6 +8,7 @@ import BtnLink from '@components/btnLink.astro'
 import Exp from '@components/exp.astro'
 import Btn from '@components/btn.astro'
 import TechList from '@components/techList.astro'
+import techBGImg from '@imgs/borders/graph-dots-bg.svg'
 import { badges, techList, expList } from '@data/home.js'
 ---
 
@@ -46,7 +47,7 @@ import { badges, techList, expList } from '@data/home.js'
 			</div>
 		</CustomBorderSec>
 
-		<section class="tech_sec">
+		<section class="tech_sec" style={`background-image: url(${techBGImg});`}>
 			<div class="container">
 				<SecTitle num="2">Technology</SecTitle>
 			</div>
@@ -189,7 +190,9 @@ import { badges, techList, expList } from '@data/home.js'
 	}
 
 	.tech_sec {
-
+		background-position: center;
+		background-repeat: repeat;
+		background-size: cover;
 	}
 
 	.contact_sec {
