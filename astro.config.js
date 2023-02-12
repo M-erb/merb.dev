@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import { defineConfig } from 'astro/config'
+import mdx from "@astrojs/mdx"
 dotenv.config()
 
 // https://astro.build/config
@@ -9,10 +10,17 @@ export default defineConfig({
     format: 'directory',
     assets: 'assets'
   },
-  server: (command) => {
+  server: command => {
     console.log('env: ', command)
     return {
       port: Number(process.env.PORT) || 3000
+    };
+  },
+  markdown: {
+    shikiConfig: {
+      theme: 'one-dark-pro',
+      wrap: true
     }
-  }
-})
+  },
+  integrations: [mdx()]
+});
