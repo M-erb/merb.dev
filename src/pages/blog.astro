@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro'
+import CustomBorderSec from '@components/customBorderSec.astro'
+import SecTitle from '@components/secTitle.astro'
+import Btn from '@components/btn.astro'
+---
+
+<Layout title="Michael Erb Portflio">
+	<header class="hero">
+		<div class="hero_inner container">
+			<div class="hero_title_area">
+				<div class="hero_titles">
+					<h1 class="hero_title">I'm Michael Erb</h1>
+					<h2 class="hero_title">A Fullstack Engineer</h2>
+				</div>
+			</div>
+			<p class="hero_txt">Ready to bring your idea to life, start to finish 🤙</p>
+			<div class="btn_wrap __right">
+				<Btn href="/contact">Let's Work Together</Btn>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<CustomBorderSec top="curve_blue">
+			<div class="posts_sec">
+				<SecTitle num="1">Blog</SecTitle>
+			</div>
+		</CustomBorderSec>
+
+		<section class="contact_sec container">
+			<div class="sec_inner">
+				<SecTitle num="2" align="right" removeUnderline={true}>Let's get started together</SecTitle>
+				<div class="btn_wrap __center">
+					<Btn href="/contact">Let's Start Talk'in</Btn>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style lang="postcss">
+	@import '../styles/mediaQueries.pcss';
+
+	.hero {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		min-height: 500px;
+
+		& .hero_inner {
+			padding-top: var(--size-8);
+			padding-bottom: var(--size-8);
+			background-color: var(--color-white);
+
+			@media (--md) {
+				& {
+					padding-top: var(--size-16);
+					padding-bottom: var(--size-16);
+					position: relative;
+					top: 60px;
+				}
+			}
+
+			@media (--lg) {
+				& {
+					position: relative;
+					top: 90px;
+				}
+			}
+		}
+
+		& .hero_txt {
+			font-size: var(--scale-4);
+			text-transform: uppercase;
+			margin-top: 10vw;
+
+			@media (--md) {
+				& {
+					font-size: var(--scale-6);
+				}
+			}
+
+			@media (--md) {
+				& {
+					margin-top: var(--size-24);
+				}
+			}
+
+			@media (--xl) {
+				& {
+					margin-top: var(--size-36);
+				}
+			}
+		}
+
+		& .hero_title_area {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			flex-wrap: wrap;
+
+			& .hero_home_titles {
+				flex: 1 1 auto;
+				order: 2;
+			}
+		}
+	}
+</style>

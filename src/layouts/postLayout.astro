@@ -1,0 +1,100 @@
+---
+import '@styles/main.pcss'
+import Navigation from '@components/navigation.astro'
+import Footer from '@components/footer.astro'
+import { menuList, menuList2, socialList } from '@data/nav.js'
+
+export interface Props {
+	title: string
+}
+
+const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro.props.frontmatter
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description}>
+	</head>
+	<body>
+		<div class="outer">
+			<Navigation menuList={menuList} socialList={socialList} />
+			<div class="post_bg" style={`background-image: url(${postImg})`}></div>
+
+			<div class="post_pos container_l">
+				<main>
+					<div class="post_col">
+						<header>
+							<ul class="bread_crums">
+								<li>blog</li>
+								<li>vuejs</li>
+							</ul>
+							<h1 class="hero_title">{title}</h1>
+							<p class="post_date">{date}</p>
+							<ul class="tags_list">
+								<li>vuejs</li>
+							</ul>
+						</header>
+
+						<article>
+							<slot />
+						</article>
+					</div>
+				</main>
+				<!-- <aside></aside> -->
+			</div>
+
+			<Footer menuList={menuList} menuList2={menuList2} socialList={socialList} />
+		</div>
+	</body>
+</html>
+
+<style>
+	.post_bg {
+		width: 100%;
+		min-height: 500px;
+		background-size: cover;
+	}
+
+	.post_pos {
+		& main {
+			flex: 0 0 auto;
+			width: 100%;
+			max-width: var(--width-md);
+			margin-top: -300px;
+			position: relative;
+			z-index: 1;
+	
+			& .post_col {
+				background-color: var(--color-white);
+				border-radius: 16px;
+				padding: var(--size-6) var(--size-12) var(--size-6) var(--size-8);
+			}
+		}
+
+		& aside {
+			flex: 0 0 auto;
+		}
+	}
+
+</style>
+
+<style is:global>
+	.astro-code {
+		display: block;
+		padding: var(--size-6) var(--size-4);
+		margin: var(--size-6) 0;
+		border-radius: var(--radius-xl);
+	}
+
+	article {
+		& p {
+			margin-bottom: var(--size-6);
+		}
+	}
+</style>
