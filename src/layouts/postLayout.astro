@@ -44,9 +44,13 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 						<article>
 							<slot />
 						</article>
+
+						<div class="author_space">
+							<h6 class="h2 hero_title">Author</h6>
+						</div>
 					</div>
 				</main>
-				<!-- <aside></aside> -->
+				{/* <aside></aside> */}
 			</div>
 
 			<Footer menuList={menuList} menuList2={menuList2} socialList={socialList} />
@@ -81,7 +85,6 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 			flex: 0 0 auto;
 		}
 	}
-
 </style>
 
 <style is:global>
@@ -90,11 +93,25 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 		padding: var(--size-6) var(--size-4);
 		margin: var(--size-6) 0;
 		border-radius: var(--radius-xl);
+		font-family: 'Ubuntu Mone', mono;
 	}
 
 	article {
 		& p {
 			margin-bottom: var(--size-6);
+			line-height: 2;
+		}
+
+		& code {
+			padding: 1px 6px;
+			border-radius: 4px;
+			background-color: var(--color-grey-300);
+		}
+
+		& .astro-code code {
+			background-color: transparent;
+			padding: 0;
+			border-radius: 0;
 		}
 	}
 </style>
