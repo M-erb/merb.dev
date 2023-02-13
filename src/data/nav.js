@@ -9,7 +9,7 @@ export const menuList = [
   },
   {
     label: 'About',
-    path: '/about'
+    path: '/blog/about'
   },
   {
     label: 'Contact',

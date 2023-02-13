@@ -35,7 +35,7 @@ import { badges, techList, expList } from '@data/home.js'
 		<CustomBorderSec top="curve_blue">
 			<div class="about_sec">
 				<SecTitle num="1">About</SecTitle>
-				<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs. <BtnLink href="/about" icon="arrow-right">Read More</BtnLink></p>
+				<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs. <BtnLink href="/blog/about" icon="arrow-right">Read More</BtnLink></p>
 				{badges.length ?
 					<ul class="badges_list">
 						{badges.map(item => (
@@ -89,6 +89,8 @@ import { badges, techList, expList } from '@data/home.js'
 		align-items: flex-start;
 		flex-direction: column;
 		min-height: 500px;
+		position: relative;
+		z-index: 2;
 
 		& .hero_home_inner {
 			padding-top: var(--size-8);
