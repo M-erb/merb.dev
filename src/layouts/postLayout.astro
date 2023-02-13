@@ -24,21 +24,22 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 	<body>
 		<div class="outer">
 			<Navigation menuList={menuList} socialList={socialList} />
-			<div class="post_bg" style={`background-image: url(${postImg})`}></div>
+			<div class="post_bg" style={`background-image: url(${postImg})`}>
+				<div class="post_bg_cite">
+					<span>Photo by <a href={imgByUrl}>{imgByName}</a> on <a href={imgSrc}>Unsplash</a></span>
+				</div>
+			</div>
 
 			<div class="post_pos container_l">
 				<main>
 					<div class="post_col">
 						<header>
-							<ul class="bread_crums">
-								<li>blog</li>
-								<li>vuejs</li>
+							<ul class="breadcrums">
+								<li><a href="/blog">blog</a></li>
+								<li>{title}</li>
 							</ul>
 							<h1 class="hero_title">{title}</h1>
 							<p class="post_date">{date}</p>
-							<ul class="tags_list">
-								<li>vuejs</li>
-							</ul>
 						</header>
 
 						<article>
@@ -59,10 +60,35 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 </html>
 
 <style>
+	@import '../styles/mediaQueries.pcss';
+
 	.post_bg {
 		width: 100%;
-		min-height: 500px;
+		min-height: 200px;
 		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: var(--color-grey-800);
+
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		padding: var(--size-4);
+
+		& .post_bg_cite {
+			background-color: var(--color-grey-300);
+			border: 2px solid var(--color-grey-500);
+			border-radius: 8px;
+			padding: var(--size-2) var(--size-3);
+			font-size: var(--scale-00);
+			max-width: 400px;
+			opacity: .7;
+			transition: opacity .3s;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
 	}
 
 	.post_pos {
@@ -70,19 +96,72 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 			flex: 0 0 auto;
 			width: 100%;
 			max-width: var(--width-md);
-			margin-top: -300px;
+			/* margin-top: -300px; */
 			position: relative;
 			z-index: 1;
 	
 			& .post_col {
 				background-color: var(--color-white);
-				border-radius: 16px;
-				padding: var(--size-6) var(--size-12) var(--size-6) var(--size-8);
+				padding-top: var(--size-6);
+				padding-bottom: var(--size-6);
 			}
+		}
+
+		& header {
+			margin-bottom: var(--size-10);
+
+			& .breadcrums {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+
+				& li {
+					margin-right: var(--size-2);
+					color: var(--color-grey);
+
+					&:last-child {
+						max-width: 230px;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+
+					&::after {
+						content: '/';
+						margin-left: var(--size-2);
+					}
+				}
+			}
+
+			& .post_date {
+				color: var(--color-grey);
+			}
+		}
+
+		& article {
+			font-family: Merriweather, sans-serif;
 		}
 
 		& aside {
 			flex: 0 0 auto;
+		}
+	}
+
+	@media (--xl) {
+		.post_bg {
+			min-height: 500px;
+		}
+
+		.post_pos {
+			& main {
+				margin-top: -300px;
+
+				& .post_col{
+					border-radius: 16px;
+					padding-left: var(--size-8);
+					padding-right: var(--size-12);
+				}
+			}
 		}
 	}
 </style>
@@ -103,7 +182,7 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 		}
 
 		& code {
-			padding: 1px 6px;
+			padding: var(--size-2);
 			border-radius: 4px;
 			background-color: var(--color-grey-300);
 		}
