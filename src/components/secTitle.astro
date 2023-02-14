@@ -4,13 +4,17 @@ export interface Props {
 	num?: string
 	removeUnderline?: boolean
 	align?: string
+	tag?: string
 }
 
-const { id, num, removeUnderline, align } = Astro.props
+const { id, num, removeUnderline, align, tag } = Astro.props
+
+type Heading = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+const TitleElement = (tag ? tag : 'h3') as Heading
 ---
 
 <div id={id || ''} class:list={['sec_title', {'__no_underline': removeUnderline}, {'__right': align === 'right'}]}>
-	<h3><slot />{num !== undefined ? <span class="super">/0{num}</span> : ''}</h3>
+	<TitleElement class="title"><slot />{num !== undefined ? <span class="super">/0{num}</span> : ''}</TitleElement>
 </div>
 
 <script>
@@ -20,7 +24,7 @@ const { id, num, removeUnderline, align } = Astro.props
 	.sec_title {
 		padding: var(--size-2) 0 var(--size-6);
 
-		& h3 {
+		& .title {
 			display: inline-block;
 			text-transform: uppercase;
 			font-size: var(--scale-5);
@@ -59,13 +63,13 @@ const { id, num, removeUnderline, align } = Astro.props
 		}
 
 		&.__no_underline {
-			& h3::after {
+			& .title::after {
 				content: none;
 			}
 		}
 
 		&.__right {
-			& h3 {
+			& .title {
 				text-align: right;
 			}
 
