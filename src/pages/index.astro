@@ -8,6 +8,7 @@ import BtnLink from '@components/btnLink.astro'
 import Exp from '@components/exp.astro'
 import Btn from '@components/btn.astro'
 import TechList from '@components/techList.astro'
+import ContactSec from '@components/contactSec.astro'
 import techBGImg from '@imgs/borders/graph-dots-bg.svg'
 import { badges, techList, expList } from '@data/home.js'
 ---
@@ -69,14 +70,7 @@ import { badges, techList, expList } from '@data/home.js'
 			: ''}
 		</CustomBorderSec>
 
-		<section class="contact_sec container">
-			<div class="sec_inner">
-				<SecTitle num="4" align="right" removeUnderline={true}>Let's get started together</SecTitle>
-				<div class="btn_wrap __center">
-					<Btn href="/contact">Let's Start Talk'in</Btn>
-				</div>
-			</div>
-		</section>
+		<ContactSec />
 	</main>
 </Layout>
 
@@ -166,10 +160,18 @@ import { badges, techList, expList } from '@data/home.js'
 
 	.about_sec {
 		padding-top: var(--size-12);
+		padding-bottom: var(--size-12);
+
+		& .about_txt {
+			max-width: 720px;
+			margin: 0 auto;
+			line-height: 2.2;
+		}
 
 		@media (--sm) {
 			& {
 				padding-top: var(--size-2);
+				padding-bottom: var(--size-2);
 			}
 		}
 	}
@@ -213,12 +215,6 @@ import { badges, techList, expList } from '@data/home.js'
 		}
 	}
 
-	.about_txt {
-		max-width: 720px;
-		margin: 0 auto;
-		line-height: 2.2;
-	}
-
 	.tech_sec {
 		background-position: center;
 		background-repeat: repeat;
@@ -227,11 +223,5 @@ import { badges, techList, expList } from '@data/home.js'
 
 	.contact_sec {
 
-	}
-
-	.about_txt {
-		max-width: 720px;
-		margin: 0 auto;
-		line-height: 2.2;
 	}
 </style>

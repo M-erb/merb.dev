@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import CustomBorderSec from '@components/customBorderSec.astro'
 import SecTitle from '@components/secTitle.astro'
-// import Btn from '@components/btn.astro'
+import ProfileImg from '/profile.jpg'
 ---
 
 <Layout title="Contact Michael Erb">
@@ -10,20 +9,20 @@ import SecTitle from '@components/secTitle.astro'
 		<div class="hero_inner container">
 			<div class="hero_title_area">
 				<div class="hero_titles">
-					<h1 class="hero_title">Contact</h1>
-					<h2 class="hero_title">Conversation</h2>
+					<h1 class="hero_title">Let's start a conversation</h1>
+				</div>
+				<div class="hero_profile">
+					<img src={ProfileImg} alt="Michael Erb">
 				</div>
 			</div>
 		</div>
 	</header>
 
-	<main>
-		<CustomBorderSec top="curve_blue">
-			<div class="posts_sec">
-				<SecTitle num="1">Contat Form</SecTitle>
-			</div>
-		</CustomBorderSec>
-	</main>
+	<!-- <main>
+		<section class="container">
+			<SecTitle num="1">Contat Form</SecTitle>
+		</section>
+	</main> -->
 </Layout>
 
 <style lang="postcss">
@@ -39,45 +38,11 @@ import SecTitle from '@components/secTitle.astro'
 		& .hero_inner {
 			padding-top: var(--size-8);
 			padding-bottom: var(--size-8);
-			background-color: var(--color-white);
 
 			@media (--md) {
 				& {
 					padding-top: var(--size-16);
 					padding-bottom: var(--size-16);
-					position: relative;
-					top: 60px;
-				}
-			}
-
-			@media (--lg) {
-				& {
-					position: relative;
-					top: 90px;
-				}
-			}
-		}
-
-		& .hero_txt {
-			font-size: var(--scale-4);
-			text-transform: uppercase;
-			margin-top: 10vw;
-
-			@media (--md) {
-				& {
-					font-size: var(--scale-6);
-				}
-			}
-
-			@media (--md) {
-				& {
-					margin-top: var(--size-24);
-				}
-			}
-
-			@media (--xl) {
-				& {
-					margin-top: var(--size-36);
 				}
 			}
 		}
@@ -88,9 +53,22 @@ import SecTitle from '@components/secTitle.astro'
 			align-items: flex-start;
 			flex-wrap: wrap;
 
-			& .hero_home_titles {
+			& .hero_titles {
 				flex: 1 1 auto;
 				order: 2;
+			}
+
+			& .hero_profile {
+				flex: 0 0 auto;
+				order: 1;
+
+				margin-right: var(--size-4);
+
+				& img {
+					width: 150px;
+					border-radius: 999px;
+					border: 6px solid var(--color-orange);
+				}
 			}
 		}
 	}
