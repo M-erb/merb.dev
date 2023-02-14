@@ -26,7 +26,7 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 			<Navigation menuList={menuList} socialList={socialList} />
 			<div class="post_bg" style={`background-image: url(${postImg})`}>
 				<div class="post_bg_cite">
-					<span>Photo by <a href={imgByUrl}>{imgByName}</a> on <a href={imgSrc}>Unsplash</a></span>
+					<span>Photo by <a href={imgByUrl} target="_blank">{imgByName}</a> on <a href={imgSrc} target="_blank">Unsplash</a></span>
 				</div>
 			</div>
 
