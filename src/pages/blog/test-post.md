@@ -19,6 +19,19 @@ Run `npm i koa` then run `npm run dev` and profit!
 
 Diam maecenas ultricies mi eget mauris pharetra et. Tortor vitae purus faucibus ornare suspendisse. Ut eu sem integer vitae justo eget magna fermentum. Donec et odio pellentesque `diam volutpat commodo sed egestas`. Ac placerat vestibulum lectus mauris ultrices eros in. Ultrices dui sapien eget mi proin sed. Egestas quis ipsum suspendisse ultrices gravida. Bibendum enim facilisis gravida neque convallis a cras semper. Ipsum dolor sit amet consectetur adipiscing elit ut. Fermentum et sollicitudin ac orci. Scelerisque felis imperdiet proin fermentum leo. Sem et tortor consequat id porta nibh venenatis cras.
 
+```javascript
+// taking kilometers input from the user
+const kilometers = prompt("Enter value in kilometers: ")
+
+// conversion factor
+const factor = 0.621371
+
+// calculate miles
+const miles = kilometers * factor
+
+console.log(`${kilometers} kilometers is equal to ${miles} miles.`)
+```
+
 Diam maecenas uUpellentesque diam volutpat commodo sed egestas. Nisi est sit amet facilisis magna etiam tempor orci. Habitant morbi tristique senectus et netus et. Sed augue lacus viverra vitae congue eu consequat ac. Egestas purus viverra accumsan in nisl. Risus pretium quam vulputate dignissim suspendisse in est ante. Turpis egestas pretium aenean pharetra magna ac. Ipsum dolor sit amet consectetur adipiscing elit ut. Fermentum et sollicitudin ac orci. Scelerisque felis imperdiet proin fermentum leo. Sem et tortor consequat id porta nibh venenatis cras.
 
 Diam maecenas uUpellentesque diam volutpat commodo sed egestas. Nisi est sit amet facilisis magna etiam tempor orci. Habitant morbi tristique senectus et netus et. Sed augue lacus viverra vitae congue eu consequat ac. Egestas purus viverra accumsan in nisl. Risus pretium quam vulputate dignissim suspendisse in est ante. Turpis egestas pretium aenean pharetra magna ac. Ipsum dolor sit amet consectetur adipiscing elit ut. Fermentum et sollicitudin ac orci. Scelerisque felis imperdiet proin fermentum leo. Sem et tortor consequat id porta nibh venenatis cras.

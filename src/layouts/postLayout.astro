@@ -166,6 +166,24 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 	}
 </style>
 
+<script>
+	const codeBlocks = [...document.querySelectorAll('.astro-code')]
+	for (const codeBlock of codeBlocks) {
+		const btn = document.createElement('button')
+		const textToCopy = codeBlock.textContent
+		btn.classList.add('copy_btn')
+		btn.innerText = 'copy'
+		btn.addEventListener('click', () => {
+			navigator.clipboard.writeText(textToCopy)
+				.catch(err => {
+					console.log('copy to clipboard failed: ', err)
+				})
+		})
+
+		codeBlock.appendChild(btn)
+	}
+</script>
+
 <style is:global>
 	.astro-code {
 		display: block;
@@ -173,6 +191,28 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 		margin: var(--size-6) 0;
 		border-radius: var(--radius-xl);
 		font-family: 'Ubuntu Mone', mono;
+		position: relative;
+
+		& button.copy_btn {
+			content: 'copy';
+			position: absolute;
+			top: 6px;
+			right: 6px;
+			display: block;
+			background-color: transparent;
+			border: 2px solid var(--color-white);
+			border-radius: 8px;
+			color: var(--color-white);
+			font-size: var(--scale-0);
+			padding: var(--size-1) var(--size-2);
+			opacity: .7;
+			transition: opacity .3s;
+			cursor: pointer;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
 	}
 
 	article {
