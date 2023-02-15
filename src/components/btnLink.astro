@@ -9,15 +9,13 @@ export interface Props {
 
 const { href, icon, isBlock } = Astro.props
 ---
+
 <span class:list={['btn_link_wrap', {'__block': isBlock}]}>
 	<a class="btn_link" href={href}>
 		<span><slot /></span>
 		<Icon pack="lucide" name={icon} />
 	</a>
 </span>
-
-<script>
-</script>
 
 <style lang="postcss">
 	.btn_link {

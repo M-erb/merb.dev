@@ -14,7 +14,7 @@ export default defineConfig({
     console.log('env: ', command)
     return {
       port: Number(process.env.PORT) || 3000
-    };
+    }
   },
   markdown: {
     syntaxHighlight: 'shiki',
@@ -24,4 +24,4 @@ export default defineConfig({
     }
   },
   integrations: [mdx()]
-});
+})
