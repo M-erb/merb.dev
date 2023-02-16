@@ -2,13 +2,16 @@
 import '@styles/main.pcss'
 import Navigation from '@components/navigation.astro'
 import Footer from '@components/footer.astro'
+import authorList from '@data/authors.js'
 import { menuList, menuList2, socialList } from '@data/nav.js'
 
 export interface Props {
 	title: string
 }
 
-const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro.props.frontmatter
+const { title, author, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro.props.frontmatter
+
+const authorInfo = authorList.find(item => (item.name === author))
 ---
 
 <!DOCTYPE html>
@@ -46,8 +49,25 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 							<slot />
 						</article>
 
-						<div class="author_space">
-							<h6 class="h2 hero_title">Author</h6>
+						<div class="author_sec">
+							<h3 class="h2 hero_title">Author</h3>
+							{authorInfo ?
+								<div class="author_space">
+									<div class="author_pic">
+										<img src={authorInfo.img} alt={authorInfo.name}>
+									</div>
+									<div class="author_txt">
+										<h4 class="">{ authorInfo.name }</h4>
+										<p class="">{ authorInfo.bio }</p>
+									</div>
+								</div>
+							:
+								<div class="author_space">
+									<div class="author_txt">
+										<h4 class="">{ author }</h4>
+									</div>
+								</div>
+							}
 						</div>
 					</div>
 				</main>
@@ -164,6 +184,43 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 			}
 		}
 	}
+
+	.author_sec {
+		margin-top: var(--size-24);
+
+		& .author_space {
+			display: flex;
+			jusify-content: flex-start;
+			align-items: flex-start;
+			flex-wrap: wrap;
+
+			margin-top: var(--size-12);
+
+			& .author_pic {
+				flex: 0 0 auto;
+				margin-right: var(--size-6);
+
+				& img {
+					width: 150px;
+					border-radius: 999px;
+					border: 6px solid var(--color-orange);
+				}
+			}
+
+			& .author_txt {
+				flex: 1 1 200px;
+
+				& h4 {
+					font-weight: bold;
+					margin-bottom: var(--size-2);
+				}
+
+				& p {
+					line-height: 2;
+				}
+			}
+		}
+	}
 </style>
 
 <script>
@@ -187,7 +244,7 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 <style is:global>
 	.astro-code {
 		display: block;
-		padding: var(--size-6) var(--size-4);
+		padding: var(--size-8) var(--size-4);
 		margin: var(--size-6) 0;
 		border-radius: var(--radius-xl);
 		font-family: 'Ubuntu Mone', mono;
@@ -203,9 +260,9 @@ const { title, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro
 			border: 2px solid var(--color-white);
 			border-radius: 8px;
 			color: var(--color-white);
-			font-size: var(--scale-0);
+			font-size: var(--scale-00);
 			padding: var(--size-1) var(--size-2);
-			opacity: .7;
+			opacity: .4;
 			transition: opacity .3s;
 			cursor: pointer;
 
