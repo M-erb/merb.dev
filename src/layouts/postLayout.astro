@@ -2,6 +2,7 @@
 import '@styles/main.pcss'
 import Navigation from '@components/navigation.astro'
 import Footer from '@components/footer.astro'
+import ContactSec from '@components/contactSec.astro'
 import authorList from '@data/authors.js'
 import { menuList, menuList2, socialList } from '@data/nav.js'
 
@@ -73,6 +74,8 @@ const authorInfo = authorList.find(item => (item.name === author))
 				</main>
 				{/* <aside></aside> */}
 			</div>
+
+			<ContactSec />
 
 			<Footer menuList={menuList} menuList2={menuList2} socialList={socialList} />
 		</div>
@@ -187,6 +190,7 @@ const authorInfo = authorList.find(item => (item.name === author))
 
 	.author_sec {
 		margin-top: var(--size-24);
+		margin-bottom: var(--size-24);
 
 		& .author_space {
 			display: flex;
