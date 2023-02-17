@@ -44,3 +44,9 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Check list before going live:
+- [Astro SEO](https://github.com/jonasmerlin/astro-seo)
+- [Astro Robots.txt](https://github.com/alextim/astro-lib/tree/main/packages/astro-robots-txt#readme)
+- [Astro Sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
+- [Astro partytown](https://docs.astro.build/en/guides/integrations-guide/partytown/)
