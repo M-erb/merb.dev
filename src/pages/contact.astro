@@ -1,6 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import SecTitle from '@components/secTitle.astro'
+import Layout from '@layouts/Layout.astro'
+// import SecTitle from '@components/secTitle.astro'
+import ContactForm from '@components/vue/contactUs.vue'
 import ProfileImg from '/profile.jpg'
 ---
 
@@ -18,6 +19,12 @@ import ProfileImg from '/profile.jpg'
 		</div>
 	</header>
 
+	<main>
+		<section class="container">
+			<ContactForm client:load />
+		</section>
+	</main>
+
 	<!-- <main>
 		<section class="container">
 			<SecTitle num="1">Contat Form</SecTitle>
@@ -33,7 +40,7 @@ import ProfileImg from '/profile.jpg'
 		justify-content: center;
 		align-items: flex-start;
 		flex-direction: column;
-		min-height: 500px;
+		min-height: 340px;
 
 		& .hero_inner {
 			padding-top: var(--size-8);
@@ -54,7 +61,7 @@ import ProfileImg from '/profile.jpg'
 			flex-wrap: wrap;
 
 			& .hero_titles {
-				flex: 1 1 auto;
+				flex: 0 0 50%;
 				order: 2;
 			}
 
