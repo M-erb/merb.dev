@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import { defineConfig } from 'astro/config'
 import mdx from "@astrojs/mdx"
+import vue from "@astrojs/vue"
 dotenv.config()
 
 // https://astro.build/config
@@ -23,5 +24,5 @@ export default defineConfig({
       wrap: true
     }
   },
-  integrations: [mdx()]
+  integrations: [mdx(), vue()]
 })
