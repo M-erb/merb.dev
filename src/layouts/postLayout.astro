@@ -277,11 +277,6 @@ const authorInfo = authorList.find(item => (item.name === author))
 	}
 
 	article {
-		& p {
-			margin-bottom: var(--size-6);
-			line-height: 2;
-		}
-
 		& code {
 			padding: var(--size-2);
 			border-radius: 4px;
@@ -292,6 +287,58 @@ const authorInfo = authorList.find(item => (item.name === author))
 			background-color: transparent;
 			padding: 0;
 			border-radius: 0;
+		}
+
+		& p {
+			margin-bottom: var(--size-6);
+			line-height: 2;
+		}
+
+		& h1, & h2, & h3, & h4, & h5, & h6 {
+			font-weight: 700;
+			margin-bottom: var(--size-6);
+			line-height: 2;
+		}
+
+		& h1 {
+			font-size: var(--scale-6);
+		}
+
+		& h2 {
+			font-size: var(--scale-5);
+		}
+
+		& h3 {
+			font-size: var(--scale-4);
+		}
+
+		& h4 {
+			font-size: var(--scale-3);
+		}
+
+		& h5 {
+			font-size: var(--scale-2);
+		}
+
+		& h6 {
+			font-size: var(--scale-1);
+		}
+
+		& ul, & ol {
+			margin-left: var(--size-4);
+			margin-bottom: var(--size-4);
+
+			& li {
+				line-height: 1.6;
+			}
+		}
+
+		& ul {
+			list-style: disc;
+		}
+
+		& ol {
+			list-style: decimal;
 		}
 	}
 </style>
