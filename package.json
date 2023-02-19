@@ -26,6 +26,7 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "standard": "^17.0.0"
   }
 }
