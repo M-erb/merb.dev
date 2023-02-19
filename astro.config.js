@@ -6,7 +6,7 @@ dotenv.config()
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://merb.dev',
+  site: process.env.SITE,
   build: {
     format: 'directory',
     assets: 'assets'
