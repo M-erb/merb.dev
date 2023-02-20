@@ -5,6 +5,12 @@ import ContactSec from '@components/contactSec.astro'
 import { getCollection } from 'astro:content'
 
 const posts = await getCollection('blog')
+// todo
+// 1. sort posts by date (most recent first)
+// 2. inject posts into data attribute in html
+// 3. Add vuejs component that grabs data attribute
+// 4. pluck top 6 or so and display those first
+// 5. add search
 
 console.log('posts: ', posts)
 ---
