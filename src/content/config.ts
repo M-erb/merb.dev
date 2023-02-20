@@ -11,10 +11,11 @@ const blogCollection = defineCollection({
     postImg: z.string(),
     imgByName: z.string(),
     imgByUrl: z.string(),
-    imgSrc: z.string()
+    imgSrc: z.string(),
+    excerpt: z.string()
   })
 })
 
 export const collections = {
-  'blog': blogCollection,
+  blog: blogCollection
 }
