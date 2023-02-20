@@ -27,13 +27,13 @@
       </label>
 
       <div class="btn_wrap mobile_only_control">
-        <button class="btn"><span>Continue</span></button>
+        <button class="btn" @click="scrollToLetter"><span>Continue</span></button>
       </div>
     </div>
 
-    <div class="letter_space">
+    <div class="letter_space" ref="letterspace">
       <div class="letter_space_inner">
-        <h4 class="title_bold">Message to Me</h4>
+        <h4 class="title_bold">Your Message to Me</h4>
         <div class="letter_top">
           <div class="letter_head">
             <p><span class="faded_text">From: {{ firstNameSub }} {{ fields.lastName }}&lt;{{ emailSub }}></span></p>
@@ -49,7 +49,7 @@
         </div>
         <div class="letter_controls">
           <div class="btn_wrap __right">
-            <button class="btn" @click="submitForm"><span>Submit</span></button>
+            <button class="btn" @click="submitForm"><span>Send It</span></button>
           </div>
         </div>
       </div>
@@ -62,8 +62,9 @@ export default { name: 'ContactUs' }
 </script>
 
 <script setup>
-import { reactive, computed } from 'vue'
+import { reactive, computed, ref } from 'vue'
 
+const letterspace = ref(null)
 const fields = reactive({
   firstName: '',
   lastName: '',
@@ -74,6 +75,10 @@ const fields = reactive({
 
 function submitForm () {
   console.log('submitForm: ', fields.firstName)
+}
+
+function scrollToLetter () {
+  letterspace.value.scrollIntoView({ behavior: 'smooth' })
 }
 
 const firstNameSub = computed(() => {
