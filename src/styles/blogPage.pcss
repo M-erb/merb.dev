@@ -1,0 +1,125 @@
+.post_item {
+  margin-left: var(--size--3);
+  margin-right: var(--size--3);
+  padding-top: var(--size-4);
+  padding-bottom: var(--size-24);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  @media (--md) {
+    & {
+      padding-top: var(--size-4);
+      padding-bottom: var(--size-4);
+    }
+  }
+
+  & .post_img_space {
+    display: block;
+    flex: 1 1 auto;
+    padding: var(--size-3);
+    width: 100%;
+
+    & .post_img {
+      width: 100%;
+      padding-bottom: 56.25%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: var(--color-grey-800);
+      border-radius: var(--radius-xl);
+    }
+
+    @media (--md) {
+      & {
+        width: 50%;
+      }
+    }
+  }
+
+  & .post_details {
+    flex: 1 1 auto;
+    padding: var(--size-3);
+    width: 100%;
+
+    @media (--md) {
+      & {
+        width: 50%;
+      }
+    }
+
+    & .post_title {
+      display: inline-block;
+      font-size: var(--scale-5);
+      font-weight: 700;
+      text-transform: uppercase;
+      position: relative;
+      margin-right: 38px;
+
+      & a {
+        text-decoration: none;
+      }
+
+      & span {
+        position: absolute;
+        font-size: var(--scale-00);
+        font-weight: 700;
+        top: 0;
+        right: -28px;
+        user-select: none;
+      }
+    }
+
+    & .post_date {
+      color: var(--color-grey);
+    }
+
+    & .post_excerpt {
+      line-height: 1.6;
+      white-space: pre-wrap;
+      margin-top: var(--size-2);
+    }
+  }
+}
+
+.post_search {
+  padding-bottom: var(--size-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-left: var(--size--3);
+  margin-right: var(--size--3);
+
+  & .search_control {
+    flex: 1 1 auto;
+    padding: var(--size-3);
+    width: 100%;
+
+    @media (--md) {
+      & {
+        width: 50%;
+      }
+    }
+  }
+
+  & label {
+    margin-bottom: 0;
+
+    & span {
+      font-size: var(--scale-4);
+
+      @media (--md) {
+        & {
+          font-size: var(--scale-6);
+        }
+      }
+    }
+
+    & input {
+      padding: var(--size-3) var(--size-2)
+    }
+  }
+}
