@@ -1,6 +1,6 @@
 ---
 layout: '@layouts/postLayout.astro'
-title: 'Example Post'
+title: 'Example Post 2'
 author: 'Michael Erb'
 description: 'Using this as a baseline for future posts'
 date: 'Feb 12, 2023'

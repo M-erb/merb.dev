@@ -2,6 +2,11 @@
 import Layout from '../layouts/Layout.astro'
 import CustomBorderSec from '@components/customBorderSec.astro'
 import ContactSec from '@components/contactSec.astro'
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('blog')
+
+console.log('posts: ', posts)
 ---
 
 <Layout title="Michael Erb Blog">
@@ -19,7 +24,16 @@ import ContactSec from '@components/contactSec.astro'
 	<main>
 		<CustomBorderSec top="curve_blue">
 			<div class="posts_sec">
-
+				{posts.map((item, index) => (
+					<div class="post_item">
+						<a href={`/blog/${item.slug}`} class="post_img_space"><div class="post_img" style={`background-image: url(${item.data.postImg})`}></div></a>
+						<div class="post_details">
+							<h3 class="post_title"><a href={`/blog/${item.slug}`}>{item.data.title} <span>/0{index+1}</span></a></h3>
+							<p class="post_date">{item.data.date}</p>
+							<p class="post_excerpt">{item.data.excerpt}</p>
+						</div>
+					</div>
+				))}
 			</div>
 		</CustomBorderSec>
 
@@ -64,5 +78,88 @@ import ContactSec from '@components/contactSec.astro'
 
 	.posts_sec {
 		min-height: 500px;
+		padding: var(--size-2) 0 ;
+	}
+
+	.post_item {
+		margin-left: var(--size--3);
+		margin-right: var(--size--3);
+		padding-top: var(--size-4);
+		padding-bottom: var(--size-24);
+
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+		flex-wrap: wrap;
+
+		@media (--md) {
+			& {
+				padding-top: var(--size-4);
+				padding-bottom: var(--size-4);
+			}
+		}
+
+		& .post_img_space {
+			display: block;
+			flex: 1 1 auto;
+			padding: var(--size-3);
+			width: 100%;
+
+			& .post_img {
+				width: 100%;
+				padding-bottom: 56.25%;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-color: var(--color-grey-800);
+				border-radius: var(--radius-xl);
+			}
+
+			@media (--md) {
+				& {
+					width: 50%;
+				}
+			}
+		}
+
+		& .post_details {
+			flex: 1 1 auto;
+			padding: var(--size-3);
+			width: 100%;
+
+			@media (--md) {
+				& {
+					width: 50%;
+				}
+			}
+
+			& .post_title {
+				display: inline-block;
+				font-size: var(--scale-5);
+				font-weight: 700;
+				text-transform: uppercase;
+				position: relative;
+				margin-right: 38px;
+
+				& span {
+					position: absolute;
+					font-size: var(--scale-00);
+					font-weight: 700;
+					top: 0;
+					right: -28px;
+					user-select: none;
+				}
+			}
+
+			& .post_date {
+				color: var(--color-grey);
+			}
+
+			& .post_excerpt {
+				line-height: 1.6;
+				white-space: pre-wrap;
+				margin-top: var(--size-2);
+			}
+		}
 	}
 </style>
