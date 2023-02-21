@@ -10,6 +10,9 @@ import dockerLogo from '@imgs/tech/docker_icon.svg'
 import ubuntuLogo from '@imgs/tech/ubuntu.svg'
 import mariaDbLogo from '@imgs/tech/mariadb.svg'
 import nginxLogo from '@imgs/tech/Nginx_logo.svg'
+import nodejsLogo from '@imgs/tech/nodejs.svg'
+import npmLogo from '@imgs/tech/npm.svg'
+import viteLogo from '@imgs/tech/vite-veet-logo.svg'
 
 export const badges = [
   {
@@ -27,17 +30,17 @@ export const techList = [
   {
     name: 'koa',
     logo: koaLogo,
-    url: 'https://koajs.com/'
+    url: 'https://koajs.com'
   },
   {
     name: 'Vuejs',
     logo: vueLogo,
-    url: 'https://vuejs.org/'
+    url: 'https://vuejs.org'
   },
   {
     name: 'postcss',
     logo: postcssLogo,
-    url: 'https://postcss.org/'
+    url: 'https://postcss.org'
   },
   {
     name: 'HTML',
@@ -57,32 +60,47 @@ export const techList = [
   {
     name: 'vsCode',
     logo: vscodeLogo,
-    url: 'https://code.visualstudio.com/'
+    url: 'https://code.visualstudio.com'
   },
   {
-    name: 'zsh',
-    logo: zshLogo,
-    url: 'https://www.zsh.org/'
+    name: 'node.js',
+    logo: nodejsLogo,
+    url: 'https://nodejs.org'
   },
   {
     name: 'Docker',
     logo: dockerLogo,
-    url: 'https://www.docker.com/'
+    url: 'https://www.docker.com'
   },
   {
     name: 'Ubuntu',
     logo: ubuntuLogo,
-    url: 'https://ubuntu.com/'
+    url: 'https://ubuntu.com'
   },
   {
     name: 'mariaDB',
     logo: mariaDbLogo,
-    url: 'https://mariadb.org/'
+    url: 'https://mariadb.org'
   },
   {
     name: 'nginx',
     logo: nginxLogo,
-    url: 'https://nginx.org/en/'
+    url: 'https://nginx.org'
+  },
+  {
+    name: 'NPM',
+    logo: npmLogo,
+    url: 'https://www.npmjs.com'
+  },
+  {
+    name: 'zsh',
+    logo: zshLogo,
+    url: 'https://www.zsh.org'
+  },
+  {
+    name: 'Vite',
+    logo: viteLogo,
+    url: 'https://vitejs.dev'
   }
 ]
 
