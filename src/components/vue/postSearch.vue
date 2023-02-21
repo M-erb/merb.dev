@@ -19,6 +19,11 @@
           <p class="post_excerpt">{{ post.excerpt }}</p>
         </div>
       </div>
+
+      <div class="post_item_empty" v-if="!filteredPosts.length">
+        <p v-if="props.posts.length">No Posts Found</p>
+        <p v-if="!props.posts.length">No Posts Yet</p>
+      </div>
     </TransitionGroup>
   </div>
 </template>

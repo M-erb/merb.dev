@@ -6,13 +6,10 @@ import { getCollection } from 'astro:content'
 import PostSearch from '@components/vue/postSearch.vue'
 import { compareDesc as compareDescDate } from 'date-fns'
 
-const blogPosts = await getCollection('blog')
-// todo
-// 1. sort posts by date (most recent first)
-// 2. inject posts into data attribute in html
-// 3. Add vuejs component that grabs data attribute
-// 4. pluck top 6 or so and display those first
-// 5. add search
+const blogPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+})
+
 const posts = []
 for (const post of blogPosts) {
 	const { slug, data } = post
@@ -89,6 +86,8 @@ posts.sort((a, b) => {
 
 	.posts_sec {
 		min-height: 500px;
-		padding: var(--size-2) 0 ;
+		padding-top: var(--size-2);
+		padding-bottom: var(--size-6);
+		min-height: 600px;
 	}
 </style>

@@ -96,6 +96,20 @@
   }
 }
 
+.post_item_empty {
+  & p {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: var(--scale-5);
+
+    @media (--md) {
+      & {
+        font-size: var(--scale-8);
+      }
+    }
+  }
+}
+
 .post_search {
   padding-bottom: var(--size-6);
   display: flex;
