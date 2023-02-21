@@ -23,13 +23,25 @@
     width: 100%;
 
     & .post_img {
+      display: block;
       width: 100%;
-      padding-bottom: 56.25%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: var(--color-grey-800);
       border-radius: var(--radius-xl);
+      overflow: hidden;
+
+      & .post_img_bg {
+        width: 100%;
+        padding-bottom: 56.25%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: var(--color-grey-800);
+        transition: transform .3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
     }
 
     @media (--md) {
