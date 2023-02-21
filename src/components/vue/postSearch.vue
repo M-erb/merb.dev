@@ -8,14 +8,18 @@
       <!-- <div class="search_control"></div> -->
     </div>
 
-    <div class="post_item" v-for="(post, index) in filteredPosts" :key="index">
-      <a :href="post.url" class="post_img_space"><div class="post_img" :style="`background-image: url(${post.img})`"></div></a>
-      <div class="post_details">
-        <h3 class="post_title"><a :href="post.url">{{ post.title }} <span>/0{{ index + 1 }}</span></a></h3>
-        <p class="post_date">{{ formatDate(post.date, 'MMM do, yyyy') }}</p>
-        <p class="post_excerpt">{{ post.excerpt }}</p>
+    <TransitionGroup name="list">
+      <div class="post_item" v-for="(post, index) in filteredPosts" :key="index">
+        <div class="post_img_space">
+          <a :href="post.url" class="post_img"><div class="post_img_bg" :style="`background-image: url(${post.img})`"></div></a>
+        </div>
+        <div class="post_details">
+          <h3 class="post_title"><a :href="post.url">{{ post.title }} <span>/0{{ index + 1 }}</span></a></h3>
+          <p class="post_date">{{ formatDate(post.date, 'MMM do, yyyy') }}</p>
+          <p class="post_excerpt">{{ post.excerpt }}</p>
+        </div>
       </div>
-    </div>
+    </TransitionGroup>
   </div>
 </template>
 
