@@ -22,7 +22,7 @@ import { badges, techList, expList } from '@data/home.js'
 					<h2 class="hero_title">A Fullstack Engineer</h2>
 				</div>
 				<div class="hero_home_profile">
-					<img src={ProfileImg} alt="Michael Erb">
+					<img src={ProfileImg} alt="Michael Erb" width="150" height="150" />
 				</div>
 			</div>
 			<p class="hero_txt">Ready to bring your idea to life, start to finish 🤙</p>
@@ -151,8 +151,15 @@ import { badges, techList, expList } from '@data/home.js'
 
 				& img {
 					width: 150px;
+					height: 150px;
 					border-radius: 999px;
 					border: 6px solid var(--color-orange);
+					background-color: var(--color-grey-300);
+
+					display: flex;
+					text-align: center;
+					justify-content: center;
+					align-items: center;
 				}
 			}
 		}
