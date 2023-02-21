@@ -4,7 +4,7 @@ title: 'Example Post'
 author: 'Michael Erb'
 description: 'Using this as a baseline for future posts'
 date: 'Feb 12, 2023'
-draft: false
+draft: true
 postImg: '/postImgs/nathan-anderson-9rNyml9OKfI-unsplash.jpg'
 imgByName: 'Nathan Anderson'
 imgByUrl: 'https://unsplash.com/@nathananderson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
