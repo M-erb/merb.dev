@@ -3,7 +3,7 @@
     <div class="post_search">
       <label class="search_control">
         <span>Search</span>
-        <input type="text" v-model="query.term" />
+        <input type="text" v-model="query.term" placeholder="Type here..." />
       </label>
       <!-- <div class="search_control"></div> -->
     </div>
