@@ -1,11 +1,4 @@
 ---
-import BorderTop from '@imgs/borders/curve border top.svg'
-import BorderLopsideTop from '@imgs/borders/curve lopside top.svg'
-import BorderTopBlue from '@imgs/borders/curve border top blue.svg'
-import BorderBottom from '@imgs/borders/curve border bottom.svg'
-import WaveBorder from '@imgs/borders/wave-border.svg'
-import WaveBorderBlue from '@imgs/borders/wave-border-blue.svg'
-
 export interface Props {
 	id?: string
 	top?: string
@@ -21,17 +14,19 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 <Element id={id || ''} class:list={['special_sec', {'__is_wavy': top === 'wavy'}]}>
 	<div class="special_sec_top">
 		{top === 'curve_blue' ?
-			<img class="special_border" src={BorderTop} alt="" draggable="false">
-			<img class="special_border __under" src={BorderTopBlue} alt="" draggable="false">
+			<svg class="special_border" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" xmlns="http://www.w3.org/2000/svg" height="197" viewBox="0 895 1280 197" preserveAspectRatio="none" fill="#1b1b1b" version="1.1"><path rx="0" ry="0" d="M0.000,895.000C0.000,895.000,600.345,1282.000,1280.000,895.000L1280.000,1092.000L0.000,1092.000L0.000,895.000Z" /></svg>
+			<svg class="special_border __under" width="1280" height="286" viewBox="0 885 1280 286" preserveAspectRatio="none" fill="#47afc2" version="1.1" xmlns="http://www.w3.org/2000/svg"><path rx="0" ry="0" d="m 0,885 c 0,0 600.345,387 1280,0 l 0.1288,286.5516 H 0.1287577 Z"/></svg>
 		: ''}
 
 		{top === 'lopside' ?
-			<img class="special_border" src={BorderLopsideTop} alt="" draggable="false">
+			<svg class="special_border" width="1281" xmlns="http://www.w3.org/2000/svg" height="270" viewBox="0 2835 1281 270" preserveAspectRatio="none" fill="#1b1b1b" version="1.1"><path rx="0" ry="0" d="M0.000,3009.889L0.000,3105.000L1281.000,3105.000L1281.000,2835.000C792.254,3239.688,0.000,3009.889,0.000,3009.889ZM0.000,3009.889L0.000,3009.889ZL0.000,3009.889Z"/></svg>
 		: ''}
 
 		{top === 'wavy' ?
-			<img class="special_border __wavy" src={WaveBorder} alt="" draggable="false">
-			<img class="special_border __under __wavy" src={WaveBorderBlue} alt="" draggable="false">
+			<svg class="special_border __wavy" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" xmlns="http://www.w3.org/2000/svg" height="261.347" viewBox="0 4879 1280 261.347" preserveAspectRatio="none" fill="#1b1b1b" version="1.1"><path rx="0" ry="0" d="M0.000,5088.949C20.648,5046.913,68.548,4985.925,164.068,5088.949C256.753,5188.914,251.906,4985.197,344.671,5070.243C427.212,5145.916,482.867,5055.789,482.867,5055.789C482.867,5055.789,549.530,4955.828,622.536,5027.057C701.324,5103.928,773.294,5009.034,773.294,5009.034C773.294,5009.034,838.118,4914.443,922.473,5009.034C1009.316,5106.414,1051.165,4933.131,1051.165,4933.131C1051.165,4933.131,1086.752,4820.636,1151.839,4919.991C1219.122,5022.700,1280.000,4995.154,1280.000,4995.154L1280.000,5140.347L0.000,5140.347L0.000,5088.949Z"/></svg>
+
+			<svg class="special_border __under __wavy" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" xmlns="http://www.w3.org/2000/svg" height="321" viewBox="1 4818 1280 321" preserveAspectRatio="none" fill="#47afc2" version="1.1"><path rx="0" ry="0" d="M1.000,5075.870C21.648,5024.240,69.548,4949.331,165.068,5075.870C257.753,5198.653,252.906,4948.437,345.671,5052.895C428.212,5145.841,483.867,5035.141,483.867,5035.141C483.867,5035.141,550.530,4912.364,623.536,4999.851C702.324,5094.268,774.294,4977.715,774.294,4977.715C774.294,4977.715,839.118,4861.533,923.473,4977.715C1010.316,5097.322,1052.165,4884.487,1052.165,4884.487C1052.165,4884.487,1087.752,4746.314,1152.839,4868.348C1220.122,4994.500,1281.000,4960.666,1281.000,4960.666L1281.000,5139.000L1.000,5139.000L1.000,5075.870Z"/></svg>
+
 		: ''}
 	</div>
 
@@ -43,7 +38,8 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 
 	{bottom === 'none' ?
 		''
-	: <img class="special_border __bottom" src={BorderBottom} alt="" draggable="false">}
+	: <svg class="special_border __bottom" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" xmlns="http://www.w3.org/2000/svg" height="197" viewBox="0 1787 1280 197" preserveAspectRatio="none" fill="#1b1b1b" version="1.1"><path rx="0" ry="0" d="M0.000,1984.000C0.000,1984.000,600.345,1597.000,1280.000,1984.000L1280.000,1787.000L0.000,1787.000L0.000,1984.000Z"/></svg>
+}
 </Element>
 
 <script>
@@ -72,6 +68,7 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 	.special_border {
 		display: block;
 		width: calc(100% + 6px);
+		min-width: 440px;
 		position: relative;
 		top: 2px;
 		left: -2px;
@@ -81,33 +78,21 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 		-webkit-user-drag: none;
 		-moz-user-drag: none;
 
+		& path {
+			width: 100%
+		}
+
 		&.__bottom {
 			top: -2px;
 		}
 
 		&.__under {
 			position: absolute;
-			top: -8px;
+			top: -16px;
 			z-index: 1;
 
 			&.__wavy {
-				top: -10px;
-
-				@media (min-width: 380px) {
-					top: -20px;
-				}
-
-				@media (min-width: 480px) {
-					top: -30px;
-				}
-
-				@media (min-width: 640px) {
-					top: -40px;
-				}
-
-				@media (min-width: 768px) {
-					top: -50px;
-				}
+				top: -60px;
 
 				@media (min-width: 1024px) {
 					top: -65px;
