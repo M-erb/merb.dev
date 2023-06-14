@@ -55,3 +55,12 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
   - [Astro partytown](https://docs.astro.build/en/guides/integrations-guide/partytown/) maybe...
 - Remove Lorem from experience sec on home
 - Install analytics
+
+## TODOS:
+- [ ] Create 404 design
+- [ ] Code up 404 page
+- [ ] create content for about me post
+- [ ] create 2 posts
+- [ ] create sitemap
+- [ ] create robots.txt
+- [ ] install seo plugin
