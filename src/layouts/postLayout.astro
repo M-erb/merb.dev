@@ -7,7 +7,8 @@ import authorList from '@data/authors.js'
 import { menuList, menuList2, socialList } from '@data/nav.js'
 
 export interface Props {
-	title: string
+	title: string,
+	frontmatter: { title, author, date, description, postImg, imgByName, imgByUrl, imgSrc }
 }
 
 const { title, author, date, description, postImg, imgByName, imgByUrl, imgSrc } = Astro.props.frontmatter
@@ -289,7 +290,7 @@ const authorInfo = authorList.find(item => (item.name === author))
 			border-radius: 0;
 		}
 
-		& p {
+		& p, & figure {
 			margin-bottom: var(--size-6);
 			line-height: 2;
 		}
