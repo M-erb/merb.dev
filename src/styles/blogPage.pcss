@@ -149,3 +149,99 @@
     }
   }
 }
+
+.astro-code {
+  display: block;
+  padding: var(--size-8) var(--size-4);
+  margin: var(--size-6) 0;
+  border-radius: var(--radius-xl);
+  font-family: 'Ubuntu Mone', mono;
+  position: relative;
+
+  & button.copy_btn {
+    content: 'copy';
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    display: block;
+    background-color: transparent;
+    border: 2px solid var(--color-white);
+    border-radius: 8px;
+    color: var(--color-white);
+    font-size: var(--scale-00);
+    padding: var(--size-1) var(--size-2);
+    opacity: .4;
+    transition: opacity .3s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+article, .body_txt {
+  & code {
+    padding: var(--size-2);
+    border-radius: 4px;
+    background-color: var(--color-grey-300);
+  }
+
+  & .astro-code code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  & p, & figure {
+    margin-bottom: var(--size-6);
+    line-height: 2;
+  }
+
+  & h1, & h2, & h3, & h4, & h5, & h6 {
+    font-weight: 700;
+    margin-bottom: var(--size-6);
+    line-height: 2;
+  }
+
+  & h1 {
+    font-size: var(--scale-6);
+  }
+
+  & h2 {
+    font-size: var(--scale-5);
+  }
+
+  & h3 {
+    font-size: var(--scale-4);
+  }
+
+  & h4 {
+    font-size: var(--scale-3);
+  }
+
+  & h5 {
+    font-size: var(--scale-2);
+  }
+
+  & h6 {
+    font-size: var(--scale-1);
+  }
+
+  & ul, & ol {
+    margin-left: var(--size-4);
+    margin-bottom: var(--size-4);
+
+    & li {
+      line-height: 1.6;
+    }
+  }
+
+  & ul {
+    list-style: disc;
+  }
+
+  & ol {
+    list-style: decimal;
+  }
+}
