@@ -107,30 +107,52 @@ export const techList = [
 export const expList = [
   {
     company: 'Redirect Health',
-    title: 'Senior Full Stack Engineer',
+    title: 'Full Stack Engineer',
     fromYr: 2019,
     endYr: 0,
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
+    tech: ['Nodejs', 'vuejs', 'HTML', 'CSS', 'JS', 'Ubuntu'],
+    desc: 'Create custom websites, internal tools, applications and APIs for partners'
+  },
+  {
+    company: 'Freenlancer',
+    title: 'Full Stack Engineer',
+    fromYr: 2019,
+    endYr: 2019,
+    tech: ['Nodejs', 'vuejs', 'HTML', 'CSS', 'JS'],
+    desc: 'Contacts for Mozilla and the Wharton School of Business'
   },
   {
     company: 'Success Engine',
     title: 'Developer and business consultant',
     fromYr: 2018,
     endYr: 2019,
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
+    tech: ['Laravel', 'vuejs'],
+    desc: 'Worked to create custom app for storing zoom data and consulted with small business clients in how to use tech in their case'
   },
   {
     company: 'Rocket Media',
-    title: 'Web Developer',
+    title: 'Full Stack Web Developer',
     fromYr: 2018,
     endYr: 2018,
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
+    tech: ['PHP(Craft CMS)', 'vuejs', 'JS', 'HTML', 'CSS(SASS)'],
+    desc: 'Created blazing fast and high preforming websites for the HVAC industry'
   },
   {
     company: 'I-ology',
     title: 'Front End Developer',
     fromYr: 2017,
     endYr: 2018,
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.'
+    tech: ['Angularjs (v1)', 'vuejs', 'C#'],
+    desc: 'Worked in a small close team to create web sites and interfaces for large medical companies like sonoraquest.com'
+  },
+  {
+    company: 'Freenlancer',
+    title: 'Front End Developer',
+    fromYr: 2016,
+    endYr: 2017,
+    tech: ['Angularjs (v1)', 'HTML', 'CSS', 'JS', 'nodejs'],
+    desc: 'Did odd jobs for small businesses I came in contact with and through freelancer websites like Fiverr.com'
   }
 ]
+
+// Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.

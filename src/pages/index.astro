@@ -64,7 +64,7 @@ import { badges, techList, expList } from '@data/home.js'
 			{expList.length ?
 				<ul class="exp_list">
 					{expList.map(item => (
-						<li><Exp  company={item.company} title={item.title} fromYr={item.fromYr} endYr={item.endYr} desc={item.desc} /></li>
+						<li><Exp company={item.company} title={item.title} fromYr={item.fromYr} endYr={item.endYr ? item.endYr : 'Present'} desc={item.desc} tech={item.tech} /></li>
 					))}
 				</ul>
 			: ''}

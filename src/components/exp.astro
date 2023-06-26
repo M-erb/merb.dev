@@ -3,25 +3,33 @@ export interface Props {
 	company: string
 	title: string
 	fromYr: number
-	endYr: number
-	desc: string
+	endYr: number | string
+	desc: string,
+	tech: Array<string>
 }
 
-const { company, title, fromYr, endYr, desc } = Astro.props
+const { company, title, fromYr, endYr, desc, tech = [] } = Astro.props
 ---
 
 <div class="exp_area">
-	<div class="exp_area_title">
-		<h4>{title}</h4>
-		<ul>
-			<li>{company}</li>
-			<li>{fromYr} - {endYr}</li>
-		</ul>
-		<hr>
+	<div class="exp_area_top">
+		<div class="exp_area_title">
+			<h4>{title}</h4>
+			<ul>
+				<li>{company}</li>
+				<li>{fromYr} - {endYr}</li>
+			</ul>
+			<hr>
+		</div>
+		<div class="exp_area_desc">
+			<p>{desc}</p>
+		</div>
 	</div>
-	<div class="exp_area_desc">
-		<p>{desc}</p>
-	</div>
+	<ul class="exp_area_tech">
+		{tech.map((item, index) =>
+			<li>{item}{tech.length === (index + 1) ? '' : ','}</li>
+		)}
+	</ul>
 </div>
 
 <script>
@@ -36,8 +44,12 @@ const { company, title, fromYr, endYr, desc } = Astro.props
 		align-items: stretch;
 		flex-direction: column;
 
-		& .exp_area_title {
+		& .exp_area_top {
 			flex: 0 0 auto;
+			margin-bottom: var(--size-6);
+		}
+
+		& .exp_area_title {
 			margin-bottom: var(--size-4);
 
 			& h4 {
@@ -70,6 +82,16 @@ const { company, title, fromYr, endYr, desc } = Astro.props
 			flex: 0 0 auto;
 			line-height: 1.8;
 			font-weight: 700;
+		}
+
+		& .exp_area_tech {
+			display: flex;
+			flex: 0 0 auto;
+			justify-self: flex-end;
+
+			& li {
+				margin-right: var(--size-2);
+			}
 		}
 	}
 </style>
