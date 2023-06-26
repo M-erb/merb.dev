@@ -31,7 +31,7 @@ const { menuList, menuList2, socialList } = Astro.props
 			{menuList2.length ?
 				<ul class="nav_list">
 					{menuList2.map(item => (
-						<li><a href={item.path} target="_blank">{item.label}</a></li>
+						<li><a href={item.path}>{item.label}</a></li>
 					))}
 				</ul>
 			: '' }

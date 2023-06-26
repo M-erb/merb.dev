@@ -24,7 +24,7 @@ export const menuList = [
 export const menuList2 = [
   {
     label: 'Privacy',
-    path: '/'
+    path: '/privacy'
   },
   {
     label: 'Contact',
