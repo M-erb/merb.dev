@@ -96,6 +96,7 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 
 				@media (min-width: 1024px) {
 					top: -65px;
+					animation: upAndDown 6500ms cubic-bezier(0.38, 0.01, 0.54, 0.99) 200ms alternate infinite;
 				}
 
 				@media (min-width: 1280px) {
@@ -106,6 +107,12 @@ const Element = tag === 'footer' ? 'footer' : 'section'
 					top: -80px;
 				}
 			}
+		}
+	}
+
+	@keyframes upAndDown {
+		to {
+				transform: translateY(40px) translateX(14px);
 		}
 	}
 </style>
