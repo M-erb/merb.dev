@@ -59,7 +59,7 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 ## TODOS:
 - [ ] Create 404 design
 - [ ] Code up 404 page
-- [ ] create content for about me post
+- [x] create content for about me post
 - [ ] create 2 posts
 - [ ] create sitemap
 - [ ] create robots.txt
