@@ -10,6 +10,7 @@ import axios from 'axios'
 const status = reactive({ isDone: false, isLoading: false })
 const reqPrefix = import.meta.env.MODE === 'production' ? '' : 'http://localhost:3000'
 const letterspace = ref(null)
+const formspace = ref(null)
 const fields = reactive({
   firstName: '',
   lastName: '',
@@ -18,10 +19,39 @@ const fields = reactive({
   comment: ''
 })
 const honey = ref('')
+const errorBag = ref({})
 
 async function submitForm () {
   status.isDone = false
   status.isLoading = true
+  errorBag.value = {}
+  let isValid = true
+
+  const { firstName, lastName, email, comment } = fields
+  if (firstName.length < 1) {
+    errorBag.value['firstName'] = 'First Name is required'
+    isValid = false
+  }
+
+  if (lastName.length < 1) {
+    errorBag.value['lastName'] = 'Last Name is required'
+    isValid = false
+  }
+
+  if (email.length < 1) {
+    errorBag.value['email'] = 'Email is required'
+    isValid = false
+  }
+
+  if (comment.length < 1) {
+    errorBag.value['comment'] = 'What did you have in mind? is required'
+    isValid = false
+  }
+
+  if (!isValid) {
+    noty.warning('Please check all required fields')
+    return
+  }
 
   try {
     const payload = {
@@ -36,7 +66,15 @@ async function submitForm () {
     status.isLoading = false
     status.isDone = true
   } catch (error) {
-    console.error('error with form submit: ', error?.response?.error ?? error?.message)
+    console.error('error with form submit: ', error?.response?.data ?? error?.message)
+    if (error?.response?.data?.isValid === false) {
+      const errors = error.response.data.errors ?? []
+      errors.forEach(item => errorBag.value[item.name] = item.message)
+
+      noty.warning('Please check all required fields')
+      return
+    }
+
     noty.error('There was a problem trying to submit, please try again later')
     status.isLoading = false
   }
@@ -44,6 +82,10 @@ async function submitForm () {
 
 function scrollToLetter () {
   letterspace.value.scrollIntoView({ behavior: 'smooth' })
+}
+
+function scrollToForm () {
+  formspace.value.scrollIntoView({ behavior: 'smooth' })
 }
 
 const firstNameSub = computed(() => {
@@ -64,39 +106,49 @@ const commentSub = computed(() => {
 
 <template>
   <div class="contact_letter" v-if="!status.isDone">
-    <div class="form_space">
-      <label class="field_here">
-        <span>First Name</span>
-        <input type="text" v-model="fields.firstName" />
-      </label>
+    <div class="form_space" ref="formspace">
+      <form @submit.prevent="submitForm">
+        <label :class="['field_here', { is_error: errorBag.firstName }]">
+          <span>First Name</span>
+          <input type="text" v-model="fields.firstName" />
+          <p :class="['error_space', {is_error: errorBag.firstName}]" v-if="errorBag.firstName">{{ errorBag.firstName }}</p>
+        </label>
 
-      <label class="field_here">
-        <span>Last Name</span>
-        <input type="text" v-model="fields.lastName" />
-      </label>
+        <label :class="['field_here', { is_error: errorBag.lastName }]">
+          <span>Last Name</span>
+          <input type="text" v-model="fields.lastName" />
+          <p :class="['error_space', {is_error: errorBag.lastName}]" v-if="errorBag.lastName">{{ errorBag.lastName }}</p>
+        </label>
 
-      <label class="field_here">
-        <span>Email</span>
-        <input type="text" v-model="fields.email" />
-      </label>
+        <label :class="['field_here', { is_error: errorBag.email }]">
+          <span>Email</span>
+          <input type="text" v-model="fields.email" />
+          <p :class="['error_space', {is_error: errorBag.email}]" v-if="errorBag.email">{{ errorBag.email }}</p>
+        </label>
 
-      <label class="field_here">
-        <span>Company Name</span>
-        <input type="text" v-model="fields.companyName" />
-      </label>
+        <label :class="['field_here', { is_error: errorBag.companyName }]">
+          <span>Company Name</span>
+          <input type="text" v-model="fields.companyName" />
+          <p :class="['error_space', {is_error: errorBag.companyName}]" v-if="errorBag.companyName">{{ errorBag.companyName }}</p>
+        </label>
 
-      <label class="field_here">
-        <span>What did you have in mind?</span>
-        <textarea v-model="fields.comment"></textarea>
-      </label>
+        <label :class="['field_here', { is_error: errorBag.comment }]">
+          <span>What did you have in mind?</span>
+          <textarea v-model="fields.comment"></textarea>
+          <p :class="['error_space', {is_error: errorBag.comment}]" v-if="errorBag.comment">{{ errorBag.comment }}</p>
+        </label>
 
-      <label class="field_here not_here">
-        <span>What is the budget for your project?</span>
-        <input type="text" v-model="honey" />
-      </label>
+        <label :class="['field_here not_here', { is_error: errorBag.honey }]">
+          <span>What is the budget for your project?</span>
+          <input type="text" v-model="honey" />
+          <p :class="['error_space', {is_error: errorBag.honey}]" v-if="errorBag.honey">{{ errorBag.honey }}</p>
+        </label>
+
+        <button class="not_here" type="submit"></button>
+      </form>
 
       <div class="btn_wrap mobile_only_control">
-        <button class="btn" @click="submitForm"><span>Continue</span></button>
+        <button class="btn" @click="scrollToLetter"><span>Continue</span></button>
       </div>
     </div>
 
@@ -117,7 +169,8 @@ const commentSub = computed(() => {
           </div>
         </div>
         <div class="letter_controls">
-          <div class="btn_wrap __right">
+          <div class="btn_wrap __between __right:md">
+            <button class="btn __sm __txt mobile_only_control" @click="scrollToForm"><span>Back to edit Form</span></button>
             <button class="btn" @click="submitForm"><span>Send It</span></button>
           </div>
         </div>
@@ -155,12 +208,6 @@ const commentSub = computed(() => {
       flex: 1 1 30%;
       padding: var(--size-12) var(--size-4);
       max-width: 360px;
-
-      & .mobile_only_control {
-        @media (min-width: 768px) {
-          display: none;
-        }
-      }
     }
 
     & .letter_space {
