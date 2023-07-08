@@ -3,14 +3,16 @@ export default { name: 'ContactUs' }
 </script>
 
 <script setup>
-import { reactive, computed, ref } from 'vue'
+import { reactive, computed, ref, nextTick } from 'vue'
 import noty from '@utility/toasts.js'
 import axios from 'axios'
 
-const status = reactive({ isDone: false, isLoading: false })
-const reqPrefix = import.meta.env.MODE === 'production' ? '' : 'http://localhost:3000'
 const letterspace = ref(null)
 const formspace = ref(null)
+const tymessage = ref(null)
+const status = reactive({ isDone: false, isLoading: false })
+const reqPrefix = import.meta.env.MODE === 'production' ? '' : 'http://localhost:3000'
+const formUuid = import.meta.env.MODE === 'production' ? 'OGcfytnb5tOj1LrnMzrXL' : 'HXb6Hs0ATrC31_Bs-NVhW'
 const fields = reactive({
   firstName: '',
   lastName: '',
@@ -55,7 +57,7 @@ async function submitForm () {
 
   try {
     const payload = {
-      formUuid: 'HXb6Hs0ATrC31_Bs-NVhW',
+      formUuid,
       clientCaptchaKey: '',
       honeyPot: honey.value,
       ...fields
@@ -65,6 +67,9 @@ async function submitForm () {
     noty.success('Thank you! I will reach out to you as soon as possible')
     status.isLoading = false
     status.isDone = true
+
+    await nextTick()
+    scrollToTYMessage()
   } catch (error) {
     console.error('error with form submit: ', error?.response?.data ?? error?.message)
     if (error?.response?.data?.isValid === false) {
@@ -86,6 +91,10 @@ function scrollToLetter () {
 
 function scrollToForm () {
   formspace.value.scrollIntoView({ behavior: 'smooth' })
+}
+
+function scrollToTYMessage () {
+  tymessage.value.scrollIntoView({ behavior: 'smooth' })
 }
 
 const firstNameSub = computed(() => {
@@ -178,7 +187,7 @@ const commentSub = computed(() => {
     </div>
   </div>
 
-  <div class="contact_success" v-if="status.isDone">
+  <div class="contact_success" v-if="status.isDone" ref="tymessage">
     <div class="inner">
       <h3>Thank you!</h3>
       <p>I really appreciate you taking the time to submit my form. A message about it has been sent and I will get back to you as soon as I can. Hope this is a start to something great.</p>
