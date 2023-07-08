@@ -2,13 +2,14 @@ label {
   display: block;
   margin-bottom: var(--size-4);
 
-  & span {
+  & > span {
     display: block;
     font-family: Ubuntu, sans-serif;
     font-size: var(--scale-00);
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: var(--size-1);
+    transition: color .3s ease-in-out, border-color .3s ease-in-out;
   }
 
   & input, & textarea {
@@ -20,12 +21,29 @@ label {
     border: 1px solid var(--color-grey-300);
     border-radius: var(--radius-md);
     padding: var(--size-2) var(--size-2);
+    transition: color .3s ease-in-out, border-color .3s ease-in-out;
   }
 
   & textarea {
     max-width: 360px;
     min-height: 180px;
     max-height: 500px;
+  }
+
+  & .error_space {
+    color: var(--color-red-300);
+    font-size: var(--scale-00);
+    margin-top: var(--size-1);
+  }
+
+  &.is_error {
+    & input, & textarea {
+      border-color: var(--color-red-300);
+    }
+
+    & > span {
+      color: var(--color-red-300);
+    }
   }
 }
 
@@ -67,6 +85,23 @@ label {
   &.__on_dark:hover:hover {
     box-shadow: var(--color-white) 5px 5px 0px 0px;
   }
+
+  &.__sm {
+    font-size: var(--scale-0);
+    padding: var(--size-3) var(--size-4);
+    min-width: auto;
+  }
+
+  &.__txt {
+    background-color: transparent;
+    color: var(--color-blue);
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+      text-decoration: underline;
+    }
+  }
 }
 
 .btn_wrap {
@@ -81,5 +116,53 @@ label {
 
   &.__center {
     justify-content: center;
+  }
+
+  &.__between {
+    justify-content: space-between;
+  }
+
+  @media (--sm) {
+    &.__right\:sm {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (--md) {
+    &.__right\:md {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (--lg) {
+    &.__right\:lg {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (--sm) {
+    &.__center\:sm {
+      justify-content: center;
+    }
+  }
+
+  @media (--md) {
+    &.__center\:md {
+      justify-content: center;
+    }
+  }
+
+  @media (--lg) {
+    &.__center\:lg {
+      justify-content: center;
+    }
+  }
+}
+
+.mobile_only_control {
+  @media (--md) {
+    & {
+      display: none;
+    }
   }
 }
