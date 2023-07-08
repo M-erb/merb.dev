@@ -64,3 +64,8 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 - [ ] create sitemap
 - [ ] create robots.txt
 - [ ] install seo plugin
+- [x] add error validation to contact form
+- [x] display errors on contact form
+- [x] add UX scrolling so user knows where they should be
+- [x] submit to form service for contact form
+- [x] add thank you message for contact form
