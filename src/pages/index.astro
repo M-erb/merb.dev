@@ -3,7 +3,6 @@ import Layout from '@layouts/Layout.astro'
 import CustomBorderSec from '@components/customBorderSec.astro'
 import SecTitle from '@components/secTitle.astro'
 import AboutBadges from '@components/aboutBadges.astro'
-import ProfileImg from '/profile.jpg'
 import BtnLink from '@components/btnLink.astro'
 import Exp from '@components/exp.astro'
 import Btn from '@components/btn.astro'
@@ -11,6 +10,8 @@ import TechList from '@components/techList.astro'
 import ContactSec from '@components/contactSec.astro'
 import techBGImg from '@imgs/borders/graph-dots-bg.svg'
 import { badges, techList, expList } from '@data/home.js'
+import { Image } from 'astro:assets'
+import ProfileImg from '@imgs/profile.jpg'
 ---
 
 <Layout title="Michael Erb Portflio">
@@ -22,7 +23,7 @@ import { badges, techList, expList } from '@data/home.js'
 					<h2 class="hero_title">A Fullstack Engineer</h2>
 				</div>
 				<div class="hero_home_profile">
-					<img src={ProfileImg} alt="Michael Erb" width="150" height="150" />
+					<Image src={ProfileImg} alt="Michael Erb" width="150" height="150" />
 				</div>
 			</div>
 			<p class="hero_txt">Ready to bring your idea to life, start to finish 🤙</p>

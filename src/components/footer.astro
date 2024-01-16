@@ -1,6 +1,7 @@
 ---
 import CustomBorderSec from '@components/customBorderSec.astro'
 import Logo from '@components/logo.astro'
+import { Image } from 'astro:assets'
 
 export interface Props {
 	menuList: Array<any>
@@ -40,7 +41,7 @@ const { menuList, menuList2, socialList } = Astro.props
 			{socialList.length ?
 				<ul class="nav_list social_list">
 					{socialList.map(item => (
-						<li><a href={item.path} target="_blank"><img src={item.img} alt={item.label}/></a></li>
+						<li><a href={item.path} target="_blank"><Image src={item.img} alt={item.label} /></a></li>
 					))}
 				</ul>
 			: '' }
@@ -126,6 +127,8 @@ const { menuList, menuList2, socialList } = Astro.props
 
 						& img {
 							display: block;
+							width: 98px;
+							height: 98px;
 						}
 					}
 				}
