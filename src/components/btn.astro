@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 
 export interface Props {
 	href?: string
@@ -14,5 +14,5 @@ const Element = href ? 'a' : 'button'
 
 <Element class:list={['btn', className]} href={href}>
 	<span><slot/></span>
-	{icon ? <Icon pack="lucide" name={icon} /> : ''}
+	{icon ? <Icon name={`lucide:${icon}`} /> : ''}
 </Element>
