@@ -14,7 +14,7 @@ import { Image } from 'astro:assets'
 import ProfileImg from '@imgs/profile.jpg'
 ---
 
-<Layout title="Michael Erb Portflio">
+<Layout title="Michael Erb Portflio" description="Portfolio for Fullstack Engineer Michael Erb with over 7 years of professional experience in the industry with a diverse set of skills and expertise.">
 	<header class="hero_home">
 		<div class="hero_home_inner container">
 			<div class="hero_home_title_area">
@@ -37,7 +37,7 @@ import ProfileImg from '@imgs/profile.jpg'
 		<CustomBorderSec top="curve_blue">
 			<div class="about_sec">
 				<SecTitle num="1">About</SecTitle>
-				<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs. <BtnLink href="/blog/about-me" icon="arrow-right">Read More</BtnLink></p>
+				<p class="about_txt">As an experienced Fullstack Engineer with over 7 years of professional experience in the industry, I have a diverse set of skills and expertise that enable me to create a wide range of web-based solutions. As well as my experience with Linux-based systems and DevOps tools allows me to create anything from blazing fast brochure/content-based sites where SEO is extremely important, to full-blown web based applications with a wide range of functionality. Such as user authentication, data storage, and complex business logic, designed to meet your needs. <BtnLink href="/blog/about-me" icon="arrow-right">Read More About Me</BtnLink></p>
 				{badges.length ?
 					<ul class="badges_list">
 						{badges.map(item => (

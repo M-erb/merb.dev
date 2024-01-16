@@ -153,7 +153,7 @@ const commentSub = computed(() => {
           <p :class="['error_space', {is_error: errorBag.honey}]" v-if="errorBag.honey">{{ errorBag.honey }}</p>
         </label>
 
-        <button class="not_here" type="submit"></button>
+        <button class="not_here" type="submit" aria-label="Next Step"></button>
       </form>
 
       <div class="btn_wrap mobile_only_control">
@@ -179,8 +179,8 @@ const commentSub = computed(() => {
         </div>
         <div class="letter_controls">
           <div class="btn_wrap __between __right:md">
-            <button class="btn __sm __txt mobile_only_control" @click="scrollToForm"><span>Back to edit Form</span></button>
-            <button class="btn" @click="submitForm"><span>Send It</span></button>
+            <button class="btn __sm __txt mobile_only_control" @click="scrollToForm" aria-label="Go Back and Edit Form"><span>Back to edit Form</span></button>
+            <button class="btn" @click="submitForm" aria-label="Submit Form"><span>Send It</span></button>
           </div>
         </div>
       </div>

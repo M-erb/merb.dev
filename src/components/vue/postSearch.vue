@@ -1,33 +1,3 @@
-<template>
-  <div class="posts_sec">
-    <div class="post_search">
-      <label class="search_control">
-        <span>Search</span>
-        <input type="text" v-model="query.term" placeholder="Type here..." />
-      </label>
-      <!-- <div class="search_control"></div> -->
-    </div>
-
-    <TransitionGroup name="list">
-      <div class="post_item" v-for="(post, index) in filteredPosts" :key="index">
-        <div class="post_img_space">
-          <a :href="post.url" class="post_img"><div class="post_img_bg" :style="`background-image: url(${post.img})`"></div></a>
-        </div>
-        <div class="post_details">
-          <h3 class="post_title"><a :href="post.url">{{ post.title }} <span>/0{{ index + 1 }}</span></a></h3>
-          <p class="post_date">{{ formatDate(post.date, 'MMM do, yyyy') }}</p>
-          <p class="post_excerpt">{{ post.excerpt }}</p>
-        </div>
-      </div>
-
-      <div class="post_item_empty" v-if="!filteredPosts.length">
-        <p v-if="props.posts.length">No Posts Found</p>
-        <p v-if="!props.posts.length">No Posts Yet</p>
-      </div>
-    </TransitionGroup>
-  </div>
-</template>
-
 <script>
 export default { name: 'PostSearch' }
 </script>
@@ -55,3 +25,33 @@ const filteredPosts = computed(() => {
   })
 })
 </script>
+
+<template>
+  <div class="posts_sec">
+    <div class="post_search">
+      <label class="search_control">
+        <span>Search</span>
+        <input type="text" v-model="query.term" placeholder="Type here..." />
+      </label>
+      <!-- <div class="search_control"></div> -->
+    </div>
+
+    <TransitionGroup name="list">
+      <div class="post_item" v-for="(post, index) in filteredPosts" :key="index">
+        <div class="post_img_space">
+          <a :href="post.url" class="post_img" :aria-label="`Read ${post.title}`" :title="`Read ${post.title}`"><div class="post_img_bg" :style="`background-image: url(${post.img})`"></div></a>
+        </div>
+        <div class="post_details">
+          <h3 class="post_title"><a :href="post.url" :aria-label="`Read ${post.title}`" :title="`Read ${post.title}`">{{ post.title }} <span>/0{{ index + 1 }}</span></a></h3>
+          <p class="post_date">{{ formatDate(post.date, 'MMM do, yyyy') }}</p>
+          <p class="post_excerpt">{{ post.excerpt }}</p>
+        </div>
+      </div>
+
+      <div class="post_item_empty" v-if="!filteredPosts.length">
+        <p v-if="props.posts.length">No Posts Found</p>
+        <p v-if="!props.posts.length">No Posts Yet</p>
+      </div>
+    </TransitionGroup>
+  </div>
+</template>
