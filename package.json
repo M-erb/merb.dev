@@ -4,12 +4,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
+    "dev": "pollen && astro dev",
+    "start": "npm run dev",
+    "build": "pollen && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "node ./commands/deploy.js"
+    "deploy": "node ./commands/deploy.js",
+    "pollen": "pollen"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
@@ -24,6 +25,7 @@
     "date-fns": "^2.30.0",
     "lucide-static": "^0.258.0",
     "notyf": "^3.10.0",
+    "pollen-css": "^4.6.2",
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^9.0.0",
     "postcss-url": "^10.1.3",
