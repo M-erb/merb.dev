@@ -13,6 +13,7 @@ import nginxLogo from '@imgs/tech/Nginx_logo.svg'
 import nodejsLogo from '@imgs/tech/nodejs.svg'
 import npmLogo from '@imgs/tech/npm.svg'
 import viteLogo from '@imgs/tech/vite-veet-logo.svg'
+import type { techListItem } from '@components/techList.astro'
 
 export const badges = [
   {
@@ -26,7 +27,7 @@ export const badges = [
   }
 ]
 
-export const techList = [
+export const techList: Array<techListItem> = [
   {
     name: 'koa',
     logo: koaLogo,
