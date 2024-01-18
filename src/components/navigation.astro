@@ -10,7 +10,7 @@ export interface Props {
 const { menuList, socialList } = Astro.props
 ---
 
-<nav>
+<nav class="main_nav">
 	<div class="site_bar container_l">
 		<a href="/" class="logo_space">
 			<Logo name="main" color0="currentColor" width="100" height="18" />
@@ -67,6 +67,10 @@ const { menuList, socialList } = Astro.props
 </script>
 
 <style lang="postcss">
+	.main_nav {
+		background-color: transparent;
+	}
+
 	.site_bar {
 		display: flex;
 		justify-content: space-between;
@@ -77,11 +81,11 @@ const { menuList, socialList } = Astro.props
 		position: relative;
 		z-index: 100;
 
-		& .logo_space {
+		.logo_space {
 			color: var(--color-black);
 			transition: color .3s;
 
-			&.__active {
+			.__active {
 				color: var(--color-white);
 			}
 		}

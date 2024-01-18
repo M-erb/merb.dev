@@ -46,45 +46,46 @@ const authorInfo = authorList.find(item => (item.name === author))
 				</div>
 			</div>
 
-			<div class="post_pos container_l">
-				<main>
-					<div class="post_col">
-						<header>
-							<ul class="breadcrums">
-								<li><a href="/blog">blog</a></li>
-								<li>{title}</li>
-							</ul>
-							<h1 class="hero_title">{title}</h1>
-							<p class="post_date">{date}</p>
-						</header>
-
-						<article>
-							<slot />
-						</article>
-
-						<div class="author_sec">
-							<h3 class="h2 hero_title">Author</h3>
-							{authorInfo ?
-								<div class="author_space">
-									<div class="author_pic">
-										<Image src={authorInfo.img} alt={authorInfo.name} width="150" height="150" />
+			<div class="middle_content">
+				<div class="post_pos container_l">
+					<main>
+						<div class="post_col">
+							<header>
+								<ul class="breadcrums">
+									<li><a href="/blog">blog</a></li>
+									<li>{title}</li>
+								</ul>
+								<h1 class="hero_title">{title}</h1>
+								<p class="post_date">{date}</p>
+							</header>
+	
+							<article>
+								<slot />
+							</article>
+	
+							<div class="author_sec">
+								<h3 class="h2 hero_title">Author</h3>
+								{authorInfo ?
+									<div class="author_space">
+										<div class="author_pic">
+											<Image src={authorInfo.img} alt={authorInfo.name} width="150" height="150" />
+										</div>
+										<div class="author_txt">
+											<h4 class="">{ authorInfo.name }</h4>
+											<p class="">{ authorInfo.bio }</p>
+										</div>
 									</div>
-									<div class="author_txt">
-										<h4 class="">{ authorInfo.name }</h4>
-										<p class="">{ authorInfo.bio }</p>
+								:
+									<div class="author_space">
+										<div class="author_txt">
+											<h4 class="">{ author }</h4>
+										</div>
 									</div>
-								</div>
-							:
-								<div class="author_space">
-									<div class="author_txt">
-										<h4 class="">{ author }</h4>
-									</div>
-								</div>
-							}
+								}
+							</div>
 						</div>
-					</div>
-				</main>
-				{/* <aside></aside> */}
+					</main>
+				</div>
 			</div>
 
 			<ContactSec />
@@ -94,7 +95,7 @@ const authorInfo = authorList.find(item => (item.name === author))
 	</body>
 </html>
 
-<style>
+<style lang="postcss">
 	@import '../styles/mediaQueries.pcss';
 
 	.post_bg {
@@ -127,11 +128,12 @@ const authorInfo = authorList.find(item => (item.name === author))
 	}
 
 	.post_pos {
+		margin-bottom: var(--size-24);
+
 		& main {
 			flex: 0 0 auto;
 			width: 100%;
 			max-width: var(--width-md);
-			/* margin-top: -300px; */
 			position: relative;
 			z-index: 1;
 	
@@ -184,14 +186,24 @@ const authorInfo = authorList.find(item => (item.name === author))
 		}
 	}
 
+	.middle_content {
+		background-color: var(--color-white);
+
+		@media (--xl) {
+			background-color: transparent;
+		}
+	}
+
 	@media (--xl) {
 		.post_bg {
 			min-height: 500px;
 		}
 
 		.post_pos {
+			margin-bottom: 0;
+
 			& main {
-				margin-top: -300px;
+				top: -300px;
 
 				& .post_col{
 					border-radius: 16px;
