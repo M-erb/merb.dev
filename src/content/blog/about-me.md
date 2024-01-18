@@ -5,13 +5,12 @@ author: 'Michael Erb'
 description: 'About Michael Erb, some background in a career.'
 date: 'Feb 21, 2023'
 draft: false
-postImg: '/postImgs/nathan-anderson-9rNyml9OKfI-unsplash.jpg'
+postImg: '/src/imgs/postImgs/nathan-anderson-9rNyml9OKfI-unsplash.jpg'
 imgByName: 'Nathan Anderson'
 imgByUrl: 'https://unsplash.com/@nathananderson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
 imgSrc: 'https://unsplash.com/photos/9rNyml9OKfI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
 excerpt: 'About Michael Erb, some background in a career.'
 ---
-
 ## Hi 👋, my name is Michael Erb.
 
 I am a self taught full stack web/software developer. I love learning all things programming and never want to stop learning about new things. I spend most of my time coding, coming up with new project ideas, playing games, and being outside with my family. If I'm not at my computer, i'm outside exploring and enjoying time in the mountains.
@@ -22,12 +21,8 @@ Deciding I liked this kind of work I sought out being a freelancer and found con
 
 I wanted to create this blog to share my passion for web development and coding in general. Something always held me back though. That pesky imposter syndrome. In this case, that feeling of someone else out there does it better than you. Explains it better, understands it better, and so on. Someone else out there is so much better I should be embarrassed to even try to share. Then I came accross this web comic that put it into perspective for me.
 
-<figure>
-  <a href="https://xkcd.com/1053/">
-    <img src="/postImgs/xkcd_ten_thousand.png" alt="Lucky 10,000">
-  </a>
-  <figcaption>From <a href="https://xkcd.com/1053/">https://xkcd.com</a></figcaption>
-</figure>
+[![From xkcd.com](@imgs/postImgs/xkcd_ten_thousand.png)](https://xkcd.com/1053/)
+[From xkcd.com](https://xkcd.com/1053/)
 
 If for some reason the image above is not working, the gist is that many of us humans come built in with this pre-conceived notion that we should know a specific amount of things by the time we become "adults". I have seen this in myself even with web dev. Have you ever told yourself or someone "I/you should know this already"!? You, my friend, have fallen into that trap.
 

@@ -39,7 +39,7 @@ const filteredPosts = computed(() => {
     <TransitionGroup name="list">
       <div class="post_item" v-for="(post, index) in filteredPosts" :key="index">
         <div class="post_img_space">
-          <a :href="post.url" class="post_img" :aria-label="`Read ${post.title}`" :title="`Read ${post.title}`"><div class="post_img_bg" :style="`background-image: url(${post.img})`"></div></a>
+          <a :href="post.url" class="post_img" :aria-label="`Read ${post.title}`" :title="`Read ${post.title}`"><div class="post_img_bg" :style="`background-image: url(${post.img.src})`"></div></a>
         </div>
         <div class="post_details">
           <h3 class="post_title"><a :href="post.url" :aria-label="`Read ${post.title}`" :title="`Read ${post.title}`">{{ post.title }} <span>/0{{ index + 1 }}</span></a></h3>

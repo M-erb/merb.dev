@@ -3,6 +3,7 @@ import Layout from '@layouts/Layout.astro'
 import CustomBorderSec from '@components/customBorderSec.astro'
 import ContactSec from '@components/contactSec.astro'
 import { getCollection } from 'astro:content'
+import { getImage } from 'astro:assets'
 import PostSearch from '@components/vue/postSearch.vue'
 import { compareDesc as compareDescDate } from 'date-fns'
 
@@ -14,10 +15,11 @@ const posts = []
 for (const post of blogPosts) {
 	const { slug, data } = post
 	const date = new Date(data.date)
+	const optimizedPostImg = await getImage({ src: data.postImg as ImageMetadata, width: data.postImg.width, height: data.postImg.height })
 	posts.push({
 		title: data.title,
 		url: `/blog/${slug}`,
-		img: data.postImg,
+		img: optimizedPostImg,
 		date,
 		excerpt: data.excerpt
 	})
