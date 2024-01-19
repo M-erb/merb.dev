@@ -7,9 +7,7 @@ import { getImage } from 'astro:assets'
 import PostSearch from '@components/vue/postSearch.vue'
 import { compareDesc as compareDescDate } from 'date-fns'
 
-const blogPosts = await getCollection('blog', ({ data }) => {
-  return data.draft !== true;
-})
+const blogPosts = await getCollection('blog', ({ data }) => ( data.draft !== true ))
 
 const posts = []
 for (const post of blogPosts) {
