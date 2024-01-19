@@ -267,6 +267,8 @@ const authorInfo = authorList.find(item => (item.name === author))
 				.catch(err => {
 					console.log('copy to clipboard failed: ', err)
 				})
+
+			setTimeout(() => btn.blur(), 300)
 		})
 
 		codeBlock.appendChild(btn)

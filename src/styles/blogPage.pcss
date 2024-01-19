@@ -171,18 +171,24 @@
     font-size: var(--scale-00);
     padding: var(--size-1) var(--size-2);
     opacity: .4;
-    transition: opacity .3s;
+    transition: opacity .3s, background-color .3s;
     cursor: pointer;
 
     &:hover {
       opacity: 1;
+    }
+
+    &:focus {
+      opacity: 1;
+      background-color: var(--color-white);
+      color: var(--color-grey-800);
     }
   }
 }
 
 article, .body_txt {
   & code {
-    padding: var(--size-2);
+    padding: var(--size-1) var(--size-2);
     border-radius: 4px;
     background-color: var(--color-grey-300);
   }
@@ -191,6 +197,7 @@ article, .body_txt {
     background-color: transparent;
     padding: 0;
     border-radius: 0;
+    tab-size: 2;
   }
 
   & p, & figure {
@@ -201,32 +208,37 @@ article, .body_txt {
   & h1, & h2, & h3, & h4, & h5, & h6 {
     font-weight: 700;
     margin-bottom: var(--size-6);
-    line-height: 2;
     font-family: Ubuntu, sans-serif;
   }
 
   & h1 {
     font-size: var(--scale-6);
+    line-height: 2;
   }
 
   & h2 {
     font-size: var(--scale-5);
+    line-height: 1.3;
   }
 
   & h3 {
     font-size: var(--scale-4);
+    line-height: 1.3;
   }
 
   & h4 {
     font-size: var(--scale-3);
+    line-height: 1.3;
   }
 
   & h5 {
     font-size: var(--scale-2);
+    line-height: 1.3;
   }
 
   & h6 {
     font-size: var(--scale-1);
+    line-height: 1.3;
   }
 
   & ul, & ol {
