@@ -111,15 +111,15 @@ export const expList = [
     title: 'Full Stack Engineer',
     fromYr: 2019,
     endYr: 0,
-    tech: ['Nodejs', 'vuejs', 'HTML', 'CSS', 'JS', 'Ubuntu'],
+    tech: ['nodejs', 'vuejs', 'HTML', 'CSS', 'JS', 'Ubuntu'],
     desc: 'Create custom websites, internal tools, applications and APIs for partners'
   },
   {
-    company: 'Freenlancer',
+    company: 'Freelancer',
     title: 'Full Stack Engineer',
     fromYr: 2019,
     endYr: 2019,
-    tech: ['Nodejs', 'vuejs', 'HTML', 'CSS', 'JS'],
+    tech: ['nodejs', 'vuejs', 'HTML', 'CSS', 'JS'],
     desc: 'Contacts for Mozilla and the Wharton School of Business'
   },
   {
@@ -128,7 +128,7 @@ export const expList = [
     fromYr: 2018,
     endYr: 2019,
     tech: ['Laravel', 'vuejs'],
-    desc: 'Worked to create custom app for storing zoom data and consulted with small business clients in how to use tech in their case'
+    desc: 'Worked to create custom app for storing zoom data and consulted with small business clients on how to better customize tech for their business'
   },
   {
     company: 'Rocket Media',
@@ -136,18 +136,18 @@ export const expList = [
     fromYr: 2018,
     endYr: 2018,
     tech: ['PHP(Craft CMS)', 'vuejs', 'JS', 'HTML', 'CSS(SASS)'],
-    desc: 'Created blazing fast and high preforming websites for the HVAC industry'
+    desc: 'Created blazing fast and high performing websites for the HVAC industry'
   },
   {
     company: 'I-ology',
-    title: 'Front End Developer',
+    title: 'Jr Front End Developer',
     fromYr: 2017,
     endYr: 2018,
     tech: ['Angularjs (v1)', 'vuejs', 'C#'],
-    desc: 'Worked in a small close team to create web sites and interfaces for large medical companies like sonoraquest.com'
+    desc: 'Worked with a small team to create websites and interfaces for large medical companies like sonoraquest.com'
   },
   {
-    company: 'Freenlancer',
+    company: 'Freelancer',
     title: 'Front End Developer',
     fromYr: 2016,
     endYr: 2017,
