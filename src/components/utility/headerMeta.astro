@@ -1,0 +1,35 @@
+---
+export interface Props {
+	siteName: string,
+	title: string,
+	description: string,
+	hero?: {
+		url: string,
+		width: number,
+		height: number
+	},
+	canonical: string
+}
+
+const { siteName, title, description, hero, canonical } = Astro.props
+---
+<title>{ title }</title>
+<meta name="description" content={ description }>
+<link rel="canonical" href={ canonical }>
+
+{/* More on Open Graph: https://ogp.me/ */}
+<meta property="og:site_name" content={ siteName }>
+<meta property="og:url" content={ canonical } />
+<meta property="og:title" content={ title } />
+<meta property="og:description" content={ description } />
+<meta property="og:type" content="website" />
+
+{ hero?.url ? <meta property="og:image" content={ hero.url }/> : ''}
+{ hero?.width ? <meta property="og:image:width" content={ String(hero.width) } /> : ''}
+{ hero?.height ? <meta property="og:image:hight" content={ String(hero.height) } /> : ''}
+
+{ title ?
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={ title } />
+	<meta name="twitter:description" content={ description } />
+: ''}
