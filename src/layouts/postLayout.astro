@@ -37,11 +37,10 @@ const authorInfo = authorList.find(item => (item.name === author))
 		<title>{title}</title>
 		<meta name="description" content={description}>
 
-		{import.meta.env.PROD ?
+		{ import.meta.env.PROD ?
 			<!-- analytics -->
 			<script defer data-domain="merb.dev" src="https://plausible.io/js/script.js"></script>
-			: ''
-		}
+		: '' }
 	</head>
 	<body>
 		<div class="outer">
