@@ -155,5 +155,3 @@ export const expList = [
     desc: 'Did odd jobs for small businesses I came in contact with and through freelancer websites like Fiverr.com'
   }
 ]
-
-// Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla. Sodales ut eu sem integer vitae justo eget. Vitae nunc sed velit dignissim.
