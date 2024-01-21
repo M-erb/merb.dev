@@ -3,7 +3,7 @@ layout: '@layouts/postLayout.astro'
 title: 'Deep clone in Javascript with structuredClone'
 author: 'Michael Erb'
 description: 'Lets talk about JavaScript assignment and deep cloning with some examples'
-date: 'Jan 19, 2024'
+date: '01-19-2024'
 draft: false
 postImg: '/src/imgs/postImgs/bimata-prathama-ILaug8NMqeg-unsplash-crop-min.jpg'
 imgByName: 'Bimata Prathama'

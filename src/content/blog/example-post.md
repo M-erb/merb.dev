@@ -3,7 +3,7 @@ layout: '@layouts/postLayout.astro'
 title: 'Example Post'
 author: 'Michael Erb'
 description: 'Using this as a baseline for future posts'
-date: 'Feb 12, 2023'
+date: '02-21-2023'
 draft: true
 postImg: '/src/imgs/postImgs/nathan-anderson-9rNyml9OKfI-unsplash.jpg'
 imgByName: 'Nathan Anderson'

@@ -3,7 +3,7 @@ layout: '@layouts/postLayout.astro'
 title: 'About Michael Erb'
 author: 'Michael Erb'
 description: 'About Michael Erb, a self taught full stack web/software developer that loves learning all things programming and never wants to stop'
-date: 'Feb 21, 2023'
+date: '02-21-2023'
 draft: false
 postImg: '/src/imgs/postImgs/nathan-anderson-9rNyml9OKfI-unsplash.jpg'
 imgByName: 'Nathan Anderson'

@@ -43,7 +43,7 @@ const filteredPosts = computed(() => {
         </div>
         <div class="post_details">
           <h3 class="post_title"><a :href="post.url" :aria-label="`Read ${post.title}`" :title="`Read ${post.title}`">{{ post.title }} <span>/0{{ index + 1 }}</span></a></h3>
-          <p class="post_date">{{ formatDate(post.date, 'MMM do, yyyy') }}</p>
+          <p class="post_date">{{ formatDate(post.date, 'MMM dd, yyyy') }}</p>
           <p class="post_excerpt">{{ post.excerpt }}</p>
         </div>
       </div>
