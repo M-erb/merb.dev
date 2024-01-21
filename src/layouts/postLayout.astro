@@ -14,12 +14,15 @@ import '@fontsource/ubuntu-mono/400.css'
 import '@fontsource/ubuntu-mono/700.css'
 import '@fontsource/merriweather/400.css'
 import '@fontsource/merriweather/700.css'
+import { convert } from 'html-to-text'
 
 export interface Props {
-	title: string,
-	frontmatter: { title, author, date, description, postImg, imgByName, imgByUrl, imgSrc },
-	data: any,
-	params: any
+	file: string,
+	url: string,
+	headings: Array<any>,
+	rawContent: Function,
+	compiledContent: Function,
+	frontmatter: { title, author, date, description, postImg, imgByName, imgByUrl, imgSrc, render, compiledContent }
 }
 
 const { title, author, date, description, postImg: postImgPath, imgByName, imgByUrl, imgSrc } = Astro.props.frontmatter
@@ -31,10 +34,18 @@ const optimizedPostImg = await getImage({ src: postImg.default as ImageMetadata,
 
 const hero = { url: optimizedPostImg.src, width: postImg.default.width, height: postImg.default.height }
 const pageUrl = `${import.meta.env.SITE}${Astro.url.pathname}`
+const postPlainText = convert(Astro.props.compiledContent())
 
 const authorInfo = authorList.find(item => (item.name === author))
+const postMeta = {
+	date: publishDate,
+	author: {
+		name: author,
+		url: import.meta.env.SITE
+	},
+	postBody: postPlainText
+}
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -49,6 +60,7 @@ const authorInfo = authorList.find(item => (item.name === author))
 			siteName={import.meta.env.SITE_NAME}
 			hero={hero}
 			canonical={pageUrl}
+			postMeta={postMeta}
 		/>
 
 		{ import.meta.env.PROD ?
@@ -77,11 +89,11 @@ const authorInfo = authorList.find(item => (item.name === author))
 								<h1 class="hero_title">{title}</h1>
 								<p class="post_date">{displayDate}</p>
 							</header>
-	
+
 							<article>
 								<slot />
 							</article>
-	
+
 							<div class="author_sec">
 								<h3 class="h2 hero_title">Author</h3>
 								{authorInfo ?

@@ -1,4 +1,6 @@
 ---
+import { formatISO, format as formatDate } from 'date-fns'
+
 export interface Props {
 	siteName: string,
 	title: string,
@@ -8,14 +10,94 @@ export interface Props {
 		width: number,
 		height: number
 	},
-	canonical: string
+	canonical: string,
+	postMeta?: {
+		date: Date,
+		author: {
+			name: string,
+			url: string
+		},
+		postBody?: string
+	},
+	keyWords?: Array<string>
 }
 
-const { siteName, title, description, hero, canonical } = Astro.props
+const { siteName, title, description, hero, canonical, postMeta, keyWords } = Astro.props
+const schemaResult = postMeta ? postSchema() : pageSchema()
+
+function pageSchema () {
+	const result = {
+		"@context": "http://schema.org",
+		"@type": "WebPage",
+		"name": title,
+		"description": description,
+		"inLanguage": "en-US",
+		"isFamilyFriendly": "true",
+		"keywords": keyWords ?? undefined
+	}
+
+	return JSON.stringify(result, null, 2)
+}
+
+function postSchema () {
+	const dateCreatedISO = formatISO(postMeta.date)
+
+	const result = {
+		"@context":"http://schema.org",
+		"@type": "BlogPosting",
+		"image": hero.url,
+		"url": canonical,
+		"headline": title,
+		"dateCreated": dateCreatedISO,
+		"datePublished": dateCreatedISO,
+		"dateModified": dateCreatedISO,
+		"inLanguage": "en-US",
+		"isFamilyFriendly": "true",
+		"copyrightYear": formatDate(postMeta.date, 'yyyy'),
+		"accountablePerson": {
+			"@type": "Person",
+			"name": postMeta.author.name,
+			"url": postMeta.author.url
+		},
+		"author": {
+			"@type": "Person",
+			"name": postMeta.author.name,
+			"url": postMeta.author.url
+		},
+		"creator": {
+			"@type": "Person",
+			"name": postMeta.author.name,
+			"url": postMeta.author.url
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": postMeta.author.name,
+			"url": postMeta.author.url,
+			"logo": {
+				"@type": "ImageObject",
+				"url": `${import.meta.env.SITE}/m-logo-circle.svg`,
+				"width":"150",
+				"height":"150"
+			}
+		},
+		"mainEntityOfPage": "True",
+		"keywords": keyWords ?? undefined,
+		"genre":["programming","javascript","web developer"],
+		"articleSection": "Uncategorized posts",
+		"articleBody": postMeta.postBody
+	}
+
+	return JSON.stringify(result, null, 2)
+}
+
+const outputJSONLD = `<script type="application/ld+json">${schemaResult}</script>`
 ---
 <title>{ title }</title>
 <meta name="description" content={ description }>
 <link rel="canonical" href={ canonical }>
+
+{/* JSON-LD */}
+<Fragment set:html={ outputJSONLD } />
 
 {/* More on Open Graph: https://ogp.me/ */}
 <meta property="og:site_name" content={ siteName }>
