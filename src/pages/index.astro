@@ -205,20 +205,21 @@ import ProfileImg from '@imgs/merb-main.jpg'
 
 	.exp_list {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: stretch;
 		flex-wrap: wrap;
-		margin: var(--size-6) var(--size--6) 0 var(--size--6);
+		gap: var(--size-6);
+
+		margin-top: var(--size-4);
 
 		& li {
-			padding: var(--size-6);
 			width: 100%;
 			display: flex;
 		}
 
 		@media (--md) {
 			& li {
-				width: 50%;
+				width: calc(50% - var(--size-6));
 			}
 		}
 	}
