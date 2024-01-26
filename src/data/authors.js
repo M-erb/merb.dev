@@ -1,4 +1,4 @@
-import ProfileImg from '@imgs/profile.jpg'
+import ProfileImg from '@imgs/merb-blog.jpg'
 
 export default [
   {
