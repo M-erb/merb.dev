@@ -15,7 +15,7 @@ Let's start off by asking what is a "deep" clone as opposed to just a regular ol
 
 ## Assignment and copying variables
 
-Most programming languages have values called `primitives`. These are the most basic types of values you have to work with to create programs. For example, in JavaScript there are 7 primitive types: [`string`](https://developer.mozilla.org/en-US/docs/Glossary/String), [`number`](https://developer.mozilla.org/en-US/docs/Glossary/Number), [`bigint`](https://developer.mozilla.org/en-US/docs/Glossary/BigInt), [`boolean`](https://developer.mozilla.org/en-US/docs/Glossary/Boolean), [`undefined`](https://developer.mozilla.org/en-US/docs/Glossary/Undefined), [`symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol), [`null`](https://developer.mozilla.org/en-US/docs/Glossary/Null). Follow those links if you want to read more about them. Something very important to know here is that primitive values are `immutable`. In other words, a primitive cannot be changed. This is important for later.
+Most programming languages have values called `primitives`. These are the most basic types of values you have to work with to create programs. For example, in JavaScript there are 7 primitive types: <a href="https://developer.mozilla.org/en-US/docs/Glossary/String" target="_blank">`String`</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Number" target="_blank">`number`</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/BigInt" target="_blank">`bigint`</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Boolean" target="_blank">`boolean`</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Undefined" target="_blank">`undefined`</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol" target="_blank">`symbol`</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Null" target="_blank">`null`</a>. Follow those links if you want to read more about them. Something very important to know here is that primitive values are `immutable`. In other words, a primitive cannot be changed. This is important for later.
 
 Then `assignment` is where a variable is assigned or given a value to keep reference to on the computer's memory. Another way to say this is your program is using some of your computer's memory to keep track of values and how they may change. Some call these "pointers" or "references" to memory. Look at this example of how this works.
 
@@ -68,7 +68,7 @@ How do we do that? Another great question! You are good at this! I am going to g
 
 ### 1. Use JSON.stringify()
 
-This is very easy but comes with possible data loss. Basically, you are turning the data structure into a `json` string and then parsing it back into a JavaScript object. Stringify does its best to convert non-JSON values to ones it supports. Details can be seen in this [MDN JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) article. For example, `Date` will become a string and stay a string on parse. Functions/methods that may have been on the object will be omitted or turned to a `null` value to name a few.
+This is very easy but comes with possible data loss. Basically, you are turning the data structure into a `json` string and then parsing it back into a JavaScript object. Stringify does its best to convert non-JSON values to ones it supports. Details can be seen in this <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank">MDN JSON.stringify()</a> article. For example, `Date` will become a string and stay a string on parse. Functions/methods that may have been on the object will be omitted or turned to a `null` value to name a few.
 
 ```javascript
 const personA = {
@@ -85,11 +85,11 @@ console.log(personA.age) // returns 31
 console.log(personB.age) // returns 30, yay no side effects!
 ```
 
-This solution gets the job done but with data loss and [benchmarks](https://jsben.ch/bWfk9) show this is most likely the slowest solution. I cannot state enough, please do not use this option.
+This solution gets the job done but with data loss and <a href="https://jsben.ch/bWfk9" target="_blank">benchmarks</a> show this is most likely the slowest solution. I cannot state enough, please do not use this option.
 
 ### 2. Use a library
 
-There are many libraries that can do this. A very popular one is [lodash](https://github.com/lodash/lodash) which contains many utility functions for working with objects and arrays. I would recommend using the [lodash-es](https://www.npmjs.com/package/lodash-es) though if you are using esmodules as it is treeshakeable.
+There are many libraries that can do this. A very popular one is <a href="https://github.com/lodash/lodash" target="_blank">lodash</a> which contains many utility functions for working with objects and arrays. I would recommend using the <a href="https://www.npmjs.com/package/lodash-es" target="_blank">lodash-es</a> though if you are using esmodules as it is treeshakeable.
 
 ```javascript
 import { cloneDeep } from 'lodash-es'
@@ -139,7 +139,7 @@ As we can see the "deeper" nested object was a reference to the same value in me
 
 ### 4. Use structuredClone
 
-Now, we are to the best option. No need to `import`/`require` anything. Support in all [major browsers](https://caniuse.com/?search=structuredClone) for years now. Support in `node.js` since v17. It is just ready to be used globally.
+Now, we are to the best option. No need to `import`/`require` anything. Support in all <a href="https://caniuse.com/?search=structuredClone" target="_blank">major browsers</a> for years now. Support in `node.js` since v17. It is just ready to be used globally.
 
 ```javascript
 const personA = {
