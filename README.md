@@ -61,9 +61,10 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 - [ ] Code up 404 page
 - [x] create content for about me post
 - [ ] create 2 posts
-- [ ] create sitemap
-- [ ] create robots.txt
-- [ ] install seo plugin
+- [x] create sitemap
+- [x] create robots.txt
+- [x] install seo plugin
+- [x] install analytics
 - [x] add error validation to contact form
 - [x] display errors on contact form
 - [x] add UX scrolling so user knows where they should be
