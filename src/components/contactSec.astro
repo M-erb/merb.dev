@@ -1,10 +1,17 @@
 ---
 import SecTitle from '@components/secTitle.astro'
 import Btn from '@components/btn.astro'
+
+export interface Props {
+	num?: number | string
+}
+
+const { num } = Astro.props
+const secNum = num ?? 2
 ---
 
 <section class="contact_sec container">
-	<SecTitle num="2" align="right" removeUnderline={true}>Let's get started together</SecTitle>
+	<SecTitle num={secNum} align="right" removeUnderline={true}>Let's get started together</SecTitle>
 	<div class="btn_wrap __right">
 		<Btn href="/contact">Let's Start Talk'in</Btn>
 	</div>
