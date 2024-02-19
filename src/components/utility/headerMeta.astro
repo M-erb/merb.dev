@@ -7,8 +7,8 @@ export interface Props {
 	description: string,
 	hero?: {
 		url: string,
-		width: number,
-		height: number
+		width?: number,
+		height?: number
 	},
 	canonical: string,
 	postMeta?: {
@@ -24,6 +24,7 @@ export interface Props {
 
 const { siteName, title, description, hero, canonical, postMeta, keyWords } = Astro.props
 const schemaResult = postMeta ? postSchema() : pageSchema()
+if (hero.url && import.meta.env.SITE) hero.url = `${import.meta.env.SITE}${hero.url}`
 
 function pageSchema () {
 	const result = {
@@ -96,9 +97,6 @@ const outputJSONLD = `<script type="application/ld+json">${schemaResult}</script
 <meta name="description" content={ description }>
 <link rel="canonical" href={ canonical }>
 
-{/* JSON-LD */}
-<Fragment set:html={ outputJSONLD } />
-
 {/* More on Open Graph: https://ogp.me/ */}
 <meta property="og:site_name" content={ siteName }>
 <meta property="og:url" content={ canonical } />
@@ -115,3 +113,23 @@ const outputJSONLD = `<script type="application/ld+json">${schemaResult}</script
 	<meta name="twitter:title" content={ title } />
 	<meta name="twitter:description" content={ description } />
 : ''}
+
+{/* JSON-LD */}
+<Fragment set:html={ outputJSONLD } />
+
+
+<!-- <title>Michael Erb Portflio</title>
+<meta name="description" content="Portfolio for Fullstack Engineer Michael Erb with over 7 years of professional experience in the industry with a diverse set of skills and expertise.">
+
+<meta property="og:url" content="https://merb.dev">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Michael Erb Portflio">
+<meta property="og:description" content="Portfolio for Fullstack Engineer Michael Erb with over 7 years of professional experience in the industry with a diverse set of skills and expertise.">
+<meta property="og:image" content="">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="merb.dev">
+<meta property="twitter:url" content="https://merb.dev">
+<meta name="twitter:title" content="Michael Erb Portflio">
+<meta name="twitter:description" content="Portfolio for Fullstack Engineer Michael Erb with over 7 years of professional experience in the industry with a diverse set of skills and expertise.">
+<meta name="twitter:image" content=""> -->

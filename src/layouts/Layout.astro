@@ -13,7 +13,12 @@ import '@fontsource/merriweather/700.css'
 
 export interface Props {
 	title: string
-	description: string
+	description: string,
+	hero?: {
+		url: string,
+		width?: number,
+		height?: number
+	}
 }
 
 const { title, description } = Astro.props
