@@ -24,12 +24,14 @@ export interface Props {
 
 const { siteName, title, description, hero, canonical, postMeta, keyWords } = Astro.props
 const schemaResult = postMeta ? postSchema() : pageSchema()
-if (hero.url && import.meta.env.SITE) hero.url = `${import.meta.env.SITE}${hero.url}`
+const siteURL = import.meta.env.SITE ? new URL(import.meta.env.SITE) : Astro.url
+const heroURL = hero?.url ? new URL(hero.url, siteURL.origin) : false
 
 function pageSchema () {
 	const result = {
 		"@context": "http://schema.org",
 		"@type": "WebPage",
+		"image": heroURL ? heroURL.href : '',
 		"name": title,
 		"description": description,
 		"inLanguage": "en-US",
@@ -46,7 +48,7 @@ function postSchema () {
 	const result = {
 		"@context":"http://schema.org",
 		"@type": "BlogPosting",
-		"image": hero.url,
+		"image": heroURL ? heroURL.href : '',
 		"url": canonical,
 		"headline": title,
 		"dateCreated": dateCreatedISO,
@@ -57,23 +59,23 @@ function postSchema () {
 		"copyrightYear": formatDate(postMeta.date, 'yyyy'),
 		"accountablePerson": {
 			"@type": "Person",
-			"name": postMeta.author.name,
-			"url": postMeta.author.url
+			"name": postMeta?.author.name,
+			"url": postMeta?.author.url
 		},
 		"author": {
 			"@type": "Person",
-			"name": postMeta.author.name,
-			"url": postMeta.author.url
+			"name": postMeta?.author.name,
+			"url": postMeta?.author.url
 		},
 		"creator": {
 			"@type": "Person",
-			"name": postMeta.author.name,
-			"url": postMeta.author.url
+			"name": postMeta?.author.name,
+			"url": postMeta?.author.url
 		},
 		"publisher": {
 			"@type": "Organization",
-			"name": postMeta.author.name,
-			"url": postMeta.author.url,
+			"name": postMeta?.author.name,
+			"url": postMeta?.author.url,
 			"logo": {
 				"@type": "ImageObject",
 				"url": `${import.meta.env.SITE}/m-logo-circle.svg`,
@@ -93,43 +95,28 @@ function postSchema () {
 
 const outputJSONLD = `<script type="application/ld+json">${schemaResult}</script>`
 ---
+
 <title>{ title }</title>
 <meta name="description" content={ description }>
 <link rel="canonical" href={ canonical }>
 
 {/* More on Open Graph: https://ogp.me/ */}
 <meta property="og:site_name" content={ siteName }>
-<meta property="og:url" content={ canonical } />
-<meta property="og:title" content={ title } />
-<meta property="og:description" content={ description } />
+{ canonical ? <meta property="og:url" content={ canonical } /> : ''}
+{ title ? <meta property="og:title" content={ title } /> : ''}
+{ description ? <meta property="og:description" content={ description } /> : ''}
 <meta property="og:type" content="website" />
 
-{ hero?.url ? <meta property="og:image" content={ hero.url }/> : ''}
+{ heroURL ? <meta property="og:image" content={ heroURL.href }/> : ''}
 { hero?.width ? <meta property="og:image:width" content={ String(hero.width) } /> : ''}
 { hero?.height ? <meta property="og:image:hight" content={ String(hero.height) } /> : ''}
 
-{ title ?
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content={ title } />
-	<meta name="twitter:description" content={ description } />
-: ''}
+<meta name="twitter:card" content="summary" />
+{ title ? <meta name="twitter:title" content={ title } /> : ''}
+{ description ? <meta name="twitter:description" content={ description } /> : ''}
+{ siteURL.hostname ? <meta name="twitter:domain" content={ siteURL.hostname } /> : ''}
+{ siteURL.origin ? <meta name="twitter:url" content={ siteURL.origin } /> : ''}
+{ heroURL ? <meta name="twitter:image" content={ heroURL.href } /> : ''}
 
 {/* JSON-LD */}
 <Fragment set:html={ outputJSONLD } />
-
-
-<!-- <title>Michael Erb Portflio</title>
-<meta name="description" content="Portfolio for Fullstack Engineer Michael Erb with over 7 years of professional experience in the industry with a diverse set of skills and expertise.">
-
-<meta property="og:url" content="https://merb.dev">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Michael Erb Portflio">
-<meta property="og:description" content="Portfolio for Fullstack Engineer Michael Erb with over 7 years of professional experience in the industry with a diverse set of skills and expertise.">
-<meta property="og:image" content="">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta property="twitter:domain" content="merb.dev">
-<meta property="twitter:url" content="https://merb.dev">
-<meta name="twitter:title" content="Michael Erb Portflio">
-<meta name="twitter:description" content="Portfolio for Fullstack Engineer Michael Erb with over 7 years of professional experience in the industry with a diverse set of skills and expertise.">
-<meta name="twitter:image" content=""> -->
