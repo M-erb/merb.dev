@@ -23,9 +23,9 @@ export interface Props {
 }
 
 const { siteName, title, description, hero, canonical, postMeta, keyWords } = Astro.props
-const schemaResult = postMeta ? postSchema() : pageSchema()
 const siteURL = import.meta.env.SITE ? new URL(import.meta.env.SITE) : Astro.url
 const heroURL = hero?.url ? new URL(hero.url, siteURL.origin) : false
+const schemaResult = postMeta ? postSchema() : pageSchema()
 
 function pageSchema () {
 	const result = {
