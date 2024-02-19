@@ -1,8 +1,15 @@
 ---
 import Layout from '@layouts/Layout.astro'
+import heroImg from '@imgs/merb-og-home-min.png'
+
+const hero = {
+	url: heroImg.src,
+	width: heroImg.width,
+	height: heroImg.height
+}
 ---
 
-<Layout title="404 Not found" description='Oops, we could not find what you were looking for'>
+<Layout title="404 Not found" description='Oops, we could not find what you were looking for' hero={hero}>
 	<main>
 		<h1>Not Found <span class="text-gradient">404</span></h1>
 	</main>

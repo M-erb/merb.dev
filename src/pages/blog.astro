@@ -6,6 +6,13 @@ import { getCollection } from 'astro:content'
 import { getImage } from 'astro:assets'
 import PostSearch from '@components/vue/postSearch.vue'
 import { compareDesc as compareDescDate } from 'date-fns'
+import heroImg from '@imgs/merb-og-home-min.png'
+
+const hero = {
+	url: heroImg.src,
+	width: heroImg.width,
+	height: heroImg.height
+}
 
 const blogPosts = await getCollection('blog', ({ data }) => ( data.draft !== true ))
 
@@ -28,7 +35,7 @@ posts.sort((a, b) => {
 })
 ---
 
-<Layout title="Michael Erb Blog" description='Michael Erb technical blog in anyhting relating to software and the web.'>
+<Layout title="Michael Erb Blog" description='Michael Erb technical blog in anyhting relating to software and the web.' hero={hero}>
 	<header class="hero">
 		<div class="hero_inner container">
 			<div class="hero_title_area">

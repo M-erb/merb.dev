@@ -1,10 +1,17 @@
 ---
 import Layout from '@layouts/Layout.astro'
+import heroImg from '@imgs/merb-og-home-min.png'
+
+const hero = {
+	url: heroImg.src,
+	width: heroImg.width,
+	height: heroImg.height
+}
 
 const companyName = 'Michael'
 ---
 
-<Layout title="Privacy Policy for merb.dev" description='Michael Erb is commited to protecting your privacy. Please read this policy about how data is handled on this website.'>
+<Layout title="Privacy Policy for merb.dev" description='Michael Erb is commited to protecting your privacy. Please read this policy about how data is handled on this website.' hero={hero}>
 	<header class="hero">
 		<div class="hero_inner container">
 			<div class="hero_title_area">
