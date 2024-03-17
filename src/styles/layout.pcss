@@ -1,29 +1,34 @@
 body {
-  font-family: Merriweather, sans;
+  font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
-  color: var(--color-black);
+  background-color: var(--color-grey-100);
+  color: var(--theme-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: always;
+  text-wrap: balance;
+  max-width: 100vw;
   overflow-x: hidden;
+  /* transition: background-color .3s ease-in-out, color .3s ease-in-out; */
 }
 
 .outer {
-  max-width: 1920px;
+  max-width: 2000px;
   margin: 0 auto;
-  background-color: var(--color-grey-50);
+  position: relative;
+  z-index: 1;
   overflow-x: hidden;
+  /* transition: background-color .3s, color .3s; */
+
+  @media (--md) {
+    overflow-x: visible;
+  }
 }
 
 main {
   position: relative;
   z-index: 1;
-}
-
-/* utility */
-.no_scroll {
-  overflow: hidden;
 }
 
 .container {
@@ -72,4 +77,8 @@ main {
   @media (--xl) {
     & { max-width: 1200px }
   }
+}
+
+section {
+  /* transition: background-color .3s, color .3s; */
 }

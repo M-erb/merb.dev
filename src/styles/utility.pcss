@@ -1,0 +1,16 @@
+.no_scroll {
+  overflow: hidden;
+}
+
+.title_bold {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.mobile_only_control {
+  @media (--md) {
+    & {
+      display: none;
+    }
+  }
+}
