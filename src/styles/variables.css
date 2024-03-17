@@ -33,6 +33,10 @@
     Cantarell, Helvetica Neue;
   --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: Consolas, Menlo, Monaco, "Liberation Mono", monospace;
+  --font-display: "Sora Variable", system-ui, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-body: "Lato", system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --weight-light: 300;
   --weight-regular: 400;
   --weight-medium: 500;

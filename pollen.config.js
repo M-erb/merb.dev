@@ -1,3 +1,5 @@
+const fontStack = 'system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+
 export default (pollen) => ({
   output: './src/styles/variables.css',
   modules: {
@@ -15,6 +17,11 @@ export default (pollen) => ({
       'purple-300': '#C9AFD5',
       'purple-500': '#A072B5',
       'purple-700': '#7d4d93'
+    },
+    font: {
+      ...pollen.font,
+      display: `"Ubuntu", ${fontStack}`,
+      body: `"Merriweather", ${fontStack}`
     }
   }
 })
