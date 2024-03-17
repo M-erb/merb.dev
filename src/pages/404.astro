@@ -1,16 +1,56 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import heroImg from '@imgs/merb-og-home-min.png'
-
-const hero = {
-	url: heroImg.src,
-	width: heroImg.width,
-	height: heroImg.height
-}
 ---
 
-<Layout title="404 Not found" description='Oops, we could not find what you were looking for' hero={hero}>
+<Layout title="404 Not found" description='Oops, we could not find what you were looking for'>
 	<main>
-		<h1>Not Found <span class="text-gradient">404</span></h1>
+		<section class="hero">
+			<div class="container">
+				<div class="inner">
+					<span class="visual_title">404</span>
+					<h1>Page not found</h1>
+					<div class="content">
+						<p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. </p>
+					</div>
+					<div class="btn_wrap __center">
+						<a href="/" class="btn">Back To Home</a>
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
 </Layout>
+
+<style lang="postcss">
+	@import '@styles/mediaQueries.pcss';
+
+	section.hero {
+		background-color: var(--theme-bg);
+		min-height: 80vh;
+		padding-bottom: var(--size-20);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		.inner {
+			text-align: center;
+
+			.content {
+				max-width: 500px;
+			}
+
+			.btn_wrap {
+				margin-top: var(--size-12);
+			}
+
+			.visual_title {
+				display: block;
+				font-size: var(--scale-fluid-10);
+				margin-bottom: var(--size-12);
+			}
+		}
+
+	}
+</style>
