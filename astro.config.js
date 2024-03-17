@@ -1,12 +1,11 @@
-import dotenv from 'dotenv';
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import vue from '@astrojs/vue';
-import icon from 'astro-icon';
-import sitemap from "@astrojs/sitemap";
-import robots from "astro-robots";
-dotenv.config();
-
+import dotenv from 'dotenv'
+import { defineConfig } from 'astro/config'
+import mdx from '@astrojs/mdx'
+import vue from '@astrojs/vue'
+import icon from 'astro-icon'
+import sitemap from "@astrojs/sitemap"
+import robots from "astro-robots"
+dotenv.config()
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,4 +34,4 @@ export default defineConfig({
       ]
     })
   ]
-});
+})
