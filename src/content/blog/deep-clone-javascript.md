@@ -11,6 +11,7 @@ imgByUrl: 'https://unsplash.com/@bedeviere?utm_content=creditCopyText&utm_medium
 imgSrc: 'https://unsplash.com/photos/man-sitting-on-chair-ILaug8NMqeg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
 excerpt: 'Lets start off my asking what is a "deep" clone as opposed to just a regular old "clone"? Or better yet, "Why would we need to know about cloning anyway?" Wow, what great questions! To answer that we need to do a review of how JavaScript primitive values and assignment works. Most programming languages have values called `primitives`. These are the most basic types of values you have to work with to create programs. For example, in JavaScript there are 7 primirtive types'
 ---
+
 Let's start off by asking what is a "deep" clone as opposed to just a regular old "clone"? Or better yet, "Why would we need to know about cloning anyway?" Wow, what great questions! To answer that, we need to do a review of how JavaScript primitive values and assignment works.
 
 ## Assignment and copying variables
