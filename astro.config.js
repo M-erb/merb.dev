@@ -16,12 +16,6 @@ export default defineConfig({
     format: 'directory',
     assets: 'assets'
   },
-  server: command => {
-    console.log('env: ', command)
-    return {
-      port: Number(process.env.PORT) || 3000
-    }
-  },
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {

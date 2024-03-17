@@ -35,17 +35,17 @@ export const menuList2 = [
 export const socialList = [
   {
     label: 'linkedin',
-    path: import.meta.env.PUBLIC_LINKEDIN,
+    path: 'https://www.linkedin.com/in/merb/',
     img: linkedin
   },
   {
     label: 'github',
-    path: import.meta.env.PUBLIC_GITHUB,
+    path: 'https://github.com/M-erb',
     img: github
   },
   {
     label: 'twitter',
-    path: import.meta.env.PUBLIC_TWITTER,
+    path: 'https://twitter.com/the_merbc',
     img: twitter
   }
 ]
