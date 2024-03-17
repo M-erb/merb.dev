@@ -8,13 +8,15 @@ const blogCollection = defineCollection({
     description: z.string(),
     date: z.string(),
     draft: z.boolean().optional(),
-    postImg: image().refine((img) => img.width >= 1080, {
-      message: "Cover image must be at least 1080 pixels wide!",
+    img: z.object({
+      src: image().refine((img) => img.width >= 1080, {
+        message: "Cover image must be at least 1080 pixels wide!",
+      }),
+      byName: z.string(),
+      byUrl: z.string(),
+      origSrc: z.string()
     }),
-    imgByName: z.string(),
-    imgByUrl: z.string(),
-    imgSrc: z.string(),
-    excerpt: z.string()
+    excerpt: z.string(),
   })
 })
 

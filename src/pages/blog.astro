@@ -20,7 +20,7 @@ const posts = []
 for (const post of blogPosts) {
 	const { slug, data } = post
 	const date = new Date(data.date)
-	const optimizedPostImg = await getImage({ src: data.postImg as ImageMetadata, width: data.postImg.width, height: data.postImg.height })
+	const optimizedPostImg = await getImage({ src: data.img.src as ImageMetadata, width: data.img.src.width, height: data.img.src.height })
 	posts.push({
 		title: data.title,
 		url: `/blog/${slug}`,

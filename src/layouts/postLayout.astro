@@ -14,27 +14,22 @@ import '@fontsource/ubuntu-mono/400.css'
 import '@fontsource/ubuntu-mono/700.css'
 import '@fontsource/merriweather/400.css'
 import '@fontsource/merriweather/700.css'
+import markdownit from 'markdown-it'
 import { convert } from 'html-to-text'
 
 export interface Props {
-	file: string,
-	url: string,
-	headings: Array<any>,
-	rawContent: Function,
-	compiledContent: Function,
-	frontmatter: { title, author, date, description, postImg, imgByName, imgByUrl, imgSrc, render, compiledContent }
+	frontmatter: { title, author, date, description, img, body }
 }
 
-const { title, author, date, description, postImg: postImgPath, imgByName, imgByUrl, imgSrc } = Astro.props.frontmatter
+const md = markdownit()
+const { title, author, date, description, img, body } = Astro.props.frontmatter
 const publishDate = new Date(date)
 const displayDate = formatDate(publishDate, 'MMM dd, yyyy')
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/imgs/postImgs/*.{jpeg,jpg,png,gif}')
-const postImg = await images[postImgPath]() ?? postImgPath
-const optimizedPostImg = await getImage({ src: postImg.default as ImageMetadata, width: postImg.default.width, height: postImg.default.height })
+const optimizedPostImg = await getImage({ src: img.src, width: img.src.width, height: img.src.height })
 
-const hero = { url: optimizedPostImg.src, width: postImg.default.width, height: postImg.default.height }
+const hero = { url: optimizedPostImg.src, width: img.src.width, height: img.src.height }
 const pageUrl = `${import.meta.env.SITE}${Astro.url.pathname}`
-const postPlainText = convert(Astro.props.compiledContent())
+const postPlainText = convert(md.render(body))
 
 const authorInfo = authorList.find(item => (item.name === author))
 const postMeta = {
@@ -74,7 +69,7 @@ const postMeta = {
 			<Navigation menuList={menuList} socialList={socialList} />
 			<div class="post_bg" style={`background-image: url(${optimizedPostImg.src})`}>
 				<div class="post_bg_cite">
-					<span>Photo by <a href={imgByUrl} target="_blank">{imgByName}</a> on <a href={imgSrc} target="_blank">Unsplash</a></span>
+					<span>Photo by <a href={img.byUrl} target="_blank">{img.byName}</a> on <a href={img.origSrc} target="_blank">Unsplash</a></span>
 				</div>
 			</div>
 

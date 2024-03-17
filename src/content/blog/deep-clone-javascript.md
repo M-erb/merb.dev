@@ -1,14 +1,14 @@
 ---
-layout: '@layouts/postLayout.astro'
 title: 'Deep clone in Javascript with structuredClone'
 author: 'Michael Erb'
 description: 'Lets talk about JavaScript assignment and deep cloning with some examples'
 date: '01-19-2024'
 draft: false
-postImg: '/src/imgs/postImgs/bimata-prathama-ILaug8NMqeg-unsplash-crop-min.jpg'
-imgByName: 'Bimata Prathama'
-imgByUrl: 'https://unsplash.com/@bedeviere?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
-imgSrc: 'https://unsplash.com/photos/man-sitting-on-chair-ILaug8NMqeg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
+img:
+  src: '/src/imgs/postImgs/bimata-prathama-ILaug8NMqeg-unsplash-crop-min.jpg'
+  byName: 'Bimata Prathama'
+  byUrl: 'https://unsplash.com/@bedeviere?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
+  origSrc: 'https://unsplash.com/photos/man-sitting-on-chair-ILaug8NMqeg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
 excerpt: 'Lets start off my asking what is a "deep" clone as opposed to just a regular old "clone"? Or better yet, "Why would we need to know about cloning anyway?" Wow, what great questions! To answer that we need to do a review of how JavaScript primitive values and assignment works. Most programming languages have values called `primitives`. These are the most basic types of values you have to work with to create programs. For example, in JavaScript there are 7 primirtive types'
 ---
 

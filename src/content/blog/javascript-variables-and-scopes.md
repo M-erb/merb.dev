@@ -1,14 +1,14 @@
 ---
-layout: '@layouts/postLayout.astro'
 title: 'Javascript Variables and Scopes'
 author: 'Michael Erb'
 description: 'Using this as a baseline for future posts'
 date: '01-30-2024'
 draft: false
-postImg: '/src/imgs/postImgs/paul-skorupskas-7KLa-xLbSXA-unsplash-crop-min.jpg'
-imgByName: 'Paul Skorupskas'
-imgByUrl: 'https://unsplash.com/@pawelskor?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
-imgSrc: 'https://unsplash.com/photos/person-holding-camera-lens-7KLa-xLbSXA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
+img:
+  src: '/src/imgs/postImgs/paul-skorupskas-7KLa-xLbSXA-unsplash-crop-min.jpg'
+  byName: 'Paul Skorupskas'
+  byUrl: 'https://unsplash.com/@pawelskor?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
+  origSrc: 'https://unsplash.com/photos/person-holding-camera-lens-7KLa-xLbSXA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
 excerpt: "Variables are one of the foundational building blocks of any programming language and JavaScript is no exception to this. But, how do they work? When you are trying to read someone else's code, including past you's code, the meaning of the variables are changed based on where and how they are defined. Let's dive into it!"
 ---
 

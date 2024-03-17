@@ -1,14 +1,14 @@
 ---
-layout: '@layouts/postLayout.astro'
 title: 'Example Post'
 author: 'Michael Erb'
 description: 'Using this as a baseline for future posts'
 date: '02-21-2023'
 draft: true
-postImg: '/src/imgs/postImgs/nathan-anderson-9rNyml9OKfI-unsplash.jpg'
-imgByName: 'Nathan Anderson'
-imgByUrl: 'https://unsplash.com/@nathananderson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
-imgSrc: 'https://unsplash.com/photos/9rNyml9OKfI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+img:
+  src: '/src/imgs/postImgs/nathan-anderson-9rNyml9OKfI-unsplash.jpg'
+  byName: 'Nathan Anderson'
+  byUrl: 'https://unsplash.com/@nathananderson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+  origSrc: 'https://unsplash.com/photos/9rNyml9OKfI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
 excerpt: 'Diam nginx maecenas uUpellentesque diam volutpat commodo sed egestas. Nisi est sit amet facilisis magna etiam tempor orci. Habitant morbi tristique senectus et netus et. Sed augue lacus viverra vitae congue eu consequat ac. Egestas purus viverra accumsan in nisl. Risus pretium quam vulputate dignissim suspendisse in est ante. Turpis egestas pretium aenean pharetra magna ac.'
 ---
 
