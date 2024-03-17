@@ -26,6 +26,7 @@
     "axios": "^1.6.8",
     "date-fns": "^3.5.0",
     "html-to-text": "^9.0.5",
+    "markdown-it": "^14.0.0",
     "notyf": "^3.10.0",
     "pollen-css": "^4.6.2",
     "postcss-preset-env": "^9.5.2",
