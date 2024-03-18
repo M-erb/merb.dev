@@ -10,7 +10,7 @@ export interface Props {
 const { menuList, socialList } = Astro.props
 ---
 
-<nav class="main_nav">
+<header class="main_nav">
 	<div class="site_bar container_l">
 		<a href="/" class="logo_space">
 			<Logo name="main" color0="currentColor" width="100" height="18" />
@@ -26,7 +26,7 @@ const { menuList, socialList } = Astro.props
 	</div>
 
 	<div class="nav_menu">
-		<div class="nav_menu_inner container_l">
+		<nav class="nav_menu_inner container_l">
 			{menuList.length ?
 				<ul class="nav_list">
 					{menuList.map(item => (
@@ -42,9 +42,9 @@ const { menuList, socialList } = Astro.props
 					))}
 				</ul>
 			: '' }
-		</div>
+		</nav>
 	</div>
-</nav>
+</header>
 
 <script>
 	const menuBtn = document.querySelector('.menu_btn')
