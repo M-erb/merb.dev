@@ -10,6 +10,8 @@ img:
   byUrl: 'https://unsplash.com/@nathananderson?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
   origSrc: 'https://unsplash.com/photos/9rNyml9OKfI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
 excerpt: 'Diam nginx maecenas uUpellentesque diam volutpat commodo sed egestas. Nisi est sit amet facilisis magna etiam tempor orci. Habitant morbi tristique senectus et netus et. Sed augue lacus viverra vitae congue eu consequat ac. Egestas purus viverra accumsan in nisl. Risus pretium quam vulputate dignissim suspendisse in est ante. Turpis egestas pretium aenean pharetra magna ac.'
+category: 'other'
+tags: [js, javascript, programming]
 ---
 
 ## This is an h2 title

@@ -10,6 +10,8 @@ img:
   byUrl: 'https://unsplash.com/@pawelskor?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
   origSrc: 'https://unsplash.com/photos/person-holding-camera-lens-7KLa-xLbSXA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
 excerpt: "Variables are one of the foundational building blocks of any programming language and JavaScript is no exception to this. But, how do they work? When you are trying to read someone else's code, including past you's code, the meaning of the variables are changed based on where and how they are defined. Let's dive into it!"
+category: 'fundamentals'
+tags: [js, javascript, programming, variables, scope, lexical, const, let, primitive, values]
 ---
 
 Variables are one of the foundational building blocks of any programming language and JavaScript is no exception to this. But, how do they work? When you are trying to read someone else's code, including past you's code, the meaning of the variables are changed based on where and how they are defined. Let's dive into it!
