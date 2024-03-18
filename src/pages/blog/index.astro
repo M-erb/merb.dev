@@ -36,7 +36,7 @@ posts.sort((a, b) => {
 ---
 
 <Layout title="Michael Erb Blog" description='Michael Erb technical blog in anyhting relating to software and the web.' hero={hero}>
-	<header class="hero">
+	<section class="hero">
 		<div class="hero_inner container">
 			<div class="hero_title_area">
 				<div class="hero_titles">
@@ -45,7 +45,7 @@ posts.sort((a, b) => {
 				</div>
 			</div>
 		</div>
-	</header>
+	</section>
 
 	<main>
 		<CustomBorderSec top="curve_blue">
@@ -59,7 +59,7 @@ posts.sort((a, b) => {
 <style lang="postcss">
 	@import '@styles/mediaQueries.pcss';
 
-	.hero {
+	section.hero {
 		display: flex;
 		justify-content: center;
 		align-items: flex-start;
