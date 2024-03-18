@@ -5,15 +5,16 @@ import CustomBorderSec from '@components/customBorderSec.astro'
 import ContactSec from '@components/contactSec.astro'
 import { getImage } from 'astro:assets'
 import { format as formatDate } from 'date-fns'
+import slugify from 'slugify'
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths () {
 	const posts = await getCollection('blog', ({ data }) => ( data.draft !== true ))
-	const uniqueCats = [...new Set(posts.map((post) => post.data.category))]
+	const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())]
 
 	const results = []
-	for (const cat of uniqueCats) {
-		const filteredPosts = posts.filter(post => post.data.category === cat)
+	for (const tag of uniqueTags) {
+		const filteredPosts = posts.filter(post => post.data.tags.includes(tag))
 		const modifiedPosts = []
 		for (const post of filteredPosts) {
 			const optimizedPostImg = await getImage({
@@ -31,8 +32,11 @@ export async function getStaticPaths () {
 		}
 
 		results.push({
-			params: { cat },
+			params: {
+				slug: slugify(tag)
+			},
 			props: {
+				tag,
 				posts: modifiedPosts
 			}
 		})
@@ -42,17 +46,16 @@ export async function getStaticPaths () {
 }
 
 // 2. When it's time to render, you can get the entry directly from the prop
-const { cat } = Astro.params
-const { posts } = Astro.props
+const { tag, posts } = Astro.props
 ---
 
-<Layout title={`Category: ${cat}`} description={`All posts in the ${cat} category`}>
+<Layout title={`Tag: ${tag}`} description={`All posts with the tag ${tag}`}>
 	<section class="hero">
 		<div class="hero_inner container">
 			<div class="hero_title_area">
 				<div class="hero_titles">
-					<h1 class="hero_title">{cat}</h1>
-					<h2 class="">All posts in the {cat} category</h2>
+					<h1 class="hero_title">{tag}</h1>
+					<h2 class="">All posts with the tag {tag}</h2>
 				</div>
 			</div>
 		</div>
