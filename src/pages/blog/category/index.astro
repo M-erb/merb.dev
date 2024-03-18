@@ -1,0 +1,81 @@
+---
+import Layout from '@layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+import CustomBorderSec from '@components/customBorderSec.astro'
+import ContactSec from '@components/contactSec.astro'
+import slugify from 'slugify'
+
+const posts = await getCollection('blog', ({ data }) => ( data.draft !== true ))
+const uniqueTags = [...new Set(posts.map((post) => post.data.category))]
+
+const cats = []
+for (const cat of uniqueTags) {
+	const filteredPosts = posts.filter(post => post.data.category === cat)
+
+	cats.push({
+		name: cat,
+		count: filteredPosts.length,
+		url: `/blog/category/${slugify(cat)}`
+	})
+}
+---
+
+<Layout title='All categories for the site' description='All categories for the site'>
+	<section class="hero">
+		<div class="hero_inner container">
+			<div class="hero_title_area">
+				<div class="hero_titles">
+					<h1 class="hero_title">All categories</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<main>
+		<CustomBorderSec top="curve_blue">
+      <ul>
+        {cats.map(tag => (
+          <li><a href={tag.url}>{tag.name} ({tag.count})</a></li>
+        ))}
+      </ul>
+		</CustomBorderSec>
+
+		<ContactSec num={1} />
+	</main>
+</Layout>
+
+<style lang="postcss">
+	@import '@styles/mediaQueries.pcss';
+
+	section.hero {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		min-height: 300px;
+
+		& .hero_inner {
+			padding-top: var(--size-8);
+			padding-bottom: var(--size-8);
+
+			@media (--md) {
+				& {
+					padding-top: var(--size-16);
+					padding-bottom: var(--size-16);
+				}
+			}
+		}
+
+		& .hero_title_area {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			flex-wrap: wrap;
+
+			& .hero_home_titles {
+				flex: 1 1 auto;
+				order: 2;
+			}
+		}
+	}
+</style>
