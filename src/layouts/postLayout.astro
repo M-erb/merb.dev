@@ -19,11 +19,11 @@ import markdownit from 'markdown-it'
 import { convert } from 'html-to-text'
 
 export interface Props {
-	frontmatter: { title, author, date, description, img, body }
+	frontmatter: { title, author, date, description, img, body, tags, category }
 }
 
 const md = markdownit()
-const { title, author, date, description, img, body } = Astro.props.frontmatter
+const { title, author, date, description, img, body, tags } = Astro.props.frontmatter
 const publishDate = new Date(date)
 const displayDate = formatDate(publishDate, 'MMM dd, yyyy')
 const optimizedPostImg = await getImage({ src: img.src, width: img.src.width, height: img.src.height })
@@ -58,6 +58,7 @@ const postMeta = {
 			hero={hero}
 			canonical={pageUrl}
 			postMeta={postMeta}
+			keyWords={tags ?? undefined}
 		/>
 
 		<AnalyticsSnippet />

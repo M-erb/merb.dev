@@ -20,9 +20,9 @@ const { entry } = Astro.props
 const { Content } = await entry.render()
 
 // 3. get frontmatter
-const { title, author, date, description, img } = entry.data
+const { title, author, date, description, img, tags, category } = entry.data
 ---
 
-<PostLayout frontmatter={{ title, author, date, description, img, body: entry.body }}>
+<PostLayout frontmatter={{ title, author, date, description, img, body: entry.body, tags, category }}>
   <Content />
 </PostLayout>

@@ -36,7 +36,7 @@ function pageSchema () {
 		"description": description,
 		"inLanguage": "en-US",
 		"isFamilyFriendly": "true",
-		"keywords": keyWords ?? undefined
+		"keywords": keyWords?.toLocaleString() ?? undefined
 	}
 
 	return JSON.stringify(result, null, 2)
@@ -84,7 +84,7 @@ function postSchema () {
 			}
 		},
 		"mainEntityOfPage": "True",
-		"keywords": keyWords ?? undefined,
+		"keywords": keyWords?.toLocaleString() ?? undefined,
 		"genre":["programming","javascript","web developer"],
 		"articleSection": "Uncategorized posts",
 		"articleBody": postMeta.postBody
