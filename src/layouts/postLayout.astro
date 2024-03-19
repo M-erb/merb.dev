@@ -2,6 +2,7 @@
 import '@styles/main.pcss'
 import Navigation from '@components/navigation.astro'
 import Footer from '@components/footer.astro'
+import AnalyticsSnippet from '@components/utility/analyticsSnippet.astro'
 import ContactSec from '@components/contactSec.astro'
 import authorList from '@data/authors.js'
 import { menuList, menuList2, socialList } from '@data/nav.js'
@@ -59,10 +60,7 @@ const postMeta = {
 			postMeta={postMeta}
 		/>
 
-		{ import.meta.env.PROD ?
-			<!-- analytics -->
-			<script defer data-domain="merb.dev" src="https://plausible.io/js/script.js"></script>
-		: '' }
+		<AnalyticsSnippet />
 	</head>
 	<body>
 		<div class="outer">
