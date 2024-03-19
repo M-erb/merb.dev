@@ -1,19 +1,30 @@
-import dotenv from 'dotenv'
 import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import vue from '@astrojs/vue'
 import icon from 'astro-icon'
-import sitemap from "@astrojs/sitemap"
-import robots from "astro-robots"
-dotenv.config()
+import sitemap from '@astrojs/sitemap'
+import robots from 'astro-robots'
+import cloudflare from '@astrojs/cloudflare'
+import { loadEnv } from 'vite'
+
+const {
+  SITE
+} = loadEnv(process.env.NODE_ENV, process.cwd(), '')
+
+const site = SITE ? SITE : 'https://merb.dev'
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE,
-  output: 'static',
+  site,
+  output: 'hybrid',
   build: {
     format: 'directory',
     assets: 'assets'
+  },
+  vite: {
+    build: {
+      minify: false,
+    },
   },
   markdown: {
     syntaxHighlight: 'shiki',
@@ -29,9 +40,23 @@ export default defineConfig({
     sitemap(),
     robots({
       sitemap: [
-        `${process.env.SITE}/sitemap-0.xml`,
-        `${process.env.SITE}/sitemap-index.xml`,
+        `${site}/sitemap-0.xml`,
+        `${site}/sitemap-index.xml`,
       ]
     })
-  ]
+  ],
+  adapter: cloudflare({
+    mode: 'directory',
+    functionPerRoute: false,
+    imageService: 'compile',
+    runtime: {
+      type: 'pages',
+      mode: 'local',
+      bindings: {
+        formEntries: {
+          type: 'kv'
+        }
+      }
+    }
+  })
 })
