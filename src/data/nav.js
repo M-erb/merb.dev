@@ -1,7 +1,3 @@
-import linkedin from '@imgs/social/linkedin logo.svg'
-import github from '@imgs/social/github-mark-white.svg'
-import twitter from '@imgs/social/Twitter social icons - circle - white.svg'
-
 export const menuList = [
   {
     label: 'Home',
@@ -36,16 +32,16 @@ export const socialList = [
   {
     label: 'linkedin',
     path: 'https://www.linkedin.com/in/merb/',
-    img: linkedin
+    iconName: 'social/linkedin-white'
   },
   {
     label: 'github',
     path: 'https://github.com/M-erb',
-    img: github
+    iconName: 'social/github-white'
   },
   {
-    label: 'twitter',
-    path: 'https://twitter.com/the_merbc',
-    img: twitter
+    label: 'twitter/x',
+    path: 'https://twitter.com/the_merb',
+    iconName: 'social/x-white'
   }
 ]
