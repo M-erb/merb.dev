@@ -1,0 +1,54 @@
+---
+export interface tag {
+	url: string,
+	name: string,
+	count: number
+}
+
+export interface Props {
+	tags: Array<tag>
+}
+
+const { tags } = Astro.props
+---
+
+<ul class="tags_list">
+  {tags.map(tag => (
+    <li><a href={tag.url}><span class="name">{tag.name}</span><span class="count">{tag.count}</span></a></li>
+  ))}
+</ul>
+
+<style type="postcss">
+  .tags_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    li {
+      flex: 0 0 auto;
+    }
+
+    a {
+      background-color: var(--color-grey-800);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: var(--size-3) var(--size-6);
+      border-radius: 3px;
+      text-decoration: none;
+
+      .name {
+
+      }
+
+      .count {
+        background-color: var(--color-black);
+        padding: var(--size-1) var(--size-3);
+        border-radius: 3px;
+      }
+    }
+  }
+</style>

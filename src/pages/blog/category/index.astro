@@ -3,12 +3,14 @@ import Layout from '@layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 import CustomBorderSec from '@components/customBorderSec.astro'
 import ContactSec from '@components/contactSec.astro'
+import TagsList from '@components/tagsList.astro'
+import type { tag } from '@components/tagsList.astro'
 import slugify from 'slugify'
 
 const posts = await getCollection('blog', ({ data }) => ( data.draft !== true ))
 const uniqueTags = [...new Set(posts.map((post) => post.data.category))]
 
-const cats = []
+const cats:Array<tag> = []
 for (const cat of uniqueTags) {
 	const filteredPosts = posts.filter(post => post.data.category === cat)
 
@@ -33,11 +35,9 @@ for (const cat of uniqueTags) {
 
 	<main>
 		<CustomBorderSec top="curve_blue">
-      <ul>
-        {cats.map(tag => (
-          <li><a href={tag.url}>{tag.name} ({tag.count})</a></li>
-        ))}
-      </ul>
+      <div class="tags_inner">
+				<TagsList tags={cats} />
+			</div>
 		</CustomBorderSec>
 
 		<ContactSec num={1} />
@@ -77,5 +77,9 @@ for (const cat of uniqueTags) {
 				order: 2;
 			}
 		}
+	}
+
+	.tags_inner {
+		padding: var(--size-72) 0;
 	}
 </style>
