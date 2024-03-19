@@ -9,7 +9,7 @@ img:
   byName: 'Taylor Vick'
   byUrl: 'https://unsplash.com/@tvick?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
   origSrc: 'https://unsplash.com/photos/cable-network-M5tzZtFCOfs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
-excerpt: 'Diam nginx maecenas uUpellentesque diam volutpat commodo sed egestas. Nisi est sit amet facilisis magna etiam tempor orci. Habitant morbi tristique senectus et netus et. Sed augue lacus viverra vitae congue eu consequat ac. Egestas purus viverra accumsan in nisl. Risus pretium quam vulputate dignissim suspendisse in est ante. Turpis egestas pretium aenean pharetra magna ac.'
+excerpt: 'Nginx, pronounced like “engine-ex”, is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. Need an extremly fast and easy to configure web server and reverse proxy? Look no further than nginx!... On Ubuntu it is very easy to install due to it being in the default repositories using `apt`.'
 category: 'devOps'
 tags: [nginx, webserver, ubuntu, nodejs, selfhost]
 ---
@@ -24,7 +24,7 @@ You can follow along by installing Ubuntu on a VM(Virtual Machine), running Ubun
 
 ## Step 1 – Install
 
-On Ubuntu it is very easy to install due to it being in the default repositories using `apt`. 
+On Ubuntu it is very easy to install due to it being in the default repositories using `apt`.
 
 ```bash
 sudo apt install nginx
