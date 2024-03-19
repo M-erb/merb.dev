@@ -12,7 +12,22 @@ Inside of your Astro project, you'll see the following folders and files:
 │   └── favicon.svg
 ├── src/
 │   ├── components/
+│   │   ├── vue/
+│   │   │   └── vue-component.vue
 │   │   └── Card.astro
+│   ├── content/
+│   │   └── blog/
+│   │       └── example-post.md
+│   ├── data/
+│   │   ├── data.json
+│   │   ├── someData.js
+│   │   └── someData.ts
+│   ├── icons/
+│   │   ├── social/
+│   │   │   └── social.svg
+│   │   └── icon.svg
+│   ├── imgs/
+│   │   └── image.jpg
 │   ├── layouts/
 │   │   └── Layout.astro
 │   ├── pages/
@@ -45,22 +60,11 @@ All commands are run from the root of the project, from a terminal:
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-## Check list before going live:
-- Create about me post
-- Finish contact form connection to BE
-- install SEO integrations:
-  - [Astro SEO](https://github.com/jonasmerlin/astro-seo)
-  - [Astro Robots.txt](https://github.com/alextim/astro-lib/tree/main/packages/astro-robots-txt#readme)
-  - [Astro Sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
-  - [Astro partytown](https://docs.astro.build/en/guides/integrations-guide/partytown/) maybe...
-- Remove Lorem from experience sec on home
-- Install analytics
-
 ## TODOS:
-- [ ] Create 404 design
-- [ ] Code up 404 page
+- [x] Create 404 design
+- [x] Code up 404 page
 - [x] create content for about me post
-- [ ] create 2 posts
+- [x] create 2 posts
 - [x] create sitemap
 - [x] create robots.txt
 - [x] install seo plugin
