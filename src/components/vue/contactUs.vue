@@ -11,8 +11,6 @@ const letterspace = ref(null)
 const formspace = ref(null)
 const tymessage = ref(null)
 const status = reactive({ isDone: false, isLoading: false })
-const reqPrefix = import.meta.env.MODE === 'production' ? '' : 'http://localhost:3000'
-const formUuid = import.meta.env.MODE === 'production' ? 'OGcfytnb5tOj1LrnMzrXL' : 'HXb6Hs0ATrC31_Bs-NVhW'
 const fields = reactive({
   firstName: '',
   lastName: '',
@@ -57,13 +55,12 @@ async function submitForm () {
 
   try {
     const payload = {
-      formUuid,
-      clientCaptchaKey: '',
       honeyPot: honey.value,
-      ...fields
+      fields
     }
 
-    await axios.post(`${reqPrefix}/api/v1/form/submit`, payload)
+    // await axios.post(`${reqPrefix}/api/v1/form/submit`, payload)
+    await axios.post('/api/contact-us', payload)
     noty.success('Thank you! I will reach out to you as soon as possible')
     status.isLoading = false
     status.isDone = true
