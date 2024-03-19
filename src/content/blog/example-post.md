@@ -2,7 +2,7 @@
 title: 'Example Post'
 author: 'Michael Erb'
 description: 'Using this as a baseline for future posts'
-date: '02-21-2023'
+date: '02-21-2024'
 draft: true
 img:
   src: '/src/imgs/postImgs/nathan-anderson-9rNyml9OKfI-unsplash.jpg'
