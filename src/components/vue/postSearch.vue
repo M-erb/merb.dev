@@ -31,8 +31,6 @@ const filteredPosts = computed(() => {
     const title = post.title.toLowerCase()
     const excerpt = post.excerpt.toLowerCase()
     const searchTerm = query.term.toLowerCase()
-    // const searchTag = query.tag.toLowerCase()
-    // const searchCat = query.cat.toLowerCase()
 
     const isFindTitle = searchTerm ? title.includes(searchTerm) : false
     const isFindExcerpt = searchTerm ? excerpt.includes(searchTerm) : false
