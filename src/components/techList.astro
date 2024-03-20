@@ -84,35 +84,33 @@ for (let i = 0; i < list.length; i += 3) {
 		}
 
 		@media (--sm) {
-			& {
-				left: -7%;
+			left: -7%;
 
-				& .tech_icon_list {
-					justify-content: flex-start;
+			& .tech_icon_list {
+				justify-content: flex-start;
 
-					& li {
-						justify-content: flex-end;
+				& li {
+					justify-content: flex-end;
 
-						& .tech_icon_inner {
-							width: 120px;
-							height: 120px;
+					& .tech_icon_inner {
+						width: 120px;
+						height: 120px;
 
-							& a {
-								& img {
-									width: auto;
-									max-width: auto;
-								}
+						& a {
+							& img {
+								width: auto;
+								max-width: auto;
 							}
 						}
 					}
+				}
 
-					&:nth-child(even) {
-						position: relative;
-						left: 7%;
+				&:nth-child(even) {
+					position: relative;
+					left: 7%;
 
-						& li {
-							justify-content: flex-start;
-						}
+					& li {
+						justify-content: flex-start;
 					}
 				}
 			}
