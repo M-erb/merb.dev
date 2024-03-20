@@ -11,7 +11,7 @@ img:
   origSrc: 'https://unsplash.com/photos/9rNyml9OKfI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
 excerpt: 'I am a self taught full stack web/software developer. I love learning all things programming and never want to stop learning about new things. I spend most of my time coding, coming up with new project ideas, playing games, and being outside with my family. If I am not at my computer, I am outside exploring and enjoying time in the mountains.'
 category: 'other'
-tags: [about me, career, thoughts]
+tags: [about me, career]
 ---
 
 ## Hi 👋, my name is Michael Erb.
