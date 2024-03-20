@@ -1,7 +1,7 @@
 ---
 title: 'How to install NGINX on Ubuntu'
 author: 'Michael Erb'
-description: 'Using this as a baseline for future posts'
+description: 'Michael Erb explains how to install Nginx on Ubuntu'
 date: '03-19-2024'
 draft: false
 img:
@@ -20,7 +20,16 @@ Nginx, pronounced like “engine-ex”, is one of the most popular web servers i
 
 Need an extremely fast and easy to configure web server and reverse proxy? Look no further than nginx! We will not be getting into how to configure and use Nginx in this article, only how to install it and get it up and running. I will be writing more on this subject to have a more complete idea of how to use nginx for your next project.
 
-You can follow along by installing Ubuntu on a VM(Virtual Machine), running Ubuntu directly on your own hardware ([Desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop)) or ([Headless Server](https://ubuntu.com/tutorials/install-ubuntu-server)), or use a service out there like [DigitalOcean](https://m.do.co/c/5274752299b2) (referral link) and spin up a VPS(Virtual Private Server) for your own server. Look down below why I chose DigitalOcean. 
+You can follow along by installing Ubuntu on a VM(Virtual Machine), running Ubuntu directly on your own hardware ([Desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop)) or ([Headless Server](https://ubuntu.com/tutorials/install-ubuntu-server)), or use a service out there like [DigitalOcean](https://m.do.co/c/5274752299b2) (referral link) and spin up a VPS(Virtual Private Server) for your own server. Look down below why I chose DigitalOcean. This article assumes you already have a domain name and are pointing it to your server's public IP address.
+
+This is the first in a series about nginx. Follow along!
+
+Article series:
+1. How to install nginx on Ubuntu 👈 you are here
+2. <a href="/blog/how-to-host-sites-with-nginx-and-server-blocks" target="_blank">How to host sites with nginx and server blocks</a> 👈 you are here
+3. How to add FREE SSL/TSL and HTTPS to nginx using Let’s Encrypt 🫥 coming soon!
+4. How to host nodejs with nginx using reverse proxy 🫥 coming soon!
+5. Nginx commands 🫥 coming soon!
 
 ## Step 1 – Install
 
@@ -138,4 +147,9 @@ I will be writing more about nginx and how I use it to host static sites and eve
 
 Speaking of VPS there are a few really good ones out there for not too expensive. The one I went with is [DigitalOcean](https://m.do.co/c/5274752299b2) and their service has been fantastic with no surprising fees or failures. I can spin up a server for as little as $5 per month. I have been using them for several years now with no issues. From spinning up various databases to static sites, nodejs, python, chat apps, email servers and more! They have a deal that if you sign up through a referral link you get a $200 credit over the course of 60 days. I do get a kickback of $25 if you spend $25 after the credit but that is not why I am doing this. I used someone else's link to get started on DigitalOcean myself and that $200 credit was amazing! I have learned so much from experimenting with my own machine I can break and then easily restart on a new one. [My referral link](https://m.do.co/c/5274752299b2).
 
-Happy deving!
+Article series:
+1. How to install nginx on Ubuntu 👈 you are here
+2. <a href="/blog/how-to-host-sites-with-nginx-and-server-blocks" target="_blank">How to host sites with nginx and server blocks</a> 👈 you are here
+3. How to add FREE SSL/TSL and HTTPS to nginx using Let’s Encrypt 🫥 coming soon!
+4. How to host nodejs with nginx using reverse proxy 🫥 coming soon!
+5. Nginx commands 🫥 coming soon!
