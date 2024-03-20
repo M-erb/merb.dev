@@ -9,21 +9,58 @@ import { format as formatDate } from 'date-fns'
 const props = defineProps({
   posts: {
     type: Array
+  },
+  tags: {
+    type: Array
+  },
+  cats: {
+    type: Array
   }
 })
 
 const query = reactive({
-  term: ''
+  term: '',
+  tag: '',
+  cat: ''
 })
 
 const filteredPosts = computed(() => {
   return props.posts.filter(post => {
+    if (!query.term && !query.tag && !query.cat) return true
+
     const title = post.title.toLowerCase()
     const excerpt = post.excerpt.toLowerCase()
     const searchTerm = query.term.toLowerCase()
-    return excerpt.includes(searchTerm) || title.includes(searchTerm)
+    // const searchTag = query.tag.toLowerCase()
+    // const searchCat = query.cat.toLowerCase()
+
+    const isFindTitle = searchTerm ? title.includes(searchTerm) : false
+    const isFindExcerpt = searchTerm ? excerpt.includes(searchTerm) : false
+    const isFindTag = query.tag ? post.tags.includes(query.tag) : true
+    const isFindCat = query.cat ? post.category.includes(query.cat) : true
+
+    const isFind = (isFindTitle || isFindExcerpt) || (isFindTag && isFindCat)
+    return isFind
   })
 })
+
+function handleTagClick (tagName) {
+  if (query.tag === tagName) {
+    query.tag = ''
+    return
+  }
+
+  query.tag = tagName
+}
+
+function handleCatClick (catName) {
+  if (query.cat === catName) {
+    query.cat = ''
+    return
+  }
+
+  query.cat = catName
+}
 </script>
 
 <template>
@@ -33,7 +70,22 @@ const filteredPosts = computed(() => {
         <span>Search</span>
         <input type="text" v-model="query.term" placeholder="Type here..." />
       </label>
-      <!-- <div class="search_control"></div> -->
+      <div class="search_filter">
+        <h3 class="title">Categories</h3>
+        <ul>
+          <li v-for="cat in props.cats">
+            <button @click="handleCatClick(cat.name)" :class="[{__active: query.cat === cat.name}]"><span class="name">{{ cat.name }}</span><span class="count">{{ cat.count }}</span></button>
+          </li>
+        </ul>
+      </div>
+      <div class="search_filter">
+        <h3 class="title">Tags</h3>
+        <ul>
+          <li v-for="tag in props.tags">
+            <button @click="handleTagClick(tag.name)" :class="[{__active: query.tag === tag.name}]"><span class="name">{{ tag.name }}</span><span class="count">{{ tag.count }}</span></button>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <TransitionGroup name="list">

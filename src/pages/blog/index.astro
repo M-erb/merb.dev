@@ -4,6 +4,7 @@ import CustomBorderSec from '@components/customBorderSec.astro'
 import ContactSec from '@components/contactSec.astro'
 import { getCollection } from 'astro:content'
 import { getImage } from 'astro:assets'
+import type { GetImageResult } from 'astro'
 import PostSearch from '@components/vue/postSearch.vue'
 import { compareDesc as compareDescDate } from 'date-fns'
 import heroImg from '@imgs/merb-og-home-min.png'
@@ -15,8 +16,36 @@ const hero = {
 }
 
 const blogPosts = await getCollection('blog', ({ data }) => ( data.draft !== true ))
+const uniqueTags = [...new Set(blogPosts.map((post) => post.data.tags).flat())]
+const uniqueCats = [...new Set(blogPosts.map((post) => post.data.category))]
 
-const posts = []
+const tags = uniqueTags.map(tag => {
+	const filteredPosts = blogPosts.filter(post => post.data.tags.includes(tag))
+	return {
+		name: tag,
+		count: filteredPosts.length
+	}
+})
+
+const cats = uniqueCats.map(cat => {
+	const filteredPosts = blogPosts.filter(post => post.data.category === cat)
+	return {
+		name: cat,
+		count: filteredPosts.length
+	}
+})
+
+export interface simplePost {
+	title: string
+	url: string
+	img: GetImageResult
+	date: Date
+	excerpt: string
+	tags: Array<string>
+	category: string
+}
+
+const posts: Array<simplePost> = []
 for (const post of blogPosts) {
 	const { slug, data } = post
 	const date = new Date(data.date)
@@ -26,7 +55,9 @@ for (const post of blogPosts) {
 		url: `/blog/${slug}`,
 		img: optimizedPostImg,
 		date,
-		excerpt: data.excerpt
+		excerpt: data.excerpt,
+		tags: data.tags,
+		category: data.category
 	})
 }
 
@@ -49,7 +80,7 @@ posts.sort((a, b) => {
 
 	<main>
 		<CustomBorderSec top="curve_blue">
-			<PostSearch posts={posts} client:visible />
+			<PostSearch posts={posts} tags={tags} cats={cats} client:visible />
 		</CustomBorderSec>
 
 		<ContactSec num={1} />
@@ -71,10 +102,8 @@ posts.sort((a, b) => {
 			padding-bottom: var(--size-8);
 
 			@media (--md) {
-				& {
-					padding-top: var(--size-16);
-					padding-bottom: var(--size-16);
-				}
+				padding-top: var(--size-16);
+				padding-bottom: var(--size-16);
 			}
 		}
 
