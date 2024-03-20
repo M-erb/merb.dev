@@ -9,7 +9,7 @@ img:
   byName: 'Bimata Prathama'
   byUrl: 'https://unsplash.com/@bedeviere?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
   origSrc: 'https://unsplash.com/photos/man-sitting-on-chair-ILaug8NMqeg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
-excerpt: 'Lets start off my asking what is a "deep" clone as opposed to just a regular old "clone"? Or better yet, "Why would we need to know about cloning anyway?" Wow, what great questions! To answer that we need to do a review of how JavaScript primitive values and assignment works. Most programming languages have values called `primitives`. These are the most basic types of values you have to work with to create programs. For example, in JavaScript there are 7 primirtive types'
+excerpt: 'Lets start off my asking what is a "deep" clone as opposed to just a regular old "clone"? Or better yet, "Why would we need to know about cloning anyway?" Wow, what great questions! To answer that we need to do a review of how JavaScript primitive values and assignment works. Most programming languages have values called `primitives`. These are the most basic types of values you have to work with to create programs. For example, in JavaScript there are 7 primitive types'
 category: 'fundamentals'
 tags: [js, javascript, programming, variable, variables, primitive, clone, deep, shallow]
 ---
@@ -92,7 +92,7 @@ This solution gets the job done but with data loss and <a href="https://jsben.ch
 
 ### 2. Use a library
 
-There are many libraries that can do this. A very popular one is <a href="https://github.com/lodash/lodash" target="_blank">lodash</a> which contains many utility functions for working with objects and arrays. I would recommend using the <a href="https://www.npmjs.com/package/lodash-es" target="_blank">lodash-es</a> though if you are using esmodules as it is treeshakeable.
+There are many libraries that can do this. A very popular one is <a href="https://github.com/lodash/lodash" target="_blank">lodash</a> which contains many utility functions for working with objects and arrays. I would recommend using the <a href="https://www.npmjs.com/package/lodash-es" target="_blank">lodash-es</a> though if you are using es modules as it is treeshakeable.
 
 ```javascript
 import { cloneDeep } from 'lodash-es'
@@ -111,7 +111,7 @@ console.log(personB.age) // returns 30, yay no side effects!
 
 ### 3. Use Object.assign() for a shallow copy
 
-`Object.assign()` copies all of the "own properties" of some *source* objects to a *target* object and returns the modified *target* object. But it only does this shallowly because if any of the properies are an object or array they will be *referenced* and not *copied*.
+`Object.assign()` copies all of the "own properties" of some *source* objects to a *target* object and returns the modified *target* object. But it only does this shallowly because if any of the properties are an object or array they will be *referenced* and not *copied*.
 
 ```javascript
 const personA = {

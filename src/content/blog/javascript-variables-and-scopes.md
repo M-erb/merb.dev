@@ -55,7 +55,7 @@ Great, now we know scope has to do with whether or not you can use variables in 
 
 ### Global Scope
 
-This is the top level scope. If some code is not a part of any other more specific scope, then it is part of the global scope. Most of your variables should not be in the global level to prevent unpredictable code. Also, keeping things out of global as much as possible opens up more naming possiblities, especially in larger code bases.
+This is the top level scope. If some code is not a part of any other more specific scope, then it is part of the global scope. Most of your variables should not be in the global level to prevent unpredictable code. Also, keeping things out of global as much as possible opens up more naming possibilities, especially in larger code bases.
 
 ```javascript
 var personA = 'Jimmy' // global scope
@@ -69,7 +69,7 @@ function doThis () {
 
 ### Block Scope
 
-This has to do with `let` and `const` and where they are declared in your code. If you use `let` and/or `const` in a code block it cannot be redeclared without an error being thrown. A 'block,' in this context, would be any code declared inside of curly braces `{}`. Check out the example:
+This has to do with `let` and `const` and where they are declared in your code. If you use `let` and/or `const` in a code block it cannot be re-declared without an error being thrown. A 'block,' in this context, would be any code declared inside of curly braces `{}`. Check out the example:
 
 ```javascript
 const personA = 'Bob'
@@ -86,7 +86,7 @@ if (true) {
 }
 ```
 
-Bet you're wondering what the difference between `let` and `const` is if they both cannot be redeclared in the same scope. To try and put it simply, `let` allows `assignment` and re-`assignment`. In other words, `let` allows you to redefine it as much as you need. In contrast, a `const` does not allow a re-`assignment`. What is meant by `assignment`? It is basically when you use the `=` equals sign to give a value to a variable. Read more about `assignment` and primitives in my <a href="/blog/deep-clone-javascript" target="_blank">Deep clone in Javascript with structuredClone</a> post.
+Bet you're wondering what the difference between `let` and `const` is if they both cannot be re-declared in the same scope. To try and put it simply, `let` allows `assignment` and re-`assignment`. In other words, `let` allows you to redefine it as much as you need. In contrast, a `const` does not allow a re-`assignment`. What is meant by `assignment`? It is basically when you use the `=` equals sign to give a value to a variable. Read more about `assignment` and primitives in my <a href="/blog/deep-clone-javascript" target="_blank">Deep clone in Javascript with structuredClone</a> post.
 
 ```javascript
 const personA = 'Bob'

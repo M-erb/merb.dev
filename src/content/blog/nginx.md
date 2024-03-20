@@ -9,7 +9,7 @@ img:
   byName: 'Taylor Vick'
   byUrl: 'https://unsplash.com/@tvick?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
   origSrc: 'https://unsplash.com/photos/cable-network-M5tzZtFCOfs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
-excerpt: 'Nginx, pronounced like “engine-ex”, is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. Need an extremly fast and easy to configure web server and reverse proxy? Look no further than nginx!... On Ubuntu it is very easy to install due to it being in the default repositories using `apt`.'
+excerpt: 'Nginx, pronounced like “engine-ex”, is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. Need an extremely fast and easy to configure web server and reverse proxy? Look no further than nginx!... On Ubuntu it is very easy to install due to it being in the default repositories using `apt`.'
 category: 'devOps'
 tags: [nginx, webserver, ubuntu, nodejs, selfhost]
 ---
@@ -18,7 +18,7 @@ tags: [nginx, webserver, ubuntu, nodejs, selfhost]
 
 Nginx, pronounced like “engine-ex”, is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. It is a lightweight choice that can be used as either a web server or reverse proxy. [Nginx](https://nginx.org/en/) was originally created by Igor Sysoev, with its first public release in October 2004.
 
-Need an extremly fast and easy to configure web server and reverse proxy? Look no further than nginx! We will not be getting into how to configure and use Nginx in this article, only how to install it and get it up and running. I will be writing more on this subject to have a more complete idea of how to use nginx for your next project.
+Need an extremely fast and easy to configure web server and reverse proxy? Look no further than nginx! We will not be getting into how to configure and use Nginx in this article, only how to install it and get it up and running. I will be writing more on this subject to have a more complete idea of how to use nginx for your next project.
 
 You can follow along by installing Ubuntu on a VM(Virtual Machine), running Ubuntu directly on your own hardware ([Desktop](https://ubuntu.com/tutorials/install-ubuntu-desktop)) or ([Headless Server](https://ubuntu.com/tutorials/install-ubuntu-server)), or use a service out there like [DigitalOcean](https://m.do.co/c/5274752299b2) (referral link) and spin up a VPS(Virtual Private Server) for your own server. Look down below why I chose DigitalOcean. 
 
@@ -136,6 +136,6 @@ Nice! if you see the above output in your browser then that means you have the r
 
 I will be writing more about nginx and how I use it to host static sites and even nodejs apps on a VPS server.
 
-Speaking of VPS there are a few really good ones out there for not too expensive. The one I went with is [DigitalOcean](https://m.do.co/c/5274752299b2) and their service has been fantasic with no surprising fees or failures. I can spin up a server for as little as $5 per month. I have been using them for several years now with no issues. From spining up various databases to static sites, nodejs, python, chat apps, email servers and more! They have a deal that if you sigin up through a referral link you get a $200 credit over the course of 60 days. I do get a kickback of $25 if you spend $25 after the credit but that is not why I am doing this. I used someone else's link to get started on DigitalOcean myself and that $200 credit was amazing! I have learned so much from expirementing with my own machine I can break and then easily restart on a new one. [My referral link](https://m.do.co/c/5274752299b2).
+Speaking of VPS there are a few really good ones out there for not too expensive. The one I went with is [DigitalOcean](https://m.do.co/c/5274752299b2) and their service has been fantastic with no surprising fees or failures. I can spin up a server for as little as $5 per month. I have been using them for several years now with no issues. From spinning up various databases to static sites, nodejs, python, chat apps, email servers and more! They have a deal that if you sign up through a referral link you get a $200 credit over the course of 60 days. I do get a kickback of $25 if you spend $25 after the credit but that is not why I am doing this. I used someone else's link to get started on DigitalOcean myself and that $200 credit was amazing! I have learned so much from experimenting with my own machine I can break and then easily restart on a new one. [My referral link](https://m.do.co/c/5274752299b2).
 
 Happy deving!
