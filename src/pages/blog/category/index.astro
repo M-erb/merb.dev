@@ -8,10 +8,10 @@ import type { tag } from '@components/tagsList.astro'
 import slugify from 'slugify'
 
 const posts = await getCollection('blog', ({ data }) => ( data.draft !== true ))
-const uniqueTags = [...new Set(posts.map((post) => post.data.category))]
+const uniqueCats = [...new Set(posts.map((post) => post.data.category))]
 
 const cats:Array<tag> = []
-for (const cat of uniqueTags) {
+for (const cat of uniqueCats) {
 	const filteredPosts = posts.filter(post => post.data.category === cat)
 
 	cats.push({
