@@ -2,7 +2,7 @@
 title: 'How to host sites with nginx and server blocks'
 author: 'Michael Erb'
 description: 'Michael Erb explains how to setup nginx to serve up websites using a concept nginx calls server blocks'
-date: '03-19-2024'
+date: '03-20-2024'
 draft: false
 img:
   src: '/src/imgs/postImgs/andrew-ruiz-TR5Ah5sZgpo-unsplash-min.jpg'
