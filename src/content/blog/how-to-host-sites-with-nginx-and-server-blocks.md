@@ -19,7 +19,7 @@ If you haven't learned how to install nginx yet head over to my other article on
 Article series:
 1. <a href="/blog/how-to-install-nginx-ubuntu" target="_blank">How to install nginx on Ubuntu</a>
 2. How to host sites with nginx and server blocks 👈 you are here
-3. How to add FREE SSL/TSL and HTTPS to nginx using Let’s Encrypt 🫥 coming soon!
+3. <a href="/blog/how-to-add-free-ssltsl-https-to-nginx-using-lets-encrypt" target="_blank">How to add FREE SSL/TSL and HTTPS to nginx using Let’s Encrypt</a>
 4. How to host nodejs with nginx using reverse proxy 🫥 coming soon!
 5. Nginx commands 🫥 coming soon!
 
@@ -137,6 +137,6 @@ Speaking of VPS there are a few really good ones out there for not too expensive
 Article series:
 1. <a href="/blog/how-to-install-nginx-ubuntu" target="_blank">How to install nginx on Ubuntu</a>
 2. How to host sites with nginx and server blocks 👈 you are here
-3. How to add FREE SSL/TSL and HTTPS to nginx using Let’s Encrypt 🫥 coming soon!
-3. How to host nodejs with nginx using reverse proxy 🫥 coming soon!
-4. Nginx commands 🫥 coming soon!
+3. <a href="/blog/how-to-add-free-ssltsl-https-to-nginx-using-lets-encrypt" target="_blank">How to add FREE SSL/TSL and HTTPS to nginx using Let’s Encrypt</a>
+4. How to host nodejs with nginx using reverse proxy 🫥 coming soon!
+5. Nginx commands 🫥 coming soon!
