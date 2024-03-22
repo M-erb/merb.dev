@@ -76,14 +76,14 @@ const postMeta = {
 				<div class="post_pos container_l">
 					<main>
 						<div class="post_col">
-							<header>
+							<section class="title_space">
 								<ul class="breadcrums">
 									<li><a href="/blog">blog</a></li>
 									<li>{title}</li>
 								</ul>
 								<h1 class="hero_title">{title}</h1>
 								<p class="post_date">{displayDate}</p>
-							</header>
+							</section>
 
 							<article>
 								<slot />
@@ -156,29 +156,29 @@ const postMeta = {
 	.post_pos {
 		margin-bottom: var(--size-24);
 
-		& main {
+		main {
 			flex: 0 0 auto;
 			width: 100%;
 			max-width: var(--width-md);
 			position: relative;
 			z-index: 1;
 	
-			& .post_col {
+			.post_col {
 				background-color: var(--color-white);
 				padding-top: var(--size-6);
 				padding-bottom: var(--size-6);
 			}
 		}
 
-		& header {
+		section.title_space {
 			margin-bottom: var(--size-10);
 
-			& .breadcrums {
+			.breadcrums {
 				display: flex;
 				justify-content: flex-start;
 				align-items: center;
 
-				& li {
+				li {
 					margin-right: var(--size-2);
 					color: var(--color-grey);
 					font-family: Ubuntu, sans-serif;
@@ -197,7 +197,7 @@ const postMeta = {
 				}
 			}
 
-			& .post_date {
+			.post_date {
 				color: var(--color-grey);
 				font-family: Ubuntu, sans-serif;
 			}
@@ -228,10 +228,10 @@ const postMeta = {
 		.post_pos {
 			margin-bottom: 0;
 
-			& main {
+			main {
 				top: -300px;
 
-				& .post_col{
+				.post_col{
 					border-radius: 16px;
 					padding-left: var(--size-8);
 					padding-right: var(--size-12);
