@@ -32,12 +32,12 @@ const filteredPosts = computed(() => {
     const excerpt = post.excerpt.toLowerCase()
     const searchTerm = query.term.toLowerCase()
 
-    const isFindTitle = searchTerm ? title.includes(searchTerm) : false
-    const isFindExcerpt = searchTerm ? excerpt.includes(searchTerm) : false
+    const isFindTitle = searchTerm ? title.includes(searchTerm) : true
+    const isFindExcerpt = searchTerm ? excerpt.includes(searchTerm) : true
     const isFindTag = query.tag ? post.tags.includes(query.tag) : true
     const isFindCat = query.cat ? post.category.includes(query.cat) : true
 
-    const isFind = (isFindTitle || isFindExcerpt) || (isFindTag && isFindCat)
+    const isFind = (isFindTitle || isFindExcerpt || post.tags.includes(searchTerm) || post.category.includes(searchTerm)) && (isFindTag && isFindCat)
     return isFind
   })
 })
