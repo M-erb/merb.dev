@@ -10,7 +10,7 @@ img:
   byUrl: 'https://unsplash.com/@kaffeebart?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
   origSrc: 'https://unsplash.com/photos/a-close-up-of-a-padlock-on-a-door-KrPulSdUetk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
 excerpt: The internet is a big place, and when we request a website our request ends up going through several other people's servers before hitting the website's server. Then it needs to come back too! In those 'in-between' routes there could be malicious actors that could read and even alter the website that comes back to you! For example, if you are using a website that is not secure, aka not using HTTPS but only the HTTP. Then someone can read the website before you do. Log into your banking website that is only using HTTP, someone could be reading your bank account numbers and records, along with reading your password you entered into their login form.
-category: 'devOps'
+category: 'tutorial'
 tags: [nginx, webserver, certbot, SSL/TLS, lets encrypt]
 ---
 

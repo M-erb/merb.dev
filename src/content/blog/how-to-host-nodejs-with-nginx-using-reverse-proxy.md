@@ -10,8 +10,8 @@ img:
   byUrl: 'https://unsplash.com/@dmey503?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
   origSrc: 'https://unsplash.com/photos/a-river-running-through-a-lush-green-field-TieB9BG7ud0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
 excerpt: There are a lot of different types of proxies in computer networking. A reverse proxy is when you have a server(Nginx) in front of a group of client machines(browser's in our case). When requests come in from those client's the reverse proxy intercepts them and then talks to other server's on behalf of the client. It is very possible to host your nodejs app on ports `80`(HTTP) and `443`(HTTPS) but you loose out on some really cool capabilities that Nginx brings when you do that. Some examples...
-category: 'devOps'
-tags: [nginx, webserver, certbot, reverse proxy, nodejs]
+category: 'tutorial'
+tags: [nginx, webserver, reverse proxy, nodejs]
 ---
 
 Welcome to the nginx learning series! If you haven't learned about installing and creating server blocks then try out the links below. This article assumes you already have nginx installed on Ubuntu and a domain name and are pointing it to your server's public IP address as well as a server block setup for your site.

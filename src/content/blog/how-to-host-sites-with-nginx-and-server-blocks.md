@@ -10,7 +10,7 @@ img:
   byUrl: 'https://unsplash.com/@andrewruiz?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
   origSrc: 'https://unsplash.com/photos/silhouette-of-woman-standing-in-front-of-blue-lights-TR5Ah5sZgpo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
 excerpt: 'If you are coming from Apache then a server block is pretty much the same as a VirtualHost in apache. If not, then a server block makes it so you can host many different websites on the same server. Create a new NGINX server block'
-category: 'devOps'
+category: 'tutorial'
 tags: [nginx, webserver, ubuntu, static sites, selfhost]
 ---
 

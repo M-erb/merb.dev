@@ -10,7 +10,7 @@ img:
   byUrl: 'https://unsplash.com/@tvick?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
   origSrc: 'https://unsplash.com/photos/cable-network-M5tzZtFCOfs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
 excerpt: 'Nginx, pronounced like “engine-ex”, is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. Need an extremely fast and easy to configure web server and reverse proxy? Look no further than nginx!... On Ubuntu it is very easy to install due to it being in the default repositories using `apt`.'
-category: 'devOps'
+category: 'tutorial'
 tags: [nginx, webserver, ubuntu, selfhost]
 ---
 
