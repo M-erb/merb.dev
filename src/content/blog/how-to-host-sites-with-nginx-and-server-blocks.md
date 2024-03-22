@@ -9,7 +9,7 @@ img:
   byName: 'Andrew Ruiz'
   byUrl: 'https://unsplash.com/@andrewruiz?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
   origSrc: 'https://unsplash.com/photos/silhouette-of-woman-standing-in-front-of-blue-lights-TR5Ah5sZgpo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash'
-excerpt: 'Nginx, pronounced like “engine-ex”, is one of the most popular web servers in the world and is responsible for hosting some of the largest and highest-traffic sites on the internet. Need an extremely fast and easy to configure web server and reverse proxy? Look no further than nginx!... On Ubuntu it is very easy to install due to it being in the default repositories using `apt`.'
+excerpt: 'If you are coming from Apache then a server block is pretty much the same as a VirtualHost in apache. If not, then a server block makes it so you can host many different websites on the same server. Create a new NGINX server block'
 category: 'devOps'
 tags: [nginx, webserver, ubuntu, static sites, selfhost]
 ---
@@ -20,8 +20,8 @@ Article series:
 1. <a href="/blog/how-to-install-nginx-ubuntu" target="_blank">How to install nginx on Ubuntu</a>
 2. How to host sites with nginx and server blocks 👈 you are here
 3. <a href="/blog/how-to-add-free-ssltsl-https-to-nginx-using-lets-encrypt" target="_blank">How to add FREE SSL/TSL and HTTPS to nginx using Let’s Encrypt</a>
-4. How to host nodejs with nginx using reverse proxy 🫥 coming soon!
-5. Nginx commands 🫥 coming soon!
+4. <a href="/blog/how-to-host-nodejs-with-nginx-using-reverse-proxy" target="_blank">How to host nodejs with nginx using reverse proxy</a>
+5. Nginx commands and configuration examples 🫥 coming soon!
 
 ## What is a 'server block'
 
@@ -130,13 +130,11 @@ At this point you should be able to check your domain in your browser `example.c
 
 ## Next steps
 
-I will be writing more about nginx and how I use it to host static sites and even nodejs apps on a VPS server.
-
-Speaking of VPS there are a few really good ones out there for not too expensive. The one I went with is [DigitalOcean](https://m.do.co/c/5274752299b2) and their service has been fantastic with no surprising fees or failures. I can spin up a server for as little as $5 per month. I have been using them for several years now with no issues. From spinning up various databases to static sites, nodejs, python, chat apps, email servers and more! They have a deal that if you sign up through a referral link you get a $200 credit over the course of 60 days. I do get a kickback of $25 if you spend $25 after the credit but that is not why I am doing this. I used someone else's link to get started on DigitalOcean myself and that $200 credit was amazing! I have learned so much from experimenting with my own machine I can break and then easily restart on a new one. [My referral link](https://m.do.co/c/5274752299b2).
+I will be writing more about nginx and how I use it to host static sites and even nodejs apps on a VPS server. Speaking of VPS there are a few really good ones out there for not too expensive. The one I went with is [DigitalOcean](https://m.do.co/c/5274752299b2) and their service has been fantastic with no surprising fees or failures. I can spin up a server for as little as $5 per month. I have been using them for several years now with no issues. From spinning up various databases to static sites, nodejs, python, chat apps, email servers and more! They have a deal that if you sign up through a referral link you get a $200 credit over the course of 60 days. I do get a kickback of $25 if you spend $25 after the credit but that is not why I am doing this. I used someone else's link to get started on DigitalOcean myself and that $200 credit was amazing! I have learned so much from experimenting with my own machine I can break and then easily restart on a new one. [My referral link](https://m.do.co/c/5274752299b2).
 
 Article series:
 1. <a href="/blog/how-to-install-nginx-ubuntu" target="_blank">How to install nginx on Ubuntu</a>
 2. How to host sites with nginx and server blocks 👈 you are here
 3. <a href="/blog/how-to-add-free-ssltsl-https-to-nginx-using-lets-encrypt" target="_blank">How to add FREE SSL/TSL and HTTPS to nginx using Let’s Encrypt</a>
-4. How to host nodejs with nginx using reverse proxy 🫥 coming soon!
-5. Nginx commands 🫥 coming soon!
+4. <a href="/blog/how-to-host-nodejs-with-nginx-using-reverse-proxy" target="_blank">How to host nodejs with nginx using reverse proxy</a>
+5. Nginx commands and configuration examples 🫥 coming soon!
