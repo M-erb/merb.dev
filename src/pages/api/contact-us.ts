@@ -1,11 +1,9 @@
+import { verify, sendNoty } from '@services/contactSubmit'
 import { nanoid } from 'nanoid'
-import isEmail from 'validator/lib/isEmail'
 
 export const prerender = false
 
 export const POST = async (ctx) => {
-  const { formEntries } = ctx.locals.runtime.env
-  const TTL = 3 * 2592000 // months
   const body = await ctx.request.json()
 
   if (body.honey) {
@@ -17,15 +15,8 @@ export const POST = async (ctx) => {
     }))
   }
 
-  const { firstName, lastName, email, comment } = body.fields
-  const errorBag = {}
-
-  if (firstName.length < 1) errorBag['firstName'] = 'First Name is required'
-  if (lastName.length < 1) errorBag['lastName'] = 'Last Name is required'
-  if (email.length < 1) errorBag['email'] = 'Email is required'
-  if (!isEmail(email)) errorBag['email'] = 'Email is not valid'
-  if (comment.length < 1) errorBag['comment'] = 'What did you have in mind? is required'
-
+  // Verify form
+  const errorBag = verify(body.fields)
   if (Object.keys(errorBag).length > 0) {
     return new Response(JSON.stringify({
       message: 'failed',
@@ -35,14 +26,19 @@ export const POST = async (ctx) => {
     { status: 400 })
   }
 
-  const submitData = body.fields
+  // send notification email
+  await sendNoty(body.fields)
+
+  // Log submit to KV
   const site = new URL(import.meta.env.SITE)
   const key = `${site.host}:${nanoid()}`
-  await formEntries.put(key, JSON.stringify(submitData), { expirationTtl: TTL })
+  const TTL = 3 * 2592000 // num * months
+  const { formEntries } = ctx.locals.runtime.env
+  await formEntries.put(key, JSON.stringify(body.fields), { expirationTtl: TTL })
 
   return new Response(JSON.stringify({
     message: 'success',
-    submitData,
+    submitData: body.fields,
     key
   }))
 }
