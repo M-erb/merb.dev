@@ -70,8 +70,8 @@ async function submitForm () {
   } catch (error) {
     console.error('error with form submit: ', error?.response?.data ?? error?.message)
     if (error?.response?.data?.isValid === false) {
-      const errors = error.response.data.errors ?? []
-      errors.forEach(item => errorBag.value[item.name] = item.message)
+      const errors = error.response.data.errors ?? {}
+      errorBag.value = errors
 
       noty.warning('Please check all required fields')
       return
