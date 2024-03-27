@@ -9,6 +9,7 @@
     "build": "pollen && astro build",
     "preview-astro": "astro preview",
     "preview": "wrangler pages dev ./dist",
+    "cf-logs": "wrangler pages deployment tail",
     "astro": "astro",
     "deploy": "node ./commands/deploy.js",
     "pollen": "pollen",
