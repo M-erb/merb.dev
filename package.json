@@ -53,5 +53,9 @@
     "node-notifier": "^10.0.1",
     "standard": "^17.1.0",
     "wrangler": "^3.34.2"
+  },
+  "volta": {
+    "node": "20.16.0",
+    "npm": "10.8.2"
   }
 }
