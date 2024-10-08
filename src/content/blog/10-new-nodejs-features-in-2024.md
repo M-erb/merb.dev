@@ -385,6 +385,6 @@ I can't say I have experience using this feature but I am excited for it to get 
 ### Read more
 https://nodejs.org/api/single-executable-applications.html#single-executable-applications
 
-## Conclution
+## Conclusion
 
 I believe other server side javascript run-times coming out has put some pressure on the Node.js team to be more competitive. Which is good for all of us devs. I look forward to the future of these and other features that will make devs lives easier.
